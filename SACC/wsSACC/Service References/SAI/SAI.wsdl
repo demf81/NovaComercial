@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SAI" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?xsd=xsd2" />
+      <xsd:import schemaLocation="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WS_SAI" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISAI_Version_InputMessage">
+    <wsdl:part name="parameters" element="tns:Version" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_Version_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_ObtenerFoto_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerFoto" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_ObtenerFoto_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerFotoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_ObtenerConfiguracionSistema_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerConfiguracionSistema" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_ObtenerConfiguracionSistema_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerConfiguracionSistemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_BuscaAmbientePorLlave_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaAmbientePorLlave" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_BuscaAmbientePorLlave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaAmbientePorLlaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_AgregarAmbienteSAP_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarAmbienteSAP" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_AgregarAmbienteSAP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarAmbienteSAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_ActualizaAmbienteSAP_InputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaAmbienteSAP" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_ActualizaAmbienteSAP_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ActualizaAmbienteSAPResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_DesencriptaClave_InputMessage">
+    <wsdl:part name="parameters" element="tns:DesencriptaClave" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_DesencriptaClave_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DesencriptaClaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_BuscaUsuarioSAIPorId_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaUsuarioSAIPorId" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_BuscaUsuarioSAIPorId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaUsuarioSAIPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_BuscaUsuarioSAIPorCuentaRed_InputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaUsuarioSAIPorCuentaRed" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_BuscaUsuarioSAIPorCuentaRed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BuscaUsuarioSAIPorCuentaRedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_ObtenerUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_ObtenerUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_AutenticarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutenticarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_AutenticarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutenticarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_AutenticarExterno_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutenticarExterno" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_AutenticarExterno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutenticarExternoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_AgregarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_AgregarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_AgregarUsuarioSistema_InputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarUsuarioSistema" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_AgregarUsuarioSistema_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AgregarUsuarioSistemaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_ObtenerPermisos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPermisos" />
+  </wsdl:message>
+  <wsdl:message name="ISAI_ObtenerPermisos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ObtenerPermisosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISAI">
+    <wsdl:operation name="Version">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/Version" message="tns:ISAI_Version_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/VersionResponse" message="tns:ISAI_Version_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFoto">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/ObtenerFoto" message="tns:ISAI_ObtenerFoto_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/ObtenerFotoResponse" message="tns:ISAI_ObtenerFoto_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConfiguracionSistema">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/ObtenerConfiguracionSistema" message="tns:ISAI_ObtenerConfiguracionSistema_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/ObtenerConfiguracionSistemaResponse" message="tns:ISAI_ObtenerConfiguracionSistema_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaAmbientePorLlave">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/BuscaAmbientePorLlave" message="tns:ISAI_BuscaAmbientePorLlave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/BuscaAmbientePorLlaveResponse" message="tns:ISAI_BuscaAmbientePorLlave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarAmbienteSAP">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/AgregarAmbienteSAP" message="tns:ISAI_AgregarAmbienteSAP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/AgregarAmbienteSAPResponse" message="tns:ISAI_AgregarAmbienteSAP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaAmbienteSAP">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/ActualizaAmbienteSAP" message="tns:ISAI_ActualizaAmbienteSAP_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/ActualizaAmbienteSAPResponse" message="tns:ISAI_ActualizaAmbienteSAP_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DesencriptaClave">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/DesencriptaClave" message="tns:ISAI_DesencriptaClave_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/DesencriptaClaveResponse" message="tns:ISAI_DesencriptaClave_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaUsuarioSAIPorId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/BuscaUsuarioSAIPorId" message="tns:ISAI_BuscaUsuarioSAIPorId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/BuscaUsuarioSAIPorIdResponse" message="tns:ISAI_BuscaUsuarioSAIPorId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BuscaUsuarioSAIPorCuentaRed">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/BuscaUsuarioSAIPorCuentaRed" message="tns:ISAI_BuscaUsuarioSAIPorCuentaRed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/BuscaUsuarioSAIPorCuentaRedResponse" message="tns:ISAI_BuscaUsuarioSAIPorCuentaRed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/ObtenerUsuario" message="tns:ISAI_ObtenerUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/ObtenerUsuarioResponse" message="tns:ISAI_ObtenerUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/AutenticarUsuario" message="tns:ISAI_AutenticarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/AutenticarUsuarioResponse" message="tns:ISAI_AutenticarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarExterno">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/AutenticarExterno" message="tns:ISAI_AutenticarExterno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/AutenticarExternoResponse" message="tns:ISAI_AutenticarExterno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/AgregarUsuario" message="tns:ISAI_AgregarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/AgregarUsuarioResponse" message="tns:ISAI_AgregarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuarioSistema">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/AgregarUsuarioSistema" message="tns:ISAI_AgregarUsuarioSistema_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/AgregarUsuarioSistemaResponse" message="tns:ISAI_AgregarUsuarioSistema_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPermisos">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISAI/ObtenerPermisos" message="tns:ISAI_ObtenerPermisos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISAI/ObtenerPermisosResponse" message="tns:ISAI_ObtenerPermisos_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISAI" type="tns:ISAI">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Version">
+      <soap:operation soapAction="http://tempuri.org/ISAI/Version" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFoto">
+      <soap:operation soapAction="http://tempuri.org/ISAI/ObtenerFoto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerConfiguracionSistema">
+      <soap:operation soapAction="http://tempuri.org/ISAI/ObtenerConfiguracionSistema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaAmbientePorLlave">
+      <soap:operation soapAction="http://tempuri.org/ISAI/BuscaAmbientePorLlave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarAmbienteSAP">
+      <soap:operation soapAction="http://tempuri.org/ISAI/AgregarAmbienteSAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizaAmbienteSAP">
+      <soap:operation soapAction="http://tempuri.org/ISAI/ActualizaAmbienteSAP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesencriptaClave">
+      <soap:operation soapAction="http://tempuri.org/ISAI/DesencriptaClave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaUsuarioSAIPorId">
+      <soap:operation soapAction="http://tempuri.org/ISAI/BuscaUsuarioSAIPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BuscaUsuarioSAIPorCuentaRed">
+      <soap:operation soapAction="http://tempuri.org/ISAI/BuscaUsuarioSAIPorCuentaRed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISAI/ObtenerUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISAI/AutenticarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutenticarExterno">
+      <soap:operation soapAction="http://tempuri.org/ISAI/AutenticarExterno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISAI/AgregarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AgregarUsuarioSistema">
+      <soap:operation soapAction="http://tempuri.org/ISAI/AgregarUsuarioSistema" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerPermisos">
+      <soap:operation soapAction="http://tempuri.org/ISAI/ObtenerPermisos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SAI">
+    <wsdl:port name="BasicHttpBinding_ISAI" binding="tns:BasicHttpBinding_ISAI">
+      <soap:address location="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

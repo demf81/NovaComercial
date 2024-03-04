@@ -1,0 +1,115 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/ContratoProductoPaquete/ContratoProductoPaquete.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Paquete/CtrlUserBusquedaPaquete.js" asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Configuraci&oacute;n </span></li>
+                    <li><span>Contrato </span></li>
+                    <li><span>Producto </span></li>
+                    <li class="active"><span>Paquete </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Contrato Paquete</h2>
+            <small>Asignacion de Paquetes.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button onclick="ContratoProductoPaquete.AbreModalPaqueteProducto()" class="btn btn-primary btn-sm">Agregar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="ContratoProductoPaquete.redirecciona('CONTRATO_PRODUCTO_INDEX');">Regresar</button>
+
+                    <div class="pull-right" style="padding-top:5px;">
+                        <span class="label label-info" style="font-size:14px;">Contrato:&nbsp;@ViewBag.ContratoDescripcion&nbsp;Cobertura:&nbsp;@ViewBag.ContratoProductoDescripcion</span>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <table id="dgDatosContratoProductoPaquete" data-height="430" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGeneralesSecundario">
+        <div class="col-lg-12">
+            <div class="hpanel hnovagrey">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    
+                </div>
+
+                <div class="panel-body">
+                    
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalPaquetesProducto" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Paquetes de Producto Vigentes</h4>
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserBusquedaPaquete", "Paquete", new { Area = "Paquete" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-primary btn-sm" onclick="ContratoProductoPaquete.AgregarPaqueteProducto()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorContratoProductoPaquete" value="CONTRATO_PRODUCTO_PAQUETE_INDEX" placeholder="APUNTADOR" />
+
+<input type="hidden" id="txtContratoId"          name="txtContratoId"          value="@ViewBag.ContratoId" />
+<input type="hidden" id="txtContratoDescripcion" name="txtContratoDescripcion" value="@ViewBag.ContratoDescripcion" />
+
+<input type="hidden" id="txtContratoProductoId"          name="txtContratoProductoId"          value="@ViewBag.ContratoProductoId" />
+<input type="hidden" id="txtContratoProductoDescripcion" name="txtContratoProductoDescripcion" value="@ViewBag.ContratoProductoDescripcion" />

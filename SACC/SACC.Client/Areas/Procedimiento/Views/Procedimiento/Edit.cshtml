@@ -1,0 +1,124 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutTarifa.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    }
+
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Procedimiento/Procedimiento.js"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li><span>Procedimientos </span></li>
+                    <li class="active"><span>Editar </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Procedimiento</h2>
+            <small>Cat&aacute;logo de Procedimientos.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1">Datos Generales</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            <div role="form" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Folio</label>
+                                    <div class="col-sm-10 col-lg-2">
+                                        <input type="text" id="txtProcedimientoId" name="txtProcedimientoId" class="form-control input-sm" readonly="readonly" value="@ViewBag.ProcedimientoId" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="ProcedimientoId" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="txtProcedimientoDescripcion" class="form-control input-sm" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="ProcedimientoDescripcion" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Servicio Costos</label>
+                                    <div class="col-sm-10 col-lg-2">
+                                        <input type="text" id="txtServicioId" class="form-control input-sm" readonly="readonly" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="ServicioId" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Costo</label>
+                                    <div class="col-sm-10 col-lg-2">
+                                        <div class="input-group">
+                                            <span class="input-group-addon input-sm btn-sm">$</span>
+                                            <input type="text" id="txtCosto" class="form-control input-sm text-right" readonly="readonly" />
+                                        </div>
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="Costo" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Piorcentaje de Anticipo</label>
+                                    <div class="col-sm-10 col-lg-2">
+                                        <div class="input-group">
+                                            <input type="text" id="txtPorcentajeAnticipo" class="form-control input-sm text-right" />
+                                            <span class="input-group-addon input-sm btn-sm">%</span>
+                                        </div>
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="PorcentajeAnticipo" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                @*<div class="form-group">
+                                    <label class="col-sm-2 control-label">Estatus</label>
+                                    <div class="col-sm-10">
+                                        <label class="radio radio-inline">
+                                            <input type="radio" class="i-checks" id="rbEstatusId" name="rbEstatusId" value="1" /> Activo
+                                        </label>
+                                        <label class="radio radio-inline">
+                                            <input type="radio" class="i-checks" id="rbEstatusId" name="rbEstatusId" value="2" /> Inactivo
+                                        </label>
+                                    </div>
+                                </div>*@
+
+                                <div class="form-group form-group-bottom">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <button class="btn btn-primary btn-sm" onclick="Procedimiento.actualizar();">Guardar</button>
+
+                                        <button class="btn btn-default btn-sm" onclick="Procedimiento.redirecciona('PROCEDIMIENTO_INDEX')">Regresar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorProcedimiento" value="PROCEDIMIENTO_EDIT" placeholder="APUNTADOR" />

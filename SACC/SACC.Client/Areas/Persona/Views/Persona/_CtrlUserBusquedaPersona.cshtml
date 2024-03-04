@@ -1,0 +1,37 @@
+﻿<div role="form" class="form-horizontal">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Num. Socio</label>
+                    <div class="col-sm-3">
+                        <input id="txtCtrlUserNumSocio" name="txtCtrlUserNumSocio" class="form-control input-sm" type="text" />
+                    </div>
+                    <label class="col-sm-5 control-label">Clave Familiar</label>
+                    <div class="col-sm-2">
+                        <input id="txtCtrlUserClaveFamiliar" name="txtCtrlUserClaveFamiliar" class="form-control input-sm" type="text" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Nombre</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="txtCtrlUserNombrePersona" name="txtCtrlUserNombrePersona" class="form-control input-sm" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CtrlUserNombrePersona" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-primary btn-sm" onclick="CtrlUserBusquedaPersona.buscar($('#txtCtrlUserNombrePersona').val())">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table id="dgDatosCtrlUserBusquedaPersona" data-height="330" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>

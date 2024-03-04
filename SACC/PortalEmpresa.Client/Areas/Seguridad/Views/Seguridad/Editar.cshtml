@@ -1,0 +1,168 @@
+﻿@model PortalEmpresa.Client.Areas.Seguridad.Models.MiPerfilModel
+
+
+@{
+    ViewBag.Title = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["text"] != null) {
+        <script type="text/javascript">
+            $(window).load(function () {
+                $(document).ready(function () {
+                    swal({
+                        title: '@TempData["title"]',
+                        text: decodeURIComponent('@TempData["text"]'),
+                        type: '@TempData["type"]',
+                    });
+                });
+            });
+        </script>
+    };
+
+    <script type="text/javascript">
+        $(function () {
+            $('.input-group.date').datepicker({
+                format: "dd-MM-yyyy",
+                autoclose: true,
+                language: 'es'
+            });
+
+            //$('#FechaVigenciaDesde').datepicker({
+            //    format: 'dd-MM-yyyy',
+            //    minDate: new Date(),
+            //    language: 'es'
+            //});
+
+            $('#FechaVigenciaHasta').datepicker({
+                format: 'dd-MM-yyyy',
+                minDate: new Date(),
+                language: 'es'
+            });
+        });
+    </script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Seguridad </span></li>
+                    <li class="active"><span>Mi Perfil </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Mi Perfil</h2>
+            <small>Cat&aacute;logo de Usuario.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">Datos Generales</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            @using (Html.BeginForm("Editar", "Seguridad", FormMethod.Post))
+                            {
+                                <div role="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.UsuarioId, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.TextBoxFor(m => m.UsuarioId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Paterno, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.Paterno, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.Paterno, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Materno, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.Materno, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.Materno, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Telefono, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.TextBoxFor(m => m.Telefono, new { @class = "form-control input-sm" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Correo, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-5">
+                                            @Html.TextBoxFor(m => m.Correo, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.Correo, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Contrasena, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-5">
+                                            @Html.TextBoxFor(m => m.Contrasena, new { @class = "form-control input-sm", @readonly = "readonly", @type = "password" })
+                                            @Html.ValidationMessageFor(m => m.Contrasena, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FechaVigenciaDesde, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            <div class="input-group date">
+                                                @Html.TextBoxFor(m => m.FechaVigenciaDesde, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                <span class="input-group-addon input-sm btn-sm"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FechaVigenciaHasta, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            <div class="input-group date">
+                                                @Html.TextBoxFor(m => m.FechaVigenciaHasta, "{0:dd/MM/yyyy}", new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                <span class="input-group-addon input-sm btn-sm"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+
+                                            @Html.ActionLink("Regresar", "Perfil", "Seguridad", new { @class = "btn btn-default btn-sm" })
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+﻿@model PortalEmpresa.Client.Areas.Persona.Models.PersonaVisualizar
+@using PortalEmpresa.Client.Areas.Persona.Models;
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["text"] != null) {
+        <script type="text/javascript">
+            $(window).load(function() {
+                $(document).ready(function() {
+                    swal({
+                        title: '@TempData["title"]',
+                        text: decodeURIComponent('@TempData["text"]'),
+                        type: '@TempData["type"]'
+                    });
+                });
+            });
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Persona/Persona.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GridPersona("", 0);
+        });
+    </script>
+
+    @if (TempData["text"] != null)
+    {
+        <script type="text/javascript">
+                $(window).load(function() {
+                    $(document).ready(function() {
+                        swal({
+                            title: "@TempData["title"]",
+                            text: "@TempData["text"]",
+                            type: "@TempData["type"]"
+                        });
+                    });
+                });
+        </script>
+    };
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li class="active"><span>Poblaci&oacute;n </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Poblaci&oacute;n</h2>
+            <small>Cat&aacute;logo de Personal.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowBusqueda">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Opciones de B&uacute;squeda
+                </div>
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.EstatusId, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @foreach (PortalEmpresa.Client.Models.RadioModel item in Model.Estatus)
+                                {
+                                    <div class="radio radio-inline">
+                                        @Html.RadioButtonFor(x => x.EstatusId, item.Id, new { @class = "i-checks" })
+                                        @Html.Label(item.Name)
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.PersonaId, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.PersonaId, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn btn-primary btn-sm" onclick="javascript:GridPersona($('#Nombre').val())">Buscar</button>
+
+                                @Html.ActionLink("Limpiar", "Index", "Persona", new { @class = "btn btn-default btn-sm" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    @Html.ActionLink("Agregar", "BuscarCURP", "Persona", new { @class = "btn btn-primary btn-sm" })
+                </div>
+
+                <table id="dgDatosPersona" data-height="430" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+                    <thead>
+                        <tr>
+                            <th data-field="PersonaId"                                                                       data-sortable="true" data-align="center"><span>Folio        </span></th>
+                            <th data-field="CampoComplemento_NombreCompleto"                                                 data-sortable="true"                    ><span>Nombre       </span></th>
+                            <th data-field="Genero"                          data-formatter="generoFormatter"                data-sortable="true" data-align="center"><span>G&eacute;nero</span></th>
+                            <th data-field="CampoComplemento_Edad"                                                           data-sortable="true" data-align="center"><span>Edad         </span></th>
+                            <th data-field="Baja"                            data-formatter="estatusFormatter"                                    data-align="center"><span>Estatus      </span></th>
+                            <th                                              data-formatter="operateActionFormatter_Persona"                      data-align="center"><span>Acci&oacute;n</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

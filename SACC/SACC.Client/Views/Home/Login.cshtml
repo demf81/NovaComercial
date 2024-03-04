@@ -1,0 +1,62 @@
+﻿@model SACC.Client.Models.LoginModel
+
+@{
+    Layout = "~/Views/Shared/_Layout_Blank.cshtml";
+}
+
+<div class="login-container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center m-b-md">
+                <h3>Validaci&oacute;n de Acceso</h3>
+                @*<small>This is the best app ever!</small>*@
+            </div>
+
+            <div class="hpanel">
+                <div class="panel-body">
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                    {
+                        <div role="form" id="loginForm">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Dominio, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.Dominio, new { @class = "form-control input-sm", @placeholder = "TERNIUM" })
+                                @Html.ValidationMessageFor(m => m.Dominio, "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.CuentaRed, new { @class = "control-label" })
+                                @Html.TextBoxFor(m => m.CuentaRed, new { @class = "form-control input-sm", @placeholder = "CuentaDeRed@novaservicios.com.mx" })
+                                @Html.ValidationMessageFor(m => m.CuentaRed, "", new { @class = "text-danger" })
+                            </div>
+                        
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Contrasenia, new { @class = "control-label" })
+                                @Html.PasswordFor(m => m.Contrasenia, new { @class = "form-control input-sm", @placeholder = "******" })
+                                @Html.ValidationMessageFor(m => m.Contrasenia, "", new { @class = "text-danger" })
+                            </div>
+                       
+                            @if (!Model.AutenticacionCorrecta)
+                            {
+                                <div class="form-group">
+                                    <p class="text-danger text-center">El usuario y/o contrase&ntilde;a es incorrecto.</p>
+                                </div>
+                            }
+                            
+                            @*<div class="form-group">
+                                @Html.ActionLink("¿Olvidaste tu contraseña?", "RestablecerContrasena", "Seguridad", new { Area = "Seguridad" }, new { @class = "text-success font-bold" })
+                            </div>*@
+
+                            <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            @*<strong>HOMER</strong> - AngularJS Responsive WebApp <br />*@ 2018 Copyright NOVA
+        </div>
+    </div>
+</div>

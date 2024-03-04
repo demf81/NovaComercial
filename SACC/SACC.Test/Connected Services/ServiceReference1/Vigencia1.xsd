@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:12419/Vigencia.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/wsSACC" />
+  <xs:element name="AltaAsociado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="asociado" nillable="true" type="q1:DatosAlta" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="pToken" nillable="true" type="q2:Token" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AltaAsociadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="AltaAsociadoResult" nillable="true" type="q3:Respuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CambioAsociado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="asociado" nillable="true" type="q4:DatosCambio" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="pToken" nillable="true" type="q5:Token" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CambioAsociadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="CambioAsociadoResult" nillable="true" type="q6:Respuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BajaAsociado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="asociado" nillable="true" type="q7:DatosBaja" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="pToken" nillable="true" type="q8:Token" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BajaAsociadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="BajaAsociadoResult" nillable="true" type="q9:Respuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReactivaAsociado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="asociado" nillable="true" type="q10:DatosReactivacion" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="pToken" nillable="true" type="q11:Token" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReactivaAsociadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/wsSACC" minOccurs="0" name="ReactivaAsociadoResult" nillable="true" type="q12:Respuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

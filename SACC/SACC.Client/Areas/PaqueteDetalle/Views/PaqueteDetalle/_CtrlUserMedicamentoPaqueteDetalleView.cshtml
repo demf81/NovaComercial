@@ -1,0 +1,33 @@
+﻿&nbsp;
+
+
+<div role="form" class="form-horizontal">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="txtCtrlUserMedicamentoViewDescripcion" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Cuadro Tipo</label>
+                    <div class="col-sm-7">
+                        <select id="ddlCtrlUserMedicamentoCuadroTipoViewId" class="form-control input-sm"></select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-primary btn-sm" onclick="javascript:GridCtrlUserMedicamentoView($('#PaqueteId').val(), $('#MedicamentoDescripcion').val(), $('#ServicioTipoId  option:selected').val())">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table id="dgDatosCtrlUserMedicamentoPaqueteDetalleView" data-height="430" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>

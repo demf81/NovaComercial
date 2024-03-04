@@ -1,0 +1,11 @@
+SELECT
+	*
+FROM pub.cct_titulares
+WHERE
+	cct_vigencia    = 'AC'
+	AND
+	cct_contrat_id  = ?
+	AND
+	cct_contrato_id = ?
+	AND
+	cct_socio_id    = ?

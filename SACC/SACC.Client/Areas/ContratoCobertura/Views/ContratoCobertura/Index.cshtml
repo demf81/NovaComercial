@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/ContratoCobertura/ContratoCobertura.js" asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Configuraci&oacute;n </span></li>
+                    <li><span>Contrato </span></li>
+                    <li class="active"><span>Cobertura </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Contrato Cobertura</h2>
+            <small>Asignacion de Coberturas.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content contentPrimario animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button onclick="ContratoCobertura.redirecciona('CONTRATO_COBERTURA_CREATE')" class="btn btn-primary btn-sm">Agregar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="ContratoCobertura.redirecciona('CONTRATO_INDEX');">Regresar</button>
+
+
+                    <div class="pull-right" style="padding-top:5px;">
+                        <span class="label label-info" style="font-size:14px;">Contrato:&nbsp;@ViewBag.ContratoDescripcion</span>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <table id="dgDatosContratoCobertura" data-height="430" data-classes="table @*table-hover table-condensed*@" @*data-striped="true"*@ data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorContratoCobertura" value="CONTRATO_COBERTURA_INDEX" placeholder="APUNTADOR" />
+
+<input type="hidden" id="txtContratoId"          name="txtContratoId"          value="@ViewBag.ContratoId" />
+<input type="hidden" id="txtContratoDescripcion" name="txtContratoDescripcion" value="@ViewBag.ContratoDescripcion" />

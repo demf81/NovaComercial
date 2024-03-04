@@ -1,0 +1,119 @@
+﻿@model SACC.Client.Areas.Cirugia.Models.CirugiaModelVisualizar
+
+
+@{
+    Layout = "~/Views/Shared/_LayoutTarifa.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Cirugia/Cirugia.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GridCirugia($('#CirugiaDescripcion').val(), $('#EstatusId:checked').val());
+        });
+    </script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li class="active"><span>Cirugias</span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Cirugia</h2>
+            <small>Cat&aacute;logo de Cirugias.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowBusqueda">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Opciones de B&uacute;squeda
+                </div>
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.EstatusId, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @foreach (SACC.Client.Models.RadioModel item in Model.Estatus)
+                                {
+                                    <div class="radio radio-inline input-sm">
+                                        @Html.RadioButtonFor(x => x.EstatusId, item.Id, new { @class = "i-checks" })
+                                        @Html.Label(item.Name)
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.CirugiaDescripcion, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.CirugiaDescripcion, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn btn-primary btn-sm" onclick="javascript: GridCirugia($('#CirugiaDescripcion').val(), $('#EstatusId:checked').val())">Buscar</button>
+
+                                <button class="btn btn-default btn-sm" onclick="javascript:RegresarCirugia();">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading hbuilt">
+                    @*<div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                        <a class="closebox"><i class="fa fa-times"></i></a>
+                    </div>*@
+
+                    @Html.ActionLink("Agregar", "Create", "Cirugia", new { @class = "btn btn-primary btn-sm" })
+                </div>
+
+                <div class="panel-body" style="display: block;">
+                    <table id="dgDatosCirugia" data-height="430" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+                        <thead>
+                            <tr>
+                                <th data-field="CirugiaId"          data-sortable="true" data-align="center"><span>Folio</span></th>
+                                <th data-field="CirugiaDescripcion" data-sortable="true"><span>Descripci&oacute;n</span></th>
+                                <th data-field="Costo"              data-sortable="true" data-align="right"><span>Costo ($)</span></th>
+                                <th data-field="Baja"               data-formatter="estatusFormatter" data-align="center"><span>Estatus</span></th>
+                                <th data-formatter="operateActionFormatter_Cirugia" data-align="center"><span>Acci&oacute;n</span></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

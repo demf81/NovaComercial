@@ -1,0 +1,266 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutVentas.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/VentaMotivoCancelacionTipo/VentaMotivoCancelacionTipo.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Venta/Venta.js"                                           asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/VentaDetalle/VentaDetalle.js"                             asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Operaci&oacute;n </span></li>
+                    <li class="active"><span>Venta</span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">
+                Venta
+                @if (ViewBag.Opcion == 1)
+                {
+                    @Html.Raw(" de Paquetes")
+                }
+                else if (ViewBag.Opcion == 2)
+                {
+                    @Html.Raw(" de Servicios")
+                }
+                else if (ViewBag.Opcion == 3)
+                {
+                    @Html.Raw(" de Procedimientos")
+                }
+                else if (ViewBag.Opcion == 4)
+                {
+                    @Html.Raw(" de Servicios Administrativos")
+                }
+            </h2>
+            <small>Generador de Ventas.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowBusqueda">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Opciones de B&uacute;squeda
+                </div>
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Estatus</label>
+                            <div class="col-sm-10">
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="EstatusId" value="1" class="i-checks" />
+                                    <label>Pendiente de Pago</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="EstatusId" value="2" class="i-checks" />
+                                    <label>Inactiva</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="EstatusId" value="3" class="i-checks" />
+                                    <label>Pagada</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="EstatusId" value="4" class="i-checks" />
+                                    <label>Procesada</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="EstatusId" value="5" class="i-checks" />
+                                    <label>Cancelada</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="EstatusId" value="-1" class="i-checks" checked="checked" />
+                                    <label>Todos</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="txtVentaDescripcion" name="txtVentaDescripcion" class="form-control input-sm" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="VentaDescripcion" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Fecha</label>
+                            <div class="col-sm-4">
+                                <div class="input-group date">
+                                    <input class="form-control input-sm" id="dtpFechaInicial" name="dtpFechaInicial" readonly="readonly" />
+                                    <span class="input-group-addon">a</span>
+                                    <input class="form-control input-sm" id="dtpFechaFinal" name="dtpFechaFinal" readonly="readonly" />
+                                </div>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Fecha" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tipo de Venta</label>
+                            <div class="col-sm-10">
+                                <div class="radio radio-inline">
+                                    <input type="radio" class="i-checks" id="rbVentaTipoId" name="rbVentaTipoId" value="1" /> Socio Nova
+                                </div>
+                                <div class="radio radio-inline">
+                                    <input type="radio" class="i-checks" id="rbVentaTipoId" name="rbVentaTipoId" value="2" /> Empresa Nova
+                                </div>
+                                <div class="radio radio-inline">
+                                    <input type="radio" class="i-checks" id="rbVentaTipoId" name="rbVentaTipoId" value="-1" /> Todas
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group hide" id="divNumSocio">
+                            <label class="col-sm-2 control-label">Num Socio</label>
+                            <div class="col-sm-10 col-lg-2">
+                                <input type="text" id="txtNumSocio" name="txtNumSocio" class="form-control input-sm" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="NumSocio" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group hide" id="divEmpresa">
+                            <label class="col-sm-2 control-label">Empresa</label>
+                            <div class="col-sm-10 col-lg-5">
+                                <select id="ddlEmpresaId" class="form-control input-sm"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn btn-primary btn-sm" onclick="Venta.buscar();">Buscar</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-default btn-sm" onclick="Venta.limpiar();">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel hnovagrey">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-primary btn-sm" onclick="Venta.redirecciona('VENTA_CREATE', $('#txtOpcion').val())">Agregar</button>
+                </div>
+
+                <div class="panel-body">
+                    <table id="dgDatosVenta" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalVentaDetalle" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Detalle de Venta</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_IndexView", "VentaDetalle", new { Area = "VentaDetalle" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                @*<button class="btn btn-primary btn-sm" onclick="Cotizacion.AgregarEmpresa()">Agregar</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalLineaVida" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Detalle de Venta</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_LineaVida", "Venta", new { Area = "Venta" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                @*<button class="btn btn-primary btn-sm" onclick="Cotizacion.AgregarEmpresa()">Agregar</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade hmodal-danger" id="myModalDeleteVenta" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Cancelar Venta</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                <div class="alert-container">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <br /><br /><br /><br />
+                            <i class="pe-7s-close-circle text-danger big-icon"></i>
+                        </div>
+                        <div class="col-sm-10">
+                            @{
+                                Html.RenderAction("_Delete", "Venta", new { Area = "Venta" });
+                            }
+                        </div>
+                    </div>
+                    <p id="txtAlertError_Text"></p>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-primary btn-sm" onclick="Venta.cancelar();">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorVenta" value="VENTA_INDEX" />
+<input type="hidden" id="txtOpcion"         value="@ViewBag.Opcion" />

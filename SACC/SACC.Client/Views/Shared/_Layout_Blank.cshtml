@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <meta charset="UTF-8">
+
+        <script type="text/javascript">
+            function disableBack() {
+                window.history.forward();
+                window.history.forward(-1);
+            }
+
+            setTimeout("disableBack()", 0);
+            window.onunload = function () { null };
+        </script>
+
+        <title>SACC</title>
+        <link rel="shortcut icon" type="image/ico" href="~/Assets/images/logo.jpg" />
+
+        @Styles.Render("~/css/layout")
+        @Styles.Render("~/css/fonts")
+        @RenderSection("Styles", required: false)
+    </head>
+    
+    <body>
+        <!--[if lt IE 7]>
+            <p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <!-- Header -->
+        <div id="header">
+            @Html.Partial("_Header_Blank")
+        </div>
+
+        <!-- Main view  -->
+        <div id="">
+            @RenderBody()
+        </div>
+
+        <section id="scripts-section">
+            @Scripts.Render("~/js/layout")
+            @RenderSection("Scripts", required: false)
+        </section>
+    </body>
+</html>

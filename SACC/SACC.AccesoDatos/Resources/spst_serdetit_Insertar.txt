@@ -1,0 +1,30 @@
+INSERT INTO PUB.st_serdetit
+(
+	st_campos_act,
+	st_contrat_id,
+	st_contrato_id,
+	st_fec_alta,
+	st_fec_baja,
+	st_hora_act,
+	st_orig_vigen,
+	st_servicio_id,
+	st_socio_id,
+	st_ult_act,
+	st_usuario_act,
+	st_vigencia
+)
+VALUES
+(
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?
+)

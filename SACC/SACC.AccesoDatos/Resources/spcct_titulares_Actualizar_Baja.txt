@@ -1,0 +1,16 @@
+UPDATE pub.cct_titulares
+SET
+	cct_vigencia    = 'BA',
+	cct_fec_baja    = ?,
+	cct_ult_act     = ?,
+	cct_hora_act    = ?,
+	cct_usuario_act = ?,
+	cct_campos_act  = ? 
+WHERE
+	cct_vigencia    = 'AC'
+	AND
+	cct_socio_id    = ?
+	AND
+	cct_contrat_id  = ?
+	AND
+	cct_contrato_id = ?

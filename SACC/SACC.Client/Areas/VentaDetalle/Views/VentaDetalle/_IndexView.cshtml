@@ -1,0 +1,79 @@
+﻿<div class="row">
+    <div role="form" class="form-horizontal">
+        <div class="row">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Venta</label>
+                <div class="col-sm-10 col-lg-2">
+                    <input type="text" class="form-control input-sm" id="txtModalVentaId" name="txtModalVentaId" readonly="readonly" value="@ViewBag.VentaId" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div role="form" class="form-horizontal">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <div class="panel-hbuilt">
+                        <div class="panel-tools"></div>
+                    </div>
+
+                    <div class="panel-body" style="display: block;">
+                        <table id="dgDatosVentaDetalleView" data-height="250" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                    </div>
+                    
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="form-group-detalle-cotizacion hide">
+                                    <label class="control-label">Subtotal</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input class="form-control input-sm text-right" id="txtModalSubTotal" name="txtModalSubTotal" disabled="disabled" value="0.00" />
+                                    </div>
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="ModalSubTotal" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="form-group-detalle-cotizacion hide">
+                                    <label class="control-label">Iva</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input class="form-control input-sm text-right" id="txtModalIva" name="txtModalIva" disabled="disabled" value="0.00" />
+                                    </div>
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="ModalIva" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="form-group-detalle-cotizacion">
+                                    <label class="control-label">Desct</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input class="form-control input-sm text-right" id="txtModalDescuento" name="txtModalDescuento" disabled="disabled" value="0.00" />
+                                    </div>
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="ModalDescuento" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3">
+                                <div class="form-group-detalle-cotizacion">
+                                    <label class="control-label">Total</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">$</span>
+                                        <input class="form-control input-sm text-right" id="txtModalTotal" name="txtModalTotal" disabled="disabled" value="0.00" />
+                                    </div>
+                                    <span class="field-validation-valid text-danger" data-valmsg-for="ModalTotal" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

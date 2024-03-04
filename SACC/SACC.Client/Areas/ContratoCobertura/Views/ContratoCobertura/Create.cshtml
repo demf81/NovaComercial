@@ -1,0 +1,235 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/ContratoCobertura/ContratoCobertura.js" asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Configuraci&oacute;n </span></li>
+                    <li><span>Contrato </span></li>
+                    <li><span>Cobertura </span></li>
+                    <li class="active"><span>Alta </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Contrato Cobertura</h2>
+            <small>Cat&aacute;logo de Coberturas.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-primary btn-sm" onclick="ContratoCobertura.guardar();">Guardar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="ContratoCobertura.redirecciona('CONTRATO_COBERTURA_INDEX')">Regresar</button>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div id="rootwizard" class="tabbable">
+                            <ul>
+                                <li><a href="#tab1" data-toggle="tab">Datos Generales</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="row">
+                                                    <div class="form-group hide">
+                                                        <label class="col-sm-2 control-label">Folio</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="txtContratoId" name="txtContratoId" class="form-control input-sm" , readonly="readonly" value="@ViewBag.ContratoId" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="ContratoId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Contrato</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="txtContratoDescripcion" name="txtContratoDescripcion" class="form-control input-sm" , readonly="readonly" value="@ViewBag.ContratoDescripcion" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="ContratoDescripcion" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Folio</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtContratoCoberturaId" name="txtContratoCoberturaId" class="form-control input-sm" , readonly="readonly" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="ContratoCoberturaId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="txtContratoCoberturaDescripcion" name="txtContratoCoberturaDescripcion" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="ContratoCoberturaDescripcion" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="checkbox checkbox-success i-checks">
+                                                                <input id="chkTodoMedicamento" name="chkTodoMedicamento" type="checkbox">
+                                                                <label class="control-label" for="TodoMedicamento">&nbsp; Todos los Medicamentos</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="checkbox checkbox-success i-checks">
+                                                                <input id="chkTodoMaterial" name="chkTodoMaterial" type="checkbox">
+                                                                <label class="control-label" for="TodoMaterial">&nbsp; Todos los Materiales</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="checkbox checkbox-success i-checks">
+                                                                <input id="chkTodoCirugia" name="chkTodoCirugia" type="checkbox">
+                                                                <label class="control-label" for="TodoCirugia">&nbsp; Todas las Cirugias</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="checkbox checkbox-success i-checks">
+                                                                <input id="chkTodoEstudio" name="chkTodoEstudio" type="checkbox">
+                                                                <label class="control-label" for="TodoEstudio">&nbsp; Todos los Estudios</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="checkbox checkbox-success i-checks">
+                                                                <input id="chkTodoServicio" name="chkTodoServicio" type="checkbox">
+                                                                <label class="control-label" for="TodoServicio">&nbsp; Todos los Servicios</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Inicio de vigencia</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <div class="input-group date">
+                                                                <input class="form-control input-sm" id="dtpVigenciaDesde" name="dtpVigenciaDesde" readonly="readonly" />
+                                                                <span class="input-group-addon input-sm btn-sm"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="VigenciaDesde" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Fin de vigencia</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <div class="input-group date">
+                                                                <input class="form-control input-sm" id="dtpVigenciaHasta" name="dtpFecha" readonly="readonly" />
+                                                                <span class="input-group-addon input-sm btn-sm"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="VigenciaHasta" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="checkbox checkbox-success i-checks">
+                                                                <input id="chkPrePago" name="chkPrePago" type="checkbox">
+                                                                <label class="control-label" for="PrePago">&nbsp; Esquema de PrePago</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="checkbox checkbox-success i-checks">
+                                                                <input id="chkCobroAnticipado" name="chkCobroAnticipado" type="checkbox">
+                                                                <label class="control-label" for="CobroAnticipado">&nbsp; Aplica Cobro Anticipado</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Utilidad</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <div class="input-group">
+                                                                <input type="text" id="txtPorcentajeUtilidadSobreTarifa" name="txtPorcentajeUtilidadSobreTarifa" class="form-control input-sm text-right" value="0.00"/>
+                                                                <span class="input-group-addon">%</span>
+                                                            </div>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PorcentajeUtilidadSobreTarifa" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Copago</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <div class="input-group">
+                                                                <input type="text" id="txtPorcentajeCopagoContratante" name="txtPorcentajeCopagoContratante" class="form-control input-sm text-right" value="0.00"/>
+                                                                <span class="input-group-addon">%</span>
+                                                            </div>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PorcentajeCopagoContratante" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Descuento</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <div class="input-group">
+                                                                <input type="text" id="txtPorcentajeDescuentoSobreTarifa" name="txtPorcentajeDescuentoSobreTarifa" class="form-control input-sm text-right" value="0.00"/>
+                                                                <span class="input-group-addon">%</span>
+                                                            </div>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PorcentajeDescuentoSobreTarifa" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorContratoCobertura" value="CONTRATO_COBERTURA_CREATE" placeholder="APUNTADOR" />

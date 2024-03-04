@@ -1,0 +1,123 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/ContratoTipo/ContratoTipo.js"   asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/EmpresaPlanta/EmpresaPlanta.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Contrato/Contrato.js"           asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Configuraci&oacute;n </span></li>
+                    <li><span>Contrato </span></li>
+                    <li class="active"><span>Editar </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Configuraci&oacute;n</h2>
+            <small>Cat&aacute;logo de Contratos.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-success btn-sm" onclick="Contrato.actualizar();">Actualizar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="Contrato.redirecciona('CONTRATO_INDEX')">Regresar</button>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div id="rootwizard" class="tabbable">
+                            <ul>
+                                <li><a href="#tab1" data-toggle="tab">Datos Generales</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Folio</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtContratoId" name="txtContratoId" class="form-control input-sm" , readonly="readonly" value="@ViewBag.ContratoId" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="ContratoId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="txtContratoDescripcion" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="ContratoDescripcion" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Tipo de Contrato</label>
+                                                        <div class="col-sm-10 col-lg-4">
+                                                            <select class="form-control input-sm" id="ddlContratoTipoId" name="ddlContratoTipoId"></select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Contratante</label>
+                                                        <div class="col-sm-10 col-lg-4">
+                                                            <select class="form-control input-sm" id="ddlContratanteId" name="ddlContratanteId"></select>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr class="solid">
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Estatus</label>
+                                                        <div class="col-sm-10">
+                                                            <label class="radio radio-inline">
+                                                                <input type="radio" class="i-checks" id="rbEstatusId" name="rbEstatusId" value="1" /> Activo
+                                                            </label>
+                                                            <label class="radio radio-inline">
+                                                                <input type="radio" class="i-checks" id="rbEstatusId" name="rbEstatusId" value="2" /> Inactivo
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorContrato" value="CONTRATO_EDIT" placeholder="APUNTADOR" />

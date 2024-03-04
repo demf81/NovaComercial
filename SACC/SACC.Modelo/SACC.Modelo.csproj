@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{899F741F-AD56-4A51-AD61-8F8B596669AB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SACC.Modelo</RootNamespace>
+    <AssemblyName>SACC.Modelo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ModelodBase\ModeloBase.cs" />
+    <Compile Include="ModelodBase\ModeloBasePM.cs" />
+    <Compile Include="ModelodBase\ModeloJsonResponse.cs" />
+    <Compile Include="ModelodBase\ModeloResponse.cs" />
+    <Compile Include="NovaComercial\dbo\Asociado\DtoGridAsociado.cs" />
+    <Compile Include="NovaComercial\dbo\PersonaMoper\DtoPersonaMoper.cs" />
+    <Compile Include="NovaComercial\SACC\ContactoTipo\DtoComboContactoTipo.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaqueteCondicion\DtoContratoCoberturaPaqueteCondicion.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaqueteCondicion\DtoGridContratoCoberturaPaqueteCondicion.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaqueteExclusion\DtoContratoCoberturaPaqueteExclusion.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaqueteExclusion\DtoGridContratoCoberturaPaqueteExclusion.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaquete\DtoGridContratoCoberturaPaqueteContrato.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaquete\DtoComboContratoCoberturaPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaquete\DtoContratoCoberturaPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaquete\DtoGridContratoCoberturaPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCobertura\DtoComboContratoCobertura.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCobertura\DtoContratoCobertura.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCobertura\DtoGridContratoCobertura.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoProductoPaquete\DtoGridContratoProductoPaqueteVentaUnitaria.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoProducto\DtoComboContratoProducto.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoProducto\DtoContratoProducto.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoProducto\DtoGridContratoProducto.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoProductoPaquete\DtoComboContratoProductoPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoProductoPaquete\DtoContratoProductoPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoProductoPaquete\DtoGridContratoProductoPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoTipo\DtoComboContratoTipo.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoTipo\DtoContratoTipo.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoTipo\DtoGridContratoTipo.cs" />
+    <Compile Include="NovaComercial\dbo\Contrato\DtoComboContrato.cs" />
+    <Compile Include="NovaComercial\dbo\Contrato\DtoContrato.cs" />
+    <Compile Include="NovaComercial\dbo\Contrato\DtoGridContrato.cs" />
+    <Compile Include="NovaComercial\dbo\Contrato\DtoGridCtrlUserBusquedaContrato.cs" />
+    <Compile Include="NovaComercial\dbo\EmpresaContrato\DtoComboEmpresaContrato.cs" />
+    <Compile Include="NovaComercial\dbo\EmpresaContrato\DtoEmpresaContrato.cs" />
+    <Compile Include="NovaComercial\dbo\EmpresaContrato\DtoGridEmpresaContrato.cs" />
+    <Compile Include="NovaComercial\dbo\EmpresaPlanta\DtoComboEmpresaPlanta.cs" />
+    <Compile Include="NovaComercial\dbo\EmpresaPlanta\DtoEmpresaPlanta.cs" />
+    <Compile Include="NovaComercial\dbo\EmpresaPlanta\DtoGridEmpresaPlanta.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaContacto\DtoCtrlUserEmpresaContactoView.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaTipo\DtoComboEmpresaTipo.cs" />
+    <Compile Include="NovaComercial\dbo\Genero\DtoComboGenero.cs" />
+    <Compile Include="NovaComercial\dbo\PaqueteDetalle\DtoCtrlUserPaqueteDetalleAllServicioView.cs" />
+    <Compile Include="NovaComercial\dbo\PaqueteDetalle\DtoCtrlUserPaqueteDetalleView.cs" />
+    <Compile Include="NovaComercial\dbo\PaqueteDetalle\DtoPaqueteDetalle.cs" />
+    <Compile Include="NovaComercial\dbo\PaqueteTipo\DtoComboPaqueteTipo.cs" />
+    <Compile Include="NovaComercial\dbo\PaqueteTipo\DtoGridPaqueteTipo.cs" />
+    <Compile Include="NovaComercial\dbo\PaqueteTipo\DtoPaqueteTipo.cs" />
+    <Compile Include="NovaComercial\dbo\Paquete\DtoComboPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\Paquete\DtoGridCtrlUserBusquedaPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\Paquete\DtoGridPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\Paquete\DtoPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\PersonaContrato\DtoComboPersonaContratoContrato.cs" />
+    <Compile Include="NovaComercial\dbo\PersonaContrato\DtoGridPersonaContrato.cs" />
+    <Compile Include="NovaComercial\dbo\PersonaContrato\DtoGridPersonaContratoCoberturaDefault.cs" />
+    <Compile Include="NovaComercial\dbo\PersonaContrato\DtoPersonaContrato.cs" />
+    <Compile Include="NovaComercial\dbo\Persona\DtoComboPersona.cs" />
+    <Compile Include="NovaComercial\dbo\Persona\DtoGridPersona.cs" />
+    <Compile Include="NovaComercial\dbo\Persona\DtoPersona.cs" />
+    <Compile Include="NovaComercial\SACC\AreaNegocio\DtoAreaNegocio.cs" />
+    <Compile Include="NovaComercial\SACC\AreaNegocio\DtoComboAreaNegocio.cs" />
+    <Compile Include="NovaComercial\SACC\ClienteTipo\DtoComboClienteTipo.cs" />
+    <Compile Include="NovaComercial\SACC\Cliente\DtoCliente.cs" />
+    <Compile Include="NovaComercial\SACC\Cliente\DtoComboCliente.cs" />
+    <Compile Include="NovaComercial\SACC\Cliente\DtoGridCliente.cs" />
+    <Compile Include="NovaComercial\SACC\CoberturaCantidadTipo\DtoComboCoberturaCantidadTipo.cs" />
+    <Compile Include="NovaComercial\SACC\CoberturaCondicionTipo\DtoComboCoberturaCondicionTipo.cs" />
+    <Compile Include="NovaComercial\SACC\CoberturaCopagoTipo\DtoComboCoberturaCopagoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\CoberturaPeriodoTipo\DtoComboCoberturaPeriodoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\CotizacionDetalle\DtoCotizacionDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\CotizacionDetalle\DtoGridCotizacionDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\CotizacionDetalle\DtoGridCotizacionDetalleConPrecio.cs" />
+    <Compile Include="NovaComercial\SACC\CotizacionProcedimientoDetalle\DtoCotizacionProcedimientoDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\CotizacionProcedimientoDetalle\DtoGridCotizacionProcedimientoDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\CotizacionProcedimientoDetalle\DtoGridCotizacionProcedimientoDetalleConPrecio.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaArchivoTipo\DtoComboEmpresaArchivoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaArchivoTipo\DtoEmpresaArchivoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaArchivoTipo\DtoGridEmpresaArchivoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaContacto\DtoEmpresaContacto.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaContacto\DtoGridEmpresaContacto.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaDatosFiscales\DtoEmpresaDatosFiscales.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaDocumentoTipo\DtoComboEmpresaDocumentoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaDocumentoTipo\DtoEmpresaDocumentoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaDocumentoTipo\DtoGridEmpresaDocumentoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaDocumento\DtoComboEmpresaDocumento.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaDocumento\DtoEmpresaDocumento.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaDocumento\DtoGridEmpresaDocumento.cs" />
+    <Compile Include="NovaComercial\SACC\Empresa\DtoComboEmpresa.cs" />
+    <Compile Include="NovaComercial\SACC\Empresa\DtoCtrlUserBusquedaEmpresaGrid.cs" />
+    <Compile Include="NovaComercial\SACC\Empresa\DtoEmpresa.cs" />
+    <Compile Include="NovaComercial\SACC\Empresa\DtoGridEmpresa.cs" />
+    <Compile Include="NovaComercial\SACC\Estado\DtoComboEstado.cs" />
+    <Compile Include="NovaComercial\SACC\Estado\DtoEstado.cs" />
+    <Compile Include="NovaComercial\SACC\Estado\DtoGridEstado.cs" />
+    <Compile Include="NovaComercial\SACC\FormaPago\DtoComboFormaPago.cs" />
+    <Compile Include="NovaComercial\SACC\FrecuenciaPago\DtoComboFrecuenciaPago.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaPersona\DtoGridMembresiaPersona.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaRenovacion\DtoGridMembresiaRenovacion.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaRenovacion\DtoMembresiaRenovacion.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaRenovacion\DtoMembresiaRenovacionQ.cs" />
+    <Compile Include="NovaComercial\SACC\MetodoPago\DtoComboMetodoPago.cs" />
+    <Compile Include="NovaComercial\SACC\Municipio\DtoComboMunicipio.cs" />
+    <Compile Include="NovaComercial\SACC\Municipio\DtoGridMunicipio.cs" />
+    <Compile Include="NovaComercial\SACC\Municipio\DtoMunicipio.cs" />
+    <Compile Include="NovaComercial\SACC\Pais\DtoComboPais.cs" />
+    <Compile Include="NovaComercial\SACC\Pais\DtoGridPais.cs" />
+    <Compile Include="NovaComercial\SACC\Pais\DtoPais.cs" />
+    <Compile Include="NovaComercial\SACC\Parentesco\DtoComboParentesco.cs" />
+    <Compile Include="NovaComercial\SACC\Parentesco\DtoGridParentesco.cs" />
+    <Compile Include="NovaComercial\SACC\Parentesco\DtoParentesco.cs" />
+    <Compile Include="NovaComercial\dbo\Persona\DtoCtrlUserBusquedaPersonaGrid.cs" />
+    <Compile Include="NovaComercial\SACC\ProcedimientoDetalle\DtoGridProcedimientoDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\ProcedimientoDetalle\DtoGridProcedimientoDetalleConPrecio.cs" />
+    <Compile Include="NovaComercial\SACC\ProcedimientoDetalle\DtoProcedimientoDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\Procedimiento\DtoGridProcedimiento.cs" />
+    <Compile Include="NovaComercial\SACC\Procedimiento\DtoProcedimiento.cs" />
+    <Compile Include="NovaComercial\SACC\Servicio\DtoComboServicio.cs" />
+    <Compile Include="NovaComercial\SACC\Servicio\DtoCtrlUserArticuloTipo.cs" />
+    <Compile Include="NovaComercial\SACC\AreaNegocio\DtoGridAreaNegocio.cs" />
+    <Compile Include="NovaComercial\SACC\Servicio\DtoCtrlUserCotizacionGridServicio.cs" />
+    <Compile Include="NovaComercial\dbo\Cirugia\DtoCirugia.cs" />
+    <Compile Include="NovaComercial\dbo\Cirugia\DtoGridCirugia.cs" />
+    <Compile Include="NovaComercial\SACC\Cotizacion\DtoCotizacion.cs" />
+    <Compile Include="NovaComercial\SACC\Cotizacion\DtoGridCotizacion.cs" />
+    <Compile Include="NovaComercial\dbo\Estudio\DtoEstudio.cs" />
+    <Compile Include="NovaComercial\dbo\Estudio\DtoGridEstudio.cs" />
+    <Compile Include="NovaComercial\dbo\Material\DtoGridMaterial.cs" />
+    <Compile Include="NovaComercial\dbo\Material\DtoMaterial.cs" />
+    <Compile Include="NovaComercial\dbo\MedicamentoCuadroTipo\DtoComboMedicamentoCuadroTipo.cs" />
+    <Compile Include="NovaComercial\dbo\MedicamentoCuadroTipo\DtoGridMedicamentoCuadroTipo.cs" />
+    <Compile Include="NovaComercial\dbo\MedicamentoCuadroTipo\DtoMedicamentoCuadroTipo.cs" />
+    <Compile Include="NovaComercial\dbo\Medicamento\DtoGridMedicamento.cs" />
+    <Compile Include="NovaComercial\dbo\Medicamento\DtoMedicamento.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaContrato\DtoCtrlUserGridMembresiaContrato.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaContrato\DtoCtrlUserGridViewMembresiaContrato.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaContrato\DtoMembresiaContrato.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaEstatus\DtoComboMembresiaEstatus.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaEstatus\DtoGridMembresiaEstatus.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaEstatus\DtoMembresiaEstatus.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaPersona\DtoCtrlUserGridMembresiaPersona.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaPersona\DtoCtrlUserGridViewMembresiaPersona.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaPersona\DtoMembresiaPersona.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaTipo\DtoComboMembresiaTipo.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaTipo\DtoGridMembresiaTipo.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaTipo\DtoMembresiaTipo.cs" />
+    <Compile Include="NovaComercial\SACC\Membresia\DtoGridMembresia.cs" />
+    <Compile Include="NovaComercial\SACC\Membresia\DtoMembresia.cs" />
+    <Compile Include="NovaComercial\SACC\ServicioAdministrativo\DtoGridServicioAdministrativo.cs" />
+    <Compile Include="NovaComercial\SACC\ServicioAdministrativo\DtoServicioAdministrativo.cs" />
+    <Compile Include="NovaComercial\SACC\ServicioSubrogadoTipo\DtoComboServicioSubrogadoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\ServicioSubrogadoTipo\DtoGridServicioSubrogadoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\ServicioSubrogadoTipo\DtoServicioSubrogadoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\ServicioSubrogado\DtoGridServicioSubrogado.cs" />
+    <Compile Include="NovaComercial\SACC\ServicioSubrogado\DtoServicioSubrogado.cs" />
+    <Compile Include="NovaComercial\dbo\ServicioTipo\DtoComboServicioTipo.cs" />
+    <Compile Include="NovaComercial\dbo\ServicioTipo\DtoGridServicioTipo.cs" />
+    <Compile Include="NovaComercial\dbo\ServicioTipo\DtoServicioTipo.cs" />
+    <Compile Include="NovaComercial\dbo\Servicio\DtoGridServicio.cs" />
+    <Compile Include="NovaComercial\dbo\Servicio\DtoServicio.cs" />
+    <Compile Include="NovaComercial\SACC\Servicio\DtoCtrlUserServicioTarifa.cs" />
+    <Compile Include="NovaComercial\SACC\TarifaDetalle\DtoGridTarifaDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\TarifaDetalle\DtoTarifaDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\Tarifa\DtoComboTarifa.cs" />
+    <Compile Include="NovaComercial\SACC\Tarifa\DtoGridTarifa.cs" />
+    <Compile Include="NovaComercial\SACC\Tarifa\DtoTarifa.cs" />
+    <Compile Include="NovaComercial\SACC\VentaDetalle\DtoGridVentaDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\VentaDetalle\DtoGridVentaDetalleConPrecio.cs" />
+    <Compile Include="NovaComercial\SACC\VentaDetalle\DtoVentaDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\VentaMotivoCancelacionTipo\DtoComboVentaMotivoCancelacionTipo.cs" />
+    <Compile Include="NovaComercial\SACC\VentaProcedimientoDetalle\DtoGridVentaProcedimientoDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\VentaProcedimientoDetalle\DtoGridVentaProcedimientoDetalleConPrecio.cs" />
+    <Compile Include="NovaComercial\SACC\VentaProcedimientoDetalle\DtoVentaProcedimientoDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\Venta\DtoGridVenta.cs" />
+    <Compile Include="NovaComercial\SACC\Venta\DtoVenta.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\AsociadoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\PersonaMoperPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\ContactoTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\ContratoCoberturaPaqueteCondicionPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\ContratoCoberturaPaqueteExclusionPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\ContratoCoberturaPaquetePM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\ContratoCoberturaPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\ContratoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\ContratoProductoPaquetePM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\ContratoProductoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\ContratoTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\EmpresaContratoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\EmpresaPlantaPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\EmpresaTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\PaqueteDetallePM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\PaqueteTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\PaquetePM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\PersonaContratoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\PersonaPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\AreaNegocioPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\ClientePM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\ClienteTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\CoberturaCantidadTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\CoberturaCondicionTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\CoberturaCopagoTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\CoberturaPeriodoTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\CotizacionDetallePM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\CotizacionPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\CotizacionProcedimientoDetallePM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\EmpresaArchivoTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\EmpresaContactoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\EmpresaDatosFiscalesPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\EmpresaDocumentoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\EmpresaDocumentoTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\EmpresaPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\EstadoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\FormaPagoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\FrecuenciaPagoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\MembresiaEstatusPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\MembresiaPersonaPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\MembresiaRenovacionPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\MetodoPagoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\MunicipioPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\PaisPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\ParentescoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\ProcedimientoDetallePM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\ProcedimientoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\ServicioPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\ServicioAdministrativoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\ServicioSubrogadoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\ServicioSubrogadoTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\TarifaDetallePM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\TarifaPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\VentaDetallePM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\VentaMotivoCancelacionTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\VentaPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\CirugiaPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\EstudioPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\MaterialPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\MedicamentoCuadroTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\MedicamentoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\MembresiaContratoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\MembresiaPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\MembresiaTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\ServicioPM.cs" />
+    <Compile Include="Parametro\NovaComercial\dbo\ServicioTipoPM.cs" />
+    <Compile Include="Parametro\NovaComercial\SACC\VentaProcedimientoDetallePM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VigenciaII\PUB\ccu_usuarios\Dtoccu_usuarios.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NovaServiciosMedicos\" />
+    <Folder Include="Registro\" />
+    <Folder Include="SAI\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

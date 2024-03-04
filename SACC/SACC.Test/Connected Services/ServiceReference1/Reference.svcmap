@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="68ebc2d3-f85c-481f-a041-a696f6060d23" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:12419/Vigencia.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Vigencia.xsd" MetadataType="Schema" ID="2439910d-81ef-4cfb-8ee3-6e71857b083f" SourceId="1" SourceUrl="http://localhost:12419/Vigencia.svc?xsd=xsd1" />
+    <MetadataFile FileName="Vigencia1.xsd" MetadataType="Schema" ID="a0088211-f69f-45fc-b659-93901e637da9" SourceId="1" SourceUrl="http://localhost:12419/Vigencia.svc?xsd=xsd0" />
+    <MetadataFile FileName="Vigencia.disco" MetadataType="Disco" ID="5bb5abc7-a924-419b-88cb-752341391d12" SourceId="1" SourceUrl="http://localhost:12419/Vigencia.svc?disco" />
+    <MetadataFile FileName="Vigencia2.xsd" MetadataType="Schema" ID="212ea44a-cf96-4aeb-a696-c278b900f4d4" SourceId="1" SourceUrl="http://localhost:12419/Vigencia.svc?xsd=xsd2" />
+    <MetadataFile FileName="Vigencia.wsdl" MetadataType="Wsdl" ID="218eeefe-42b2-4470-bca9-0c3377983cb0" SourceId="1" SourceUrl="http://localhost:12419/Vigencia.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

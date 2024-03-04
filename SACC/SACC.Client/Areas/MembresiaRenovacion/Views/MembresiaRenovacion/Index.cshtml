@@ -1,0 +1,120 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMembresia.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/MembresiaTipo/MembresiaTipo.js"             asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/MembresiaRenovacion/MembresiaRenovacion.js" asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Operaci&oacute;n </span></li>
+                    <li class="active"><span>Pago Extempor&aacute;neo </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Membresias</h2>
+            <small>Pago Extempor&aacute;neo de Membresias.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowBusqueda">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Opciones de B&uacute;squeda
+                </div>
+
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Fecha Alta</label>
+                            <div class="col-sm-4">
+                                <div class="input-daterange input-group" id="datepicker">
+                                    <input type="text" class="input-sm form-control" id="dtpFechaInicial" name="dtpFechaInicial" readonly="readonly">
+                                    <span class="input-group-addon">a</span>
+                                    <input type="text" class="input-sm form-control" id="dtpFechaFinal" name="dtpFechaFinal" readonly="readonly">
+                                </div>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Fecha" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Vigencia</label>
+                            <div class="col-sm-4">
+                                <div class="input-daterange input-group" id="datepicker">
+                                    <input type="text" class="input-sm form-control" id="dtpVigenciaInicial" name="dtpVigenciaInicial" readonly="readonly">
+                                    <span class="input-group-addon">a</span>
+                                    <input type="text" class="input-sm form-control" id="dtpVigenciaFinal" name="dtpVigenciaFinal" readonly="readonly">
+                                </div>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Vigencia" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Num Socio</label>
+                            <div class="col-sm-2">
+                                <input type="text" id="txtNumSocio" class="form-control input-sm" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="NumSocio" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tipo de Membresia</label>
+                            <div class="col-sm-10 col-lg-5">
+                                <select id="ddlMembresiaTipoId" class="form-control input-sm"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn btn-primary btn-sm" onclick="MembresiaRenovacion.buscar();">Buscar</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-default btn-sm" onclick="MembresiaRenovacion.limpiar();">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel hnovagrey">
+                <div class="panel-tools"></div>
+
+                <div class="panel-heading hbuilt">&nbsp;</div>
+
+                <div class="panel-body">
+                    <table id="dgDatosMembresiaRenovacion" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorMembresiaRenovacion" value="MEMBRESIA_RENOVACION_INDEX" placeholder="APUNTADOR" />
+<input type="hidden" id="txtOpcion" value="@ViewBag.Opcion" placeholder="MEMBRESIA_TIPO_Id" />

@@ -1,0 +1,156 @@
+﻿@model SACC.Client.Areas.UsuarioContrato.Models.UsuarioContratoVisualizar
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/UsuarioContrato/UsuarioContrato.js"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Contrato/CtrlUserContrato.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GridUsuarioContrato($("#UsuarioId").val());
+
+            GridCtrlUserContrato($("#UsuarioId").val(), $("#EmpresaDescripcion").val(), "", 0);
+        });
+    </script>
+
+
+    @if (TempData["text"] != null)
+    {
+        <script type="text/javascript">
+            $(window).load(function() {
+                $(document).ready(function() {
+                    swal({
+                        title: "@TempData["title"]",
+                        text: "@TempData["text"]",
+                        type: "@TempData["type"]"
+                    });
+                });
+            });
+        </script>
+    };
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Portal de Empresa </span></li>
+                    <li><span>usuario </span></li>
+                    <li class="active"><span>Contrato </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Usuario - Contrato</h2>
+            <small>Asignacion de Contratos.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-11" aria-expanded="true">Datos del Usuario</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-11" class="tab-pane active">
+                        <div class="panel-body">
+                            <div role="form" class="form-horizontal">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.UsuarioId, new { @class = "col-sm-2 control-label" })
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(m => m.UsuarioId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    @Html.ActionLink("Regresar", "Index", "Usuario", new { Area = "Usuario" }, new { @class = "btn btn-default btn-sm" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <button data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-sm">Agregar</button>
+                </div>
+
+                <table id="dgDatosUsuarioContrato" data-height="430" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+                    <thead>
+                        <tr>
+                            <th data-field="UsuarioContratoId"                    data-sortable="true" data-align="center"                    ><span>Folio        </span></th>
+                            <th data-field="CampoComplemento_ContratoDescripcion" data-sortable="true"                                        ><span>Contrato     </span></th>
+                            <th data-field="UsuarioId"                                                                     data-visible="false"><span>UsuarioId    </span></th>
+                            <th data-field="CampoComplemento_NombreCompleto"                                               data-visible="false"><span>Nombre       </span></th>
+                            <th data-field="ContratoId"                                                                    data-visible="false"><span>ContratoId   </span></th>
+                            <th data-field="Baja" data-formatter="estatusFormatter"                    data-align="center"                    ><span>Estatus      </span></th>
+                            <th data-formatter="operateActionFormatter_UsuarioContrato"                data-align="center"                    ><span>Acci&oacute;n</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Contratos Vigentes</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserContrato", "Contrato", new { Area = "Contrato" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary btn-sm" onclick="javascript:GuardaUsuarioContrato();">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\LibSassHost.Native.win-x86.1.1.5\build\LibSassHost.Native.win-x86.props" Condition="Exists('..\packages\LibSassHost.Native.win-x86.1.1.5\build\LibSassHost.Native.win-x86.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C81C6743-A12B-4E6F-BEDA-9A2F9CB0A2A5}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SACC.Client</RootNamespace>
+    <AssemblyName>SACC.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BundleTransformer.Core, Version=1.9.171.0, Culture=neutral, PublicKeyToken=973c344c93aac60d, processorArchitecture=MSIL">
+      <HintPath>..\packages\BundleTransformer.Core.1.9.171\lib\net40\BundleTransformer.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Forloop.HtmlHelpers, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forloop.HtmlHelpers.1.2.0.0\lib\net45\Forloop.HtmlHelpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Nova.SDK">
+      <HintPath>..\..\..\31.NovaSDK\Nova.SDK\Nova.SDK\bin\Debug\Nova.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.30506.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\AreaNegocio\AreaNegocioAreaRegistration.cs" />
+    <Compile Include="Areas\AreaNegocio\Controllers\AreaNegocioController.cs" />
+    <Compile Include="Areas\Asociado\AsociadoAreaRegistration.cs" />
+    <Compile Include="Areas\Asociado\Controllers\AsociadoController.cs" />
+    <Compile Include="Areas\Cirugia\CirugiaAreaRegistration.cs" />
+    <Compile Include="Areas\Cirugia\Controllers\CirugiaController.cs" />
+    <Compile Include="Areas\ClienteTipo\ClienteTipoAreaRegistration.cs" />
+    <Compile Include="Areas\ClienteTipo\Controllers\ClienteTipoController.cs" />
+    <Compile Include="Areas\Cliente\ClienteAreaRegistration.cs" />
+    <Compile Include="Areas\Cliente\Controllers\ClienteController.cs" />
+    <Compile Include="Areas\CoberturaCantidadTipo\CoberturaCantidadTipoAreaRegistration.cs" />
+    <Compile Include="Areas\CoberturaCantidadTipo\Controllers\CoberturaCantidadTipoController.cs" />
+    <Compile Include="Areas\CoberturaCondicionTipo\CoberturaCondicionTipoAreaRegistration.cs" />
+    <Compile Include="Areas\CoberturaCondicionTipo\Controllers\CoberturaCondicionTipoController.cs" />
+    <Compile Include="Areas\CoberturaCopagoTipo\CoberturaCopagoTipoAreaRegistration.cs" />
+    <Compile Include="Areas\CoberturaCopagoTipo\Controllers\CoberturaCopagoTipoController.cs" />
+    <Compile Include="Areas\CoberturaPeriodoTipo\CoberturaPeriodoTipoAreaRegistration.cs" />
+    <Compile Include="Areas\CoberturaPeriodoTipo\Controllers\CoberturaPeriodoTipoController.cs" />
+    <Compile Include="Areas\ContactoTipo\ContactoTipoAreaRegistration.cs" />
+    <Compile Include="Areas\ContactoTipo\Controllers\ContactoTipoController.cs" />
+    <Compile Include="Areas\ContratoCoberturaPaqueteCondicion\ContratoCoberturaPaqueteCondicionAreaRegistration.cs" />
+    <Compile Include="Areas\ContratoCoberturaPaqueteCondicion\Controllers\ContratoCoberturaPaqueteCondicionController.cs" />
+    <Compile Include="Areas\ContratoCoberturaPaqueteExclusion\ContratoCoberturaPaqueteExclusionAreaRegistration.cs" />
+    <Compile Include="Areas\ContratoCoberturaPaqueteExclusion\Controllers\ContratoCoberturaPaqueteExclusionController.cs" />
+    <Compile Include="Areas\ContratoCoberturaPaquete\ContratoCoberturaPaqueteAreaRegistration.cs" />
+    <Compile Include="Areas\ContratoCoberturaPaquete\Controllers\ContratoCoberturaPaqueteController.cs" />
+    <Compile Include="Areas\ContratoCobertura\ContratoCoberturaAreaRegistration.cs" />
+    <Compile Include="Areas\ContratoCobertura\Controllers\ContratoCoberturaController.cs" />
+    <Compile Include="Areas\ContratoProductoPaquete\ContratoProductoPaqueteAreaRegistration.cs" />
+    <Compile Include="Areas\ContratoProductoPaquete\Controllers\ContratoProductoPaqueteController.cs" />
+    <Compile Include="Areas\ContratoProducto\ContratoProductoAreaRegistration.cs" />
+    <Compile Include="Areas\ContratoProducto\Controllers\ContratoProductoController.cs" />
+    <Compile Include="Areas\ContratoTipo\ContratoTipoAreaRegistration.cs" />
+    <Compile Include="Areas\ContratoTipo\Controllers\ContratoTipoController.cs" />
+    <Compile Include="Areas\Contrato\ContratoAreaRegistration.cs" />
+    <Compile Include="Areas\Contrato\Controllers\ContratoController.cs" />
+    <Compile Include="Areas\CotizacionDetalle\Controllers\CotizacionDetalleController.cs" />
+    <Compile Include="Areas\CotizacionDetalle\CotizacionDetalleAreaRegistration.cs" />
+    <Compile Include="Areas\CotizacionProcedimientoDetalle\Controllers\CotizacionProcedimientoDetalleController.cs" />
+    <Compile Include="Areas\CotizacionProcedimientoDetalle\CotizacionProcedimientoDetalleAreaRegistration.cs" />
+    <Compile Include="Areas\CotizacionTipo\Controllers\CotizacionTipoController.cs" />
+    <Compile Include="Areas\CotizacionTipo\CotizacionTipoAreaRegistration.cs" />
+    <Compile Include="Areas\Cotizacion\Controllers\CotizacionController.cs" />
+    <Compile Include="Areas\Cotizacion\CotizacionAreaRegistration.cs" />
+    <Compile Include="Areas\EmpresaArchivoTipo\Controllers\EmpresaArchivoTipoController.cs" />
+    <Compile Include="Areas\EmpresaArchivoTipo\EmpresaArchivoTipoAreaRegistration.cs" />
+    <Compile Include="Areas\EmpresaContacto\Controllers\EmpresaContactoController.cs" />
+    <Compile Include="Areas\EmpresaContacto\EmpresaContactoAreaRegistration.cs" />
+    <Compile Include="Areas\EmpresaContrato\Controllers\EmpresaContratoController.cs" />
+    <Compile Include="Areas\EmpresaContrato\EmpresaContratoAreaRegistration.cs" />
+    <Compile Include="Areas\EmpresaDatosFiscales\Controllers\EmpresaDatosFiscalesController.cs" />
+    <Compile Include="Areas\EmpresaDatosFiscales\EmpresaDatosFiscalesAreaRegistration.cs" />
+    <Compile Include="Areas\EmpresaDocumentoTipo\Controllers\EmpresaDocumentoTipoController.cs" />
+    <Compile Include="Areas\EmpresaDocumentoTipo\EmpresaDocumentoTipoAreaRegistration.cs" />
+    <Compile Include="Areas\EmpresaDocumento\Controllers\EmpresaDocumentoController.cs" />
+    <Compile Include="Areas\EmpresaDocumento\EmpresaDocumentoAreaRegistration.cs" />
+    <Compile Include="Areas\EmpresaPlanta\Controllers\EmpresaPlantaController.cs" />
+    <Compile Include="Areas\EmpresaPlanta\EmpresaPlantaAreaRegistration.cs" />
+    <Compile Include="Areas\EmpresaTipo\Controllers\EmpresaTipoController.cs" />
+    <Compile Include="Areas\EmpresaTipo\EmpresaTipoAreaRegistration.cs" />
+    <Compile Include="Areas\Empresa\Controllers\EmpresaController.cs" />
+    <Compile Include="Areas\Empresa\EmpresaAreaRegistration.cs" />
+    <Compile Include="Areas\Estado\Controllers\EstadoController.cs" />
+    <Compile Include="Areas\Estado\EstadoAreaRegistration.cs" />
+    <Compile Include="Areas\Estudio\Controllers\EstudioController.cs" />
+    <Compile Include="Areas\Estudio\EstudioAreaRegistration.cs" />
+    <Compile Include="Areas\FormaPago\Controllers\FormaPagoController.cs" />
+    <Compile Include="Areas\FormaPago\FormaPagoAreaRegistration.cs" />
+    <Compile Include="Areas\FrecuenciaPago\Controllers\FrecuenciaPagoController.cs" />
+    <Compile Include="Areas\FrecuenciaPago\FrecuenciaPagoAreaRegistration.cs" />
+    <Compile Include="Areas\Genero\Controllers\GeneroController.cs" />
+    <Compile Include="Areas\Genero\GeneroAreaRegistration.cs" />
+    <Compile Include="Areas\Material\Controllers\MaterialController.cs" />
+    <Compile Include="Areas\Material\MaterialAreaRegistration.cs" />
+    <Compile Include="Areas\MedicamentoCuadroTipo\Controllers\MedicamentoCuadroTipoController.cs" />
+    <Compile Include="Areas\MedicamentoCuadroTipo\MedicamentoCuadroTipoAreaRegistration.cs" />
+    <Compile Include="Areas\Medicamento\Controllers\MedicamentoController.cs" />
+    <Compile Include="Areas\Medicamento\MedicamentoAreaRegistration.cs" />
+    <Compile Include="Areas\MembresiaContrato\Controllers\MembresiaContratoController.cs" />
+    <Compile Include="Areas\MembresiaContrato\MembresiaContratoAreaRegistration.cs" />
+    <Compile Include="Areas\MembresiaEstatus\Controllers\MembresiaEstatusController.cs" />
+    <Compile Include="Areas\MembresiaEstatus\MembresiaEstatusAreaRegistration.cs" />
+    <Compile Include="Areas\MembresiaPersona\Controllers\MembresiaPersonaController.cs" />
+    <Compile Include="Areas\MembresiaPersona\MembresiaPersonaAreaRegistration.cs" />
+    <Compile Include="Areas\MembresiaRenovacion\Controllers\MembresiaRenovacionController.cs" />
+    <Compile Include="Areas\MembresiaRenovacion\MembresiaRenovacionAreaRegistration.cs" />
+    <Compile Include="Areas\MembresiaTipo\Controllers\MembresiaTipoController.cs" />
+    <Compile Include="Areas\MembresiaTipo\MembresiaTipoAreaRegistration.cs" />
+    <Compile Include="Areas\Membresia\Controllers\MembresiaController.cs" />
+    <Compile Include="Areas\Membresia\MembresiaAreaRegistration.cs" />
+    <Compile Include="Areas\MetodoPago\Controllers\MetodoPagoController.cs" />
+    <Compile Include="Areas\MetodoPago\MetodoPagoAreaRegistration.cs" />
+    <Compile Include="Areas\Municipio\Controllers\MunicipioController.cs" />
+    <Compile Include="Areas\Municipio\MunicipioAreaRegistration.cs" />
+    <Compile Include="Areas\Pais\Controllers\PaisController.cs" />
+    <Compile Include="Areas\Pais\PaisAreaRegistration.cs" />
+    <Compile Include="Areas\PaqueteCoberturaDetalle\Controllers\PaqueteCoberturaDetalleController.cs" />
+    <Compile Include="Areas\PaqueteCoberturaDetalle\PaqueteCoberturaDetalleAreaRegistration.cs" />
+    <Compile Include="Areas\PaqueteCobertura\Controllers\PaqueteCoberturaController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\PaqueteCobertura\PaqueteCoberturaAreaRegistration.cs" />
+    <Compile Include="Areas\PaqueteDetalle\Controllers\PaqueteDetalleController.cs" />
+    <Compile Include="Areas\PaqueteDetalle\PaqueteDetalleAreaRegistration.cs" />
+    <Compile Include="Areas\PaqueteTipo\Controllers\PaqueteTipoController.cs" />
+    <Compile Include="Areas\PaqueteTipo\PaqueteTipoAreaRegistration.cs" />
+    <Compile Include="Areas\Paquete\Controllers\PaqueteController.cs" />
+    <Compile Include="Areas\Paquete\PaqueteAreaRegistration.cs" />
+    <Compile Include="Areas\Parentesco\Controllers\ParentescoController.cs" />
+    <Compile Include="Areas\Parentesco\ParentescoAreaRegistration.cs" />
+    <Compile Include="Areas\PersonaContrato\Controllers\PersonaContratoController.cs" />
+    <Compile Include="Areas\PersonaContrato\PersonaContratoAreaRegistration.cs" />
+    <Compile Include="Areas\PersonaMoper\Controllers\PersonaMoperController.cs" />
+    <Compile Include="Areas\PersonaMoper\PersonaMoperAreaRegistration.cs" />
+    <Compile Include="Areas\Persona\Controllers\PersonaController.cs" />
+    <Compile Include="Areas\Persona\PersonaAreaRegistration.cs" />
+    <Compile Include="Areas\ProcedimientoDetalle\Controllers\ProcedimientoDetalleController.cs" />
+    <Compile Include="Areas\ProcedimientoDetalle\ProcedimientoDetalleAreaRegistration.cs" />
+    <Compile Include="Areas\Procedimiento\Controllers\ProcedimientoController.cs" />
+    <Compile Include="Areas\Procedimiento\ProcedimientoAreaRegistration.cs" />
+    <Compile Include="Areas\Seguridad\Controllers\SeguridadController.cs" />
+    <Compile Include="Areas\Seguridad\SeguridadAreaRegistration.cs" />
+    <Compile Include="Areas\ServicioAdministrativo\Controllers\ServicioAdministrativoController.cs" />
+    <Compile Include="Areas\ServicioAdministrativo\ServicioAdministrativoAreaRegistration.cs" />
+    <Compile Include="Areas\ServicioSubrogadoTipo\Controllers\ServicioSubrogadoTipoController.cs" />
+    <Compile Include="Areas\ServicioSubrogadoTipo\ServicioSubrogadoTipoAreaRegistration.cs" />
+    <Compile Include="Areas\ServicioSubrogado\Controllers\ServicioSubrogadoController.cs" />
+    <Compile Include="Areas\ServicioSubrogado\ServicioSubrogadoAreaRegistration.cs" />
+    <Compile Include="Areas\Servicio\Controllers\ServicioController.cs" />
+    <Compile Include="Areas\Servicio\ServicioAreaRegistration.cs" />
+    <Compile Include="Areas\TarifaDetalleDesglose\Controllers\TarifaDetalleDesgloseController.cs" />
+    <Compile Include="Areas\TarifaDetalleDesglose\TarifaDetalleDesgloseAreaRegistration.cs" />
+    <Compile Include="Areas\TarifaDetalle\Controllers\TarifaDetalleController.cs" />
+    <Compile Include="Areas\TarifaDetalle\TarifaDetalleAreaRegistration.cs" />
+    <Compile Include="Areas\Tarifa\Controllers\TarifaController.cs" />
+    <Compile Include="Areas\Tarifa\TarifaAreaRegistration.cs" />
+    <Compile Include="Areas\ServicioMedicoTipo\Controllers\ServicioMedicoTipoController.cs" />
+    <Compile Include="Areas\ServicioMedicoTipo\ServicioMedicoTipoAreaRegistration.cs" />
+    <Compile Include="Areas\ServicioMedico\Controllers\ServicioMedicoController.cs" />
+    <Compile Include="Areas\ServicioMedico\ServicioMedicoAreaRegistration.cs" />
+    <Compile Include="Areas\UsuarioContrato\Controllers\UsuarioContratoController.cs" />
+    <Compile Include="Areas\UsuarioContrato\UsuarioContratoAreaRegistration.cs" />
+    <Compile Include="Areas\Usuario\Controllers\UsuarioController.cs" />
+    <Compile Include="Areas\Usuario\UsuarioAreaRegistration.cs" />
+    <Compile Include="Areas\VentaDetalle\Controllers\VentaDetalleController.cs" />
+    <Compile Include="Areas\VentaDetalle\VentaDetalleAreaRegistration.cs" />
+    <Compile Include="Areas\VentaMotivoCancelacionTipo\Controllers\VentaMotivoCancelacionTipoController.cs" />
+    <Compile Include="Areas\VentaMotivoCancelacionTipo\VentaMotivoCancelacionTipoAreaRegistration.cs" />
+    <Compile Include="Areas\VentaProcedimientoDetalle\Controllers\VentaProcedimientoDetalleController.cs" />
+    <Compile Include="Areas\VentaProcedimientoDetalle\VentaProcedimientoDetalleAreaRegistration.cs" />
+    <Compile Include="Areas\VentaTipo\Controllers\VentaTipoController.cs" />
+    <Compile Include="Areas\VentaTipo\VentaTipoAreaRegistration.cs" />
+    <Compile Include="Areas\VentaUnitariaDetalleTipo\Controllers\VentaUnitariaDetalleTipoController.cs" />
+    <Compile Include="Areas\VentaUnitariaDetalleTipo\VentaUnitariaDetalleTipoAreaRegistration.cs" />
+    <Compile Include="Areas\VentaUnitariaDetalle\Controllers\VentaUnitariaDetalleController.cs" />
+    <Compile Include="Areas\VentaUnitariaDetalle\Models\VentaUnitariaDetalleModel.cs" />
+    <Compile Include="Areas\VentaUnitariaDetalle\VentaUnitariaDetalleAreaRegistration.cs" />
+    <Compile Include="Areas\VentaUnitariaEspecialDetalle\Controllers\VentaUnitariaEspecialDetalleController.cs" />
+    <Compile Include="Areas\VentaUnitariaEspecialDetalle\Models\VentaUnitariaEspecialDetalleModel.cs" />
+    <Compile Include="Areas\VentaUnitariaEspecialDetalle\VentaUnitariaEspecialDetalleAreaRegistration.cs" />
+    <Compile Include="Areas\VentaUnitariaEspecial\Controllers\VentaUnitariaEspecialController.cs" />
+    <Compile Include="Areas\VentaUnitariaEspecial\Models\VentaUnitariaEspecialModel.cs" />
+    <Compile Include="Areas\VentaUnitariaEspecial\Models\VentaUnitariaEspecialVisualizar.cs" />
+    <Compile Include="Areas\VentaUnitariaEspecial\Models\VentaUnitariaResumen.cs" />
+    <Compile Include="Areas\VentaUnitariaEspecial\VentaUnitariaEspecialAreaRegistration.cs" />
+    <Compile Include="Areas\VentaUnitaria\Controllers\VentaUnitariaController.cs" />
+    <Compile Include="Areas\VentaUnitaria\Models\VentaUnitariaModel.cs" />
+    <Compile Include="Areas\VentaUnitaria\Models\VentaUnitariaResumen.cs" />
+    <Compile Include="Areas\VentaUnitaria\Models\VentaUnitariaVisualizar.cs" />
+    <Compile Include="Areas\VentaUnitaria\VentaUnitariaAreaRegistration.cs" />
+    <Compile Include="Areas\Venta\Controllers\VentaController.cs" />
+    <Compile Include="Areas\Venta\VentaAreaRegistration.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BaseControllerMethods.cs" />
+    <Compile Include="Controllers\GeneroController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PdfController.cs" />
+    <Compile Include="Controllers\RadioController.cs" />
+    <Compile Include="Enum\OpcionesCombo.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\HMTLHelperExtensions.cs" />
+    <Compile Include="Models\CheckModel.cs" />
+    <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\RadioModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\Plugins\animate.css\animate.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\attention_seekers\bounce.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\attention_seekers\flash.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\attention_seekers\pulse.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\attention_seekers\rubberBand.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\attention_seekers\shake.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\attention_seekers\swing.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\attention_seekers\tada.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\attention_seekers\wobble.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\bouncing_entrances\bounceIn.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\bouncing_entrances\bounceInDown.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\bouncing_entrances\bounceInLeft.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\bouncing_entrances\bounceInRight.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\bouncing_entrances\bounceInUp.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\bouncing_exits\bounceOut.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\bouncing_exits\bounceOutDown.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\bouncing_exits\bounceOutLeft.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\bouncing_exits\bounceOutRight.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\bouncing_exits\bounceOutUp.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_entrances\fadeIn.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_entrances\fadeInDown.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_entrances\fadeInDownBig.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_entrances\fadeInLeft.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_entrances\fadeInLeftBig.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_entrances\fadeInRight.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_entrances\fadeInRightBig.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_entrances\fadeInUp.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_entrances\fadeInUpBig.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_exits\fadeOut.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_exits\fadeOutDown.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_exits\fadeOutDownBig.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_exits\fadeOutLeft.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_exits\fadeOutLeftBig.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_exits\fadeOutRight.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_exits\fadeOutRightBig.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_exits\fadeOutUp.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\fading_exits\fadeOutUpBig.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\flippers\flip.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\flippers\flipInX.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\flippers\flipInY.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\flippers\flipOutX.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\flippers\flipOutY.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\lightspeed\lightSpeedIn.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\lightspeed\lightSpeedOut.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\rotating_entrances\rotateIn.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\rotating_entrances\rotateInDownLeft.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\rotating_entrances\rotateInDownRight.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\rotating_entrances\rotateInUpLeft.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\rotating_entrances\rotateInUpRight.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\rotating_exits\rotateOut.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\rotating_exits\rotateOutDownLeft.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\rotating_exits\rotateOutDownRight.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\rotating_exits\rotateOutUpLeft.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\rotating_exits\rotateOutUpRight.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\specials\hinge.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\specials\rollIn.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\specials\rollOut.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\zooming_entrances\zoomIn.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\zooming_entrances\zoomInDown.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\zooming_entrances\zoomInLeft.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\zooming_entrances\zoomInRight.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\zooming_entrances\zoomInUp.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\zooming_exits\zoomOut.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\zooming_exits\zoomOutDown.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\zooming_exits\zoomOutLeft.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\zooming_exits\zoomOutRight.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\zooming_exits\zoomOutUp.css" />
+    <Content Include="Assets\css\Plugins\animate.css\source\_base.css" />
+    <Content Include="Assets\css\Plugins\bootstrap-switch-button\bootstrap4-toggle.min.css" />
+    <Content Include="Assets\css\Plugins\bootstrap-touchspin\bootstrap-touchspin.min.css" />
+    <Content Include="Assets\css\Plugins\bootstraptable\bootstrap-table.css" />
+    <Content Include="Assets\css\Plugins\bootstraptable\bootstrap-table.min.css" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\accent-neutralise\bootstrap-table-accent-neutralise.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\accent-neutralise\bootstrap-table-accent-neutralise.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\angular\bootstrap-table-angular.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\angular\bootstrap-table-angular.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\cookie\bootstrap-table-cookie.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\cookie\bootstrap-table-cookie.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\editable\bootstrap-editable.css" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\editable\bootstrap-editable.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\editable\bootstrap-table-editable.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\editable\bootstrap-table-editable.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\export\bootstrap-table-export.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\export\bootstrap-table-export.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\filter-control\bootstrap-table-filter-control.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\filter-control\bootstrap-table-filter-control.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\filter\bootstrap-table-filter.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\filter\bootstrap-table-filter.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\flat-json\bootstrap-table-flat-json.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\flat-json\bootstrap-table-flat-json.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\group-by-v2\bootstrap-table-group-by.css" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\group-by-v2\bootstrap-table-group-by.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\group-by-v2\bootstrap-table-group-by.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\group-by\bootstrap-table-group-by.css" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\group-by\bootstrap-table-group-by.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\group-by\bootstrap-table-group-by.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\key-events\bootstrap-table-key-events.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\key-events\bootstrap-table-key-events.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\mobile\bootstrap-table-mobile.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\mobile\bootstrap-table-mobile.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\multiple-search\bootstrap-table-multiple-search.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\multiple-search\bootstrap-table-multiple-search.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\multiple-sort\bootstrap-table-multiple-sort.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\multiple-sort\bootstrap-table-multiple-sort.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\natural-sorting\bootstrap-table-natural-sorting.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\natural-sorting\bootstrap-table-natural-sorting.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\reorder-columns\bootstrap-table-reorder-columns.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\reorder-columns\bootstrap-table-reorder-columns.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\reorder-rows\bootstrap-table-reorder-rows.css" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\reorder-rows\bootstrap-table-reorder-rows.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\reorder-rows\bootstrap-table-reorder-rows.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\resizable\bootstrap-table-resizable.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\resizable\bootstrap-table-resizable.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\sticky-header\bootstrap-table-sticky-header.css" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\sticky-header\bootstrap-table-sticky-header.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\sticky-header\bootstrap-table-sticky-header.min.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\toolbar\bootstrap-table-toolbar.js" />
+    <Content Include="Assets\css\Plugins\bootstraptable\extensions\toolbar\bootstrap-table-toolbar.min.js" />
+    <Content Include="Assets\css\Plugins\bootstrap\bootstrap.css" />
+    <Content Include="Assets\css\Plugins\datepicker\bootstrap-datepicker3.css" />
+    <Content Include="Assets\css\Plugins\fontawesome\css\font-awesome.css" />
+    <Content Include="Assets\css\Plugins\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\all.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\aero%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\aero.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\aero.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\blue%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\blue.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\blue.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\flat%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\flat.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\flat.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\green%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\green.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\green.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\grey%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\grey.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\grey.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\orange%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\orange.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\orange.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\pink%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\pink.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\pink.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\purple%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\purple.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\purple.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\red%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\red.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\red.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\yellow%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\yellow.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\yellow.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\flat\_all.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\futurico\futurico%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\futurico\futurico.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\futurico\futurico.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\aero.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\blue.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\green.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\grey.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\line%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\line.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\line.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\orange.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\pink.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\purple.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\red.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\yellow.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\line\_all.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\aero%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\aero.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\aero.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\blue%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\blue.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\blue.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\green%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\green.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\green.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\grey%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\grey.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\grey.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\minimal%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\minimal.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\minimal.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\orange%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\orange.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\orange.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\pink%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\pink.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\pink.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\purple%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\purple.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\purple.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\red%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\red.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\red.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\yellow%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\yellow.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\yellow.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\minimal\_all.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\polaris\polaris%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\polaris\polaris.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\polaris\polaris.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\aero%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\aero.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\aero.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\blue%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\blue.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\blue.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\green%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\green.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\green.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\grey%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\grey.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\grey.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\orange%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\orange.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\orange.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\pink%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\pink.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\pink.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\purple%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\purple.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\purple.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\red%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\red.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\red.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\square%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\square.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\square.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\yellow%402x.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\yellow.css" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\yellow.png" />
+    <Content Include="Assets\css\Plugins\iCheck\skins\square\_all.css" />
+    <Content Include="Assets\css\Plugins\ladda\ladda-themeless.min.css" />
+    <Content Include="Assets\css\Plugins\metisMenu\metisMenu.css" />
+    <Content Include="Assets\css\Plugins\select2bootstrap\select2-bootstrap.css" />
+    <Content Include="Assets\css\Plugins\select2\select2.css" />
+    <Content Include="Assets\css\Plugins\sweetalert2\sweetalert2.css" />
+    <Content Include="Assets\css\Plugins\sweetalert\sweet-alert.css" />
+    <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\css\style.ternium.css" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\css\autoFill.bootstrap.css" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\css\autoFill.bootstrap4.css" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\css\autoFill.dataTables.css" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\css\autoFill.foundation.css" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\css\autoFill.jqueryui.css" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\css\autoFill.semanticui.css" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\js\autoFill.bootstrap.js" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\js\autoFill.bootstrap4.js" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\js\autoFill.foundation.js" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\js\autoFill.jqueryui.js" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\js\autoFill.semanticui.js" />
+    <Content Include="Assets\dataTables\AutoFill-2.2.2\js\dataTables.autoFill.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\css\buttons.bootstrap.css" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\css\buttons.bootstrap4.css" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\css\buttons.dataTables.css" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\css\buttons.foundation.css" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\css\buttons.jqueryui.css" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\css\buttons.semanticui.css" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\js\buttons.bootstrap.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\js\buttons.bootstrap4.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\js\buttons.colVis.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\js\buttons.flash.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\js\buttons.foundation.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\js\buttons.html5.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\js\buttons.jqueryui.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\js\buttons.print.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\js\buttons.semanticui.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\js\dataTables.buttons.js" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\swf\flashExport.swf" />
+    <Content Include="Assets\dataTables\ColReorder-1.4.1\css\colReorder.bootstrap.css" />
+    <Content Include="Assets\dataTables\ColReorder-1.4.1\css\colReorder.bootstrap4.css" />
+    <Content Include="Assets\dataTables\ColReorder-1.4.1\css\colReorder.dataTables.css" />
+    <Content Include="Assets\dataTables\ColReorder-1.4.1\css\colReorder.foundation.css" />
+    <Content Include="Assets\dataTables\ColReorder-1.4.1\css\colReorder.jqueryui.css" />
+    <Content Include="Assets\dataTables\ColReorder-1.4.1\css\colReorder.semanticui.css" />
+    <Content Include="Assets\dataTables\ColReorder-1.4.1\js\dataTables.colReorder.js" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\css\dataTables.bootstrap.css" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\css\dataTables.bootstrap4.css" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\css\dataTables.foundation.css" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\css\dataTables.jqueryui.css" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\css\dataTables.semanticui.css" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\css\jquery.dataTables.css" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\images\sort_asc.png" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\images\sort_asc_disabled.png" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\images\sort_both.png" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\images\sort_desc.png" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\images\sort_desc_disabled.png" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\js\dataTables.bootstrap.js" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\js\dataTables.bootstrap4.js" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\js\dataTables.foundation.js" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\js\dataTables.jqueryui.js" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\js\dataTables.semanticui.js" />
+    <Content Include="Assets\dataTables\DataTables-1.10.16\js\jquery.dataTables.js" />
+    <Content Include="Assets\dataTables\FixedColumns-3.2.3\css\fixedColumns.bootstrap.css" />
+    <Content Include="Assets\dataTables\FixedColumns-3.2.3\css\fixedColumns.bootstrap4.css" />
+    <Content Include="Assets\dataTables\FixedColumns-3.2.3\css\fixedColumns.dataTables.css" />
+    <Content Include="Assets\dataTables\FixedColumns-3.2.3\css\fixedColumns.foundation.css" />
+    <Content Include="Assets\dataTables\FixedColumns-3.2.3\css\fixedColumns.jqueryui.css" />
+    <Content Include="Assets\dataTables\FixedColumns-3.2.3\css\fixedColumns.semanticui.css" />
+    <Content Include="Assets\dataTables\FixedColumns-3.2.3\js\dataTables.fixedColumns.js" />
+    <Content Include="Assets\dataTables\FixedHeader-3.1.3\css\fixedHeader.bootstrap.css" />
+    <Content Include="Assets\dataTables\FixedHeader-3.1.3\css\fixedHeader.bootstrap4.css" />
+    <Content Include="Assets\dataTables\FixedHeader-3.1.3\css\fixedHeader.dataTables.css" />
+    <Content Include="Assets\dataTables\FixedHeader-3.1.3\css\fixedHeader.foundation.css" />
+    <Content Include="Assets\dataTables\FixedHeader-3.1.3\css\fixedHeader.jqueryui.css" />
+    <Content Include="Assets\dataTables\FixedHeader-3.1.3\css\fixedHeader.semanticui.css" />
+    <Content Include="Assets\dataTables\FixedHeader-3.1.3\js\dataTables.fixedHeader.js" />
+    <Content Include="Assets\dataTables\JSZip-2.5.0\jszip.js" />
+    <Content Include="Assets\dataTables\KeyTable-2.3.2\css\keyTable.bootstrap.css" />
+    <Content Include="Assets\dataTables\KeyTable-2.3.2\css\keyTable.bootstrap4.css" />
+    <Content Include="Assets\dataTables\KeyTable-2.3.2\css\keyTable.dataTables.css" />
+    <Content Include="Assets\dataTables\KeyTable-2.3.2\css\keyTable.foundation.css" />
+    <Content Include="Assets\dataTables\KeyTable-2.3.2\css\keyTable.jqueryui.css" />
+    <Content Include="Assets\dataTables\KeyTable-2.3.2\css\keyTable.semanticui.css" />
+    <Content Include="Assets\dataTables\KeyTable-2.3.2\js\dataTables.keyTable.js" />
+    <Content Include="Assets\dataTables\pdfmake-0.1.32\pdfmake.js" />
+    <Content Include="Assets\dataTables\pdfmake-0.1.32\vfs_fonts.js" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\css\responsive.bootstrap.css" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\css\responsive.bootstrap4.css" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\css\responsive.dataTables.css" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\css\responsive.foundation.css" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\css\responsive.jqueryui.css" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\css\responsive.semanticui.css" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\js\dataTables.responsive.js" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\js\responsive.bootstrap.js" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\js\responsive.bootstrap4.js" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\js\responsive.foundation.js" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\js\responsive.jqueryui.js" />
+    <Content Include="Assets\dataTables\Responsive-2.2.0\js\responsive.semanticui.js" />
+    <Content Include="Assets\dataTables\RowGroup-1.0.2\css\rowGroup.bootstrap.css" />
+    <Content Include="Assets\dataTables\RowGroup-1.0.2\css\rowGroup.bootstrap4.css" />
+    <Content Include="Assets\dataTables\RowGroup-1.0.2\css\rowGroup.dataTables.css" />
+    <Content Include="Assets\dataTables\RowGroup-1.0.2\css\rowGroup.foundation.css" />
+    <Content Include="Assets\dataTables\RowGroup-1.0.2\css\rowGroup.jqueryui.css" />
+    <Content Include="Assets\dataTables\RowGroup-1.0.2\css\rowGroup.semanticui.css" />
+    <Content Include="Assets\dataTables\RowGroup-1.0.2\js\dataTables.rowGroup.js" />
+    <Content Include="Assets\dataTables\RowReorder-1.2.3\css\rowReorder.bootstrap.css" />
+    <Content Include="Assets\dataTables\RowReorder-1.2.3\css\rowReorder.bootstrap4.css" />
+    <Content Include="Assets\dataTables\RowReorder-1.2.3\css\rowReorder.dataTables.css" />
+    <Content Include="Assets\dataTables\RowReorder-1.2.3\css\rowReorder.foundation.css" />
+    <Content Include="Assets\dataTables\RowReorder-1.2.3\css\rowReorder.jqueryui.css" />
+    <Content Include="Assets\dataTables\RowReorder-1.2.3\css\rowReorder.semanticui.css" />
+    <Content Include="Assets\dataTables\RowReorder-1.2.3\js\dataTables.rowReorder.js" />
+    <Content Include="Assets\dataTables\Scroller-1.4.3\css\scroller.bootstrap.css" />
+    <Content Include="Assets\dataTables\Scroller-1.4.3\css\scroller.bootstrap4.css" />
+    <Content Include="Assets\dataTables\Scroller-1.4.3\css\scroller.dataTables.css" />
+    <Content Include="Assets\dataTables\Scroller-1.4.3\css\scroller.foundation.css" />
+    <Content Include="Assets\dataTables\Scroller-1.4.3\css\scroller.jqueryui.css" />
+    <Content Include="Assets\dataTables\Scroller-1.4.3\css\scroller.semanticui.css" />
+    <Content Include="Assets\dataTables\Scroller-1.4.3\js\dataTables.scroller.js" />
+    <Content Include="Assets\dataTables\Select-1.2.3\css\select.bootstrap.css" />
+    <Content Include="Assets\dataTables\Select-1.2.3\css\select.bootstrap4.css" />
+    <Content Include="Assets\dataTables\Select-1.2.3\css\select.dataTables.css" />
+    <Content Include="Assets\dataTables\Select-1.2.3\css\select.foundation.css" />
+    <Content Include="Assets\dataTables\Select-1.2.3\css\select.jqueryui.css" />
+    <Content Include="Assets\dataTables\Select-1.2.3\css\select.semanticui.css" />
+    <Content Include="Assets\dataTables\Select-1.2.3\js\dataTables.select.js" />
+    <Content Include="Assets\fonts\glyphicons\css\bootstrap-glyphicons.css" />
+    <Content Include="Assets\fonts\glyphicons\css\bootstrap-glyphicons.min.css" />
+    <Content Include="Assets\fonts\glyphicons\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Assets\fonts\Open-Sans\css\fonts.css" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-300\LICENSE.txt" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-300\Open-Sans-300.svg" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-600\LICENSE.txt" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-600\Open-Sans-600.svg" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-700\LICENSE.txt" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-700\Open-Sans-700.svg" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-800\LICENSE.txt" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-800\Open-Sans-800.svg" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-regular\LICENSE.txt" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-regular\Open-Sans-regular.svg" />
+    <Content Include="Assets\fonts\pe-icon-7-stroke\css\helper.css" />
+    <Content Include="Assets\fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="Assets\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="Assets\images\ClubSaludQR.png" />
+    <Content Include="Assets\images\csg.png" />
+    <Content Include="Assets\images\facebook.png" />
+    <Content Include="Assets\images\foto_anonimo.jpg" />
+    <Content Include="Assets\images\logo.jpg" />
+    <Content Include="Assets\images\LogoClub Salud.png" />
+    <Content Include="Assets\images\LogoNova.png" />
+    <Content Include="Assets\images\Logo_CSG.png" />
+    <Content Include="Assets\images\Logo_DistintivoH.jpg" />
+    <Content Include="Assets\js\homer.js" />
+    <Content Include="Assets\js\Plugins\bootstrap-switch-button\bootstrap4-toggle.min.js" />
+    <Content Include="Assets\js\Plugins\bootstrap-touchspin\bootstrap-touchspin.min.js" />
+    <Content Include="Assets\js\Plugins\bootstrapswitch\bootstrap-switch.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\bootstrap-table-locale-all.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\bootstrap-table-locale-all.min.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\bootstrap-table.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\bootstrap-table.min.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\extensions\editable\bootstrap-editable.css" />
+    <Content Include="Assets\js\Plugins\bootstraptable\extensions\editable\bootstrap-editable.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\extensions\editable\bootstrap-table-editable.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\extensions\editable\bootstrap-table-editable.min.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\extensions\table-export.min.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\extensions\xlsx.min.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\locale\bootstrap-table-en-US.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\locale\bootstrap-table-en-US.min.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\locale\bootstrap-table-es-MX.js" />
+    <Content Include="Assets\js\Plugins\bootstraptable\locale\bootstrap-table-es-MX.min.js" />
+    <Content Include="Assets\js\Plugins\bootstrapwizard\jquery-latest.js" />
+    <Content Include="Assets\js\Plugins\bootstrapwizard\jquery.bootstrap.wizard.js" />
+    <Content Include="Assets\js\Plugins\bootstrap\bootstrap.js" />
+    <Content Include="Assets\js\Plugins\bootstrap\datepicker\datepicker.js" />
+    <Content Include="Assets\js\Plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Assets\js\Plugins\datepicker\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="Assets\js\Plugins\iCheck\icheck.js" />
+    <Content Include="Assets\js\Plugins\iCheck\icheck.min.js" />
+    <Content Include="Assets\js\Plugins\jquerycookie\jquery.cookie.js" />
+    <Content Include="Assets\js\Plugins\jquery\jquery.js" />
+    <Content Include="Assets\js\Plugins\jquery\jquery.unobtrusive-ajax.js" />
+    <Content Include="Assets\js\Plugins\jquery\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Assets\js\Plugins\ladda\ladda.jquery.min.js" />
+    <Content Include="Assets\js\Plugins\ladda\ladda.min.js" />
+    <Content Include="Assets\js\Plugins\ladda\spin.min.js" />
+    <Content Include="Assets\js\Plugins\metisMenu\metisMenu.js" />
+    <Content Include="Assets\js\Plugins\moment\moment-with-locales.js" />
+    <Content Include="Assets\js\Plugins\moment\moment-with-locales.min.js" />
+    <Content Include="Assets\js\Plugins\select2\select2.js" />
+    <Content Include="Assets\js\Plugins\select2\select2.min.js" />
+    <Content Include="Assets\js\Plugins\slimScroll\jquery.slimscroll.js" />
+    <Content Include="Assets\js\Plugins\sparkline\sparkline.js" />
+    <Content Include="Assets\js\Plugins\sweetalert2\sweetalert2.js" />
+    <Content Include="Assets\js\Plugins\sweetalert\sweet-alert.js" />
+    <Content Include="Assets\js\Plugins\sweetalert\sweet-alert.min.js" />
+    <Content Include="Assets\js\Plugins\validate\jquery-validate.js" />
+    <Content Include="Assets\js\Plugins\validate\jquery-validate.min.js" />
+    <Content Include="Assets\js\Plugins\validate\localization\messages_es.js" />
+    <Content Include="Assets\js\Plugins\validate\localization\messages_es.min.js" />
+    <Content Include="Assets\js\Plugins\validate\localization\messages_es_AR.js" />
+    <Content Include="Assets\js\Plugins\validate\localization\messages_es_AR.min.js" />
+    <Content Include="Assets\js\Tools\common.js" />
+    <Content Include="Assets\js\Tools\table-tools.js" />
+    <Content Include="Assets\sass\homer\style.css" />
+    <Content Include="Assets\sass\homer\style.min.css" />
+    <Content Include="Assets\sass\ternium\style.ternium.css" />
+    <Content Include="Assets\sass\ternium\style.ternium.min.css" />
+    <Content Include="Content\nova.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Areas\AreaNegocio\AreaNegocio.js" />
+    <Content Include="Scripts\Areas\Asociado\Asociado.js" />
+    <Content Include="Scripts\Areas\Cirugia\Cirugia.js" />
+    <Content Include="Scripts\Areas\Cirugia\CtrlUserBusquedaCirugia.js" />
+    <Content Include="Scripts\Areas\ClienteTipo\ClienteTipo.js" />
+    <Content Include="Scripts\Areas\Cliente\Cliente.js" />
+    <Content Include="Scripts\Areas\CoberturaCantidadTipo\CoberturaCantidadTipo.js" />
+    <Content Include="Scripts\Areas\CoberturaCondicionTipo\CoberturaCondicionTipo.js" />
+    <Content Include="Scripts\Areas\CoberturaCopagoTipo\CoberturaCopagoTipo.js" />
+    <Content Include="Scripts\Areas\CoberturaPeriodoTipo\CoberturaPeriodoTipo.js" />
+    <Content Include="Scripts\Areas\ContactoTipo\ContactoTipo.js" />
+    <Content Include="Scripts\Areas\ContratoCoberturaPaqueteCondicion\ContratoCoberturaPaqueteCondicion.js" />
+    <Content Include="Scripts\Areas\ContratoCoberturaPaqueteExclusion\ContratoCoberturaPaqueteExclusion.js" />
+    <Content Include="Scripts\Areas\ContratoCoberturaPaquete\ContratoCoberturaPaquete.js" />
+    <Content Include="Scripts\Areas\ContratoCoberturaPaquete\CtrlUserContratoCoberturaPaquete.js" />
+    <Content Include="Scripts\Areas\ContratoCobertura\ContratoCobertura.js" />
+    <Content Include="Scripts\Areas\ContratoProductoPaquete\CtrlUserContratoProductoPaquete.js" />
+    <Content Include="Scripts\Areas\ContratoProducto\ContratoProducto.js" />
+    <Content Include="Scripts\Areas\ContratoProductoPaquete\ContratoProductoPaquete.js" />
+    <Content Include="Scripts\Areas\ContratoTipo\ContratoTipo.js" />
+    <Content Include="Scripts\Areas\Contrato\Contrato.js" />
+    <Content Include="Scripts\Areas\Contrato\CtrlUserBusquedaContrato.js" />
+    <Content Include="Scripts\Areas\CotizacionDetalle\CotizacionDetalle.js" />
+    <Content Include="Scripts\Areas\CotizacionProcedimientoDetalle\CtrlUserCotizacionProcedimientoDetalle.js" />
+    <Content Include="Scripts\Areas\Cotizacion\Cotizacion.js" />
+    <Content Include="Scripts\Areas\Cotizacion\CtrlUserCotizacion.js" />
+    <Content Include="Scripts\Areas\EmpresaArchivoTipo\EmpresaArchivoTipo.js" />
+    <Content Include="Scripts\Areas\EmpresaContacto\CtrlUserBusquedaEmpresaContactoView.js" />
+    <Content Include="Scripts\Areas\EmpresaContacto\EmpresaContacto.js" />
+    <Content Include="Scripts\Areas\EmpresaContrato\EmpresaContrato.js" />
+    <Content Include="Scripts\Areas\EmpresaDatosFiscales\EmpresaDatosFiscales.js" />
+    <Content Include="Scripts\Areas\EmpresaDocumentoTipo\EmpresaDocumentoTipo.js" />
+    <Content Include="Scripts\Areas\EmpresaDocumento\EmpresaDocumento.js" />
+    <Content Include="Scripts\Areas\EmpresaPlanta\EmpresaPlanta.js" />
+    <Content Include="Scripts\Areas\EmpresaTipo\EmpresaTipo.js" />
+    <Content Include="Scripts\Areas\Empresa\CtrlUserBusquedaEmpresa.js" />
+    <Content Include="Scripts\Areas\Empresa\CtrlUserEmpresaCoberturaCondicion.js" />
+    <Content Include="Scripts\Areas\Empresa\Empresa.js" />
+    <Content Include="Scripts\Areas\Estado\Estado.js" />
+    <Content Include="Scripts\Areas\Estudio\CtrlUserBusquedaEstudio.js" />
+    <Content Include="Scripts\Areas\Estudio\Estudio.js" />
+    <Content Include="Scripts\Areas\FormaPago\FormaPago.js" />
+    <Content Include="Scripts\Areas\FrecuenciaPago\FrecuenciaPago.js" />
+    <Content Include="Scripts\Areas\Genero\Genero.js" />
+    <Content Include="Scripts\Areas\Home\Home.js" />
+    <Content Include="Scripts\Areas\Material\CtrlUserBusquedaMaterial.js" />
+    <Content Include="Scripts\Areas\Material\Material.js" />
+    <Content Include="Scripts\Areas\MedicamentoCuadroTipo\MedicamentoCuadroTipo.js" />
+    <Content Include="Scripts\Areas\Medicamento\CtrlUserBusquedaMedicamento.js" />
+    <Content Include="Scripts\Areas\Medicamento\Medicamento.js" />
+    <Content Include="Scripts\Areas\MembresiaContrato\MembresiaContrato.js" />
+    <Content Include="Scripts\Areas\MembresiaEstatus\MembresiaEstatus.js" />
+    <Content Include="Scripts\Areas\MembresiaPersona\MembresiaPersona.js" />
+    <Content Include="Scripts\Areas\MembresiaRenovacion\MembresiaRenovacion.js" />
+    <Content Include="Scripts\Areas\MembresiaTipo\MembresiaTipo.js" />
+    <Content Include="Scripts\Areas\Membresia\Membresia.js" />
+    <Content Include="Scripts\Areas\MetodoPago\MetodoPago.js" />
+    <Content Include="Scripts\Areas\Municipio\Municipio.js" />
+    <Content Include="Scripts\Areas\Pais\Pais.js" />
+    <Content Include="Scripts\Areas\PaqueteCoberturaDetalle\CtrlUserPaqueteCoberturaDetalle.js" />
+    <Content Include="Scripts\Areas\PaqueteCoberturaDetalle\PaqueteCoberturaDetalle.js" />
+    <Content Include="Scripts\Areas\PaqueteDetalle\CtrlUserPaqueteDetalle.js" />
+    <Content Include="Scripts\Areas\PaqueteDetalle\PaqueteDetalle.js" />
+    <Content Include="Scripts\Areas\PaqueteTipo\PaqueteTipo.js" />
+    <Content Include="Scripts\Areas\Paquete\CtrlUserBusquedaPaquete.js" />
+    <Content Include="Scripts\Areas\Paquete\Paquete.js" />
+    <Content Include="Scripts\Areas\Parentesco\Parentesco.js" />
+    <Content Include="Scripts\Areas\PersonaContrato\CtrlUserBusquedaPersonaCobertura.js" />
+    <Content Include="Scripts\Areas\PersonaContrato\PersonaContrato.js" />
+    <Content Include="Scripts\Areas\Persona\CtrlUserBusquedaPersona.js" />
+    <Content Include="Scripts\Areas\Persona\CtrlUserPersona.js" />
+    <Content Include="Scripts\Areas\Persona\Persona.js" />
+    <Content Include="Scripts\Areas\ProcedimientoDetalle\ProcedimientoDetalle.js" />
+    <Content Include="Scripts\Areas\Procedimiento\Procedimiento.js" />
+    <Content Include="Scripts\Areas\ServicioAdministrativo\ServicioAdministrativo.js" />
+    <Content Include="Scripts\Areas\ServicioMedicoTipo\ServicioMedicoTipo.js" />
+    <Content Include="Scripts\Areas\ServicioSubrogadoTipo\ServicioSubrogadoTipo.js" />
+    <Content Include="Scripts\Areas\ServicioSubrogado\ServicioSubrogado.js" />
+    <Content Include="Scripts\Areas\ServicioMedico\CtrlUserBusquedaServicioMedico.js" />
+    <Content Include="Scripts\Areas\ServicioMedico\ServicioMedico.js" />
+    <Content Include="Scripts\Areas\Servicio\CtrlUserBusquedaServicio.js" />
+    <Content Include="Scripts\Areas\Servicio\CtrlUserBusquedaServicioTarifa.js" />
+    <Content Include="Scripts\Areas\Servicio\Servicio.js" />
+    <Content Include="Scripts\Areas\TarifaDetalle\TarifaDetalle.js" />
+    <Content Include="Scripts\Areas\Tarifa\Tarifa.js" />
+    <Content Include="Scripts\Areas\UsuarioContrato\UsuarioContrato.js" />
+    <Content Include="Scripts\Areas\Usuario\Usuario.js" />
+    <Content Include="Scripts\Areas\VentaDetalle\VentaDetalle.js" />
+    <Content Include="Scripts\Areas\VentaMotivoCancelacionTipo\VentaMotivoCancelacionTipo.js" />
+    <Content Include="Scripts\Areas\VentaProcedimientoDetalle\CtrlUserVentaProcedimientoDetalle.js" />
+    <Content Include="Scripts\Areas\VentaUnitariaDetalle\VentaUnitariaDetalle.js" />
+    <Content Include="Scripts\Areas\VentaUnitariaEspecialDetalle\VentaUnitariaEspecialDetalle.js" />
+    <Content Include="Scripts\Areas\VentaUnitariaEspecial\VentaUnitariaEspecial.js" />
+    <Content Include="Scripts\Areas\VentaUnitaria\VentaUnitaria.js" />
+    <Content Include="Scripts\Areas\Venta\Venta.js" />
+    <Content Include="Scripts\charts.js" />
+    <Content Include="Scripts\combo.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\constant.js" />
+    <Content Include="Scripts\helper.alert.js" />
+    <Content Include="Scripts\helper.js" />
+    <Content Include="Scripts\homer.js" />
+    <Content Include="Areas\Empresa\Views\Web.config" />
+    <Content Include="Areas\Empresa\Views\Empresa\Index.cshtml" />
+    <Content Include="Areas\EmpresaContrato\Views\Web.config" />
+    <Content Include="Areas\Paquete\Views\Web.config" />
+    <Content Include="Areas\PaqueteDetalle\Views\Web.config" />
+    <Content Include="Areas\Paquete\Views\Paquete\Index.cshtml" />
+    <Content Include="Areas\PaqueteDetalle\Views\PaqueteDetalle\Index.cshtml" />
+    <Content Include="Areas\Seguridad\Views\Seguridad\CambioContrasena.cshtml" />
+    <Content Include="Areas\Seguridad\Views\Seguridad\Editar.cshtml" />
+    <Content Include="Areas\Seguridad\Views\Seguridad\Perfil.cshtml" />
+    <Content Include="Areas\Seguridad\Views\Seguridad\RestablecerContrasena.cshtml" />
+    <Content Include="Areas\Seguridad\Views\Web.config" />
+    <Content Include="Areas\Empresa\Views\Empresa\Create.cshtml" />
+    <Content Include="Areas\Empresa\Views\Empresa\Edit.cshtml" />
+    <Content Include="Areas\Usuario\Views\Web.config" />
+    <Content Include="Areas\Usuario\Views\Usuario\Index.cshtml" />
+    <Content Include="Areas\Usuario\Views\Usuario\Edit.cshtml" />
+    <Content Include="Areas\Usuario\Views\Usuario\Delete.cshtml" />
+    <Content Include="Areas\Usuario\Views\Usuario\Create.cshtml" />
+    <Content Include="Areas\Empresa\Views\Empresa\Delete.cshtml" />
+    <Content Include="Areas\Contrato\Views\Web.config" />
+    <Content Include="Areas\Contrato\Views\Contrato\Index.cshtml" />
+    <Content Include="Areas\Contrato\Views\Contrato\Edit.cshtml" />
+    <Content Include="Areas\Contrato\Views\Contrato\Delete.cshtml" />
+    <Content Include="Areas\Contrato\Views\Contrato\Create.cshtml" />
+    <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="Areas\ContratoTipo\Views\Web.config" />
+    <Content Include="Areas\Contrato\Views\Contrato\_CtrlUserBusquedaContrato.cshtml" />
+    <Content Include="Areas\UsuarioContrato\Views\Web.config" />
+    <Content Include="Areas\ContratoCobertura\Views\Web.config" />
+    <Content Include="Areas\PaqueteTipo\Views\Web.config" />
+    <Content Include="Areas\PaqueteTipo\Views\PaqueteTipo\Index.cshtml" />
+    <Content Include="Areas\PaqueteTipo\Views\PaqueteTipo\Edit.cshtml" />
+    <Content Include="Areas\PaqueteTipo\Views\PaqueteTipo\Delete.cshtml" />
+    <Content Include="Areas\PaqueteTipo\Views\PaqueteTipo\Create.cshtml" />
+    <Content Include="Areas\Paquete\Views\Paquete\Create.cshtml" />
+    <Content Include="Areas\Paquete\Views\Paquete\Edit.cshtml" />
+    <Content Include="Areas\Paquete\Views\Paquete\Delete.cshtml" />
+    <Content Include="Areas\UsuarioContrato\Views\UsuarioContrato\Index.cshtml" />
+    <Content Include="Areas\ContratoCobertura\Views\ContratoCobertura\Index.cshtml" />
+    <Content Include="Areas\PaqueteCobertura\Views\Web.config" />
+    <Content Include="Areas\PaqueteCobertura\Views\PaqueteCobertura\Index.cshtml" />
+    <Content Include="Areas\PaqueteCobertura\Views\PaqueteCobertura\Edit.cshtml" />
+    <Content Include="Areas\PaqueteCobertura\Views\PaqueteCobertura\Delete.cshtml" />
+    <Content Include="Areas\PaqueteCobertura\Views\PaqueteCobertura\Create.cshtml" />
+    <Content Include="Areas\PaqueteCoberturaDetalle\Views\Web.config" />
+    <Content Include="Areas\PaqueteCoberturaDetalle\Views\PaqueteCoberturaDetalle\Index.cshtml" />
+    <Content Include="Areas\ContratoCobertura\Views\ContratoCobertura\Create.cshtml" />
+    <Content Include="Areas\ContratoCobertura\Views\ContratoCobertura\Edit.cshtml" />
+    <Content Include="Areas\ContratoCobertura\Views\ContratoCobertura\Delete.cshtml" />
+    <Content Include="Areas\ContratoCoberturaPaquete\Views\Web.config" />
+    <Content Include="Areas\ContratoCoberturaPaquete\Views\ContratoCoberturaPaquete\Index.cshtml" />
+    <Content Include="Areas\Paquete\Views\Paquete\_CtrlUserBusquedaPaquete.cshtml" />
+    <Content Include="Areas\ContratoProductoPaquete\Views\Web.config" />
+    <Content Include="Areas\ContratoProductoPaquete\Views\ContratoProductoPaquete\Index.cshtml" />
+    <Content Include="Areas\ServicioMedico\Views\Web.config" />
+    <Content Include="Areas\ServicioMedico\Views\ServicioMedico\_CtrlUserBusquedaServicioMedico.cshtml" />
+    <Content Include="Areas\ServicioMedicoTipo\Views\Web.config" />
+    <Content Include="Areas\Material\Views\Web.config" />
+    <Content Include="Areas\Material\Views\Material\_CtrlUserBusquedaMaterial.cshtml" />
+    <Content Include="Areas\MedicamentoCuadroTipo\Views\Web.config" />
+    <Content Include="Areas\Medicamento\Views\Web.config" />
+    <Content Include="Areas\Medicamento\Views\Medicamento\_CtrlUserBusquedaMedicamento.cshtml" />
+    <Content Include="Areas\Estudio\Views\Web.config" />
+    <Content Include="Areas\Estudio\Views\Estudio\_CtrlUserBusquedaEstudio.cshtml" />
+    <Content Include="Areas\Cirugia\Views\Web.config" />
+    <Content Include="Areas\Cirugia\Views\Cirugia\_CtrlUserBusquedaCirugia.cshtml" />
+    <Content Include="Areas\ContratoProducto\Views\Web.config" />
+    <Content Include="Areas\ContratoProducto\Views\ContratoProducto\Index.cshtml" />
+    <Content Include="Areas\ContratoProducto\Views\ContratoProducto\Edit.cshtml" />
+    <Content Include="Areas\ContratoProducto\Views\ContratoProducto\Delete.cshtml" />
+    <Content Include="Areas\ContratoProducto\Views\ContratoProducto\Create.cshtml" />
+    <Content Include="Areas\VentaUnitaria\Views\Web.config" />
+    <Content Include="Areas\VentaUnitaria\Views\VentaUnitaria\Index.cshtml" />
+    <Content Include="Areas\VentaUnitaria\Views\VentaUnitaria\Create.cshtml" />
+    <Content Include="Areas\Persona\Views\Web.config" />
+    <Content Include="Areas\Persona\Views\Persona\Index.cshtml" />
+    <Content Include="Areas\Persona\Views\Persona\Edit.cshtml" />
+    <Content Include="Areas\Persona\Views\Persona\Delete.cshtml" />
+    <Content Include="Areas\Persona\Views\Persona\Create.cshtml" />
+    <Content Include="Areas\PersonaContrato\Views\Web.config" />
+    <Content Include="Areas\PersonaContrato\Views\PersonaContrato\PersonaContratoList.cshtml" />
+    <Content Include="Assets\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="Assets\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="Assets\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="Areas\VentaUnitariaDetalleTipo\Views\Web.config" />
+    <Content Include="Areas\PersonaContrato\Views\PersonaContrato\Index.cshtml" />
+    <Content Include="Areas\PersonaContrato\Views\PersonaContrato\_CtrlUserPersonaCobertura.cshtml" />
+    <Content Include="Areas\PersonaContrato\Views\PersonaContrato\Delete.cshtml" />
+    <Content Include="Areas\PaqueteDetalle\Views\PaqueteDetalle\_CtrlUserServicioMedicoPaqueteDetalleView.cshtml" />
+    <Content Include="Areas\PaqueteDetalle\Views\PaqueteDetalle\_CtrlUserMaterialPaqueteDetalleView.cshtml" />
+    <Content Include="Areas\PaqueteDetalle\Views\PaqueteDetalle\_CtrlUserMedicamentoPaqueteDetalleView.cshtml" />
+    <Content Include="Areas\PaqueteDetalle\Views\PaqueteDetalle\_CtrlUserEstudioPaqueteDetalleView.cshtml" />
+    <Content Include="Areas\PaqueteDetalle\Views\PaqueteDetalle\_CtrlUserCirugiaPaqueteDetalleView.cshtml" />
+    <Content Include="Areas\VentaUnitariaEspecial\Views\Web.config" />
+    <Content Include="Areas\VentaUnitariaEspecial\Views\VentaUnitariaEspecial\Index.cshtml" />
+    <Content Include="Areas\VentaUnitariaEspecial\Views\VentaUnitariaEspecial\Create.cshtml" />
+    <Content Include="Areas\Asociado\Views\Web.config" />
+    <Content Include="Areas\Asociado\Views\Asociado\_CtrlUserAsociado.cshtml" />
+    <Content Include="Areas\EmpresaPlanta\Views\Web.config" />
+    <Content Include="Areas\ContratoProductoPaquete\Views\ContratoProductoPaquete\_CtrlUserContratoProductoPaquete.cshtml" />
+    <Content Include="Areas\VentaUnitariaEspecialDetalle\Views\Web.config" />
+    <Content Include="Areas\ContratoCoberturaPaquete\Views\ContratoCoberturaPaquete\_CtrlUserContratoCoberturaPaquete.cshtml" />
+    <Content Include="Areas\UsuarioContrato\Views\UsuarioContrato\Delete.cshtml" />
+    <Content Include="Areas\VentaUnitaria\Views\VentaUnitaria\Edit.cshtml" />
+    <Content Include="Areas\VentaUnitariaDetalle\Views\Web.config" />
+    <Content Include="Areas\VentaUnitariaEspecial\Views\VentaUnitariaEspecial\Edit.cshtml" />
+    <Content Include="Assets\js\Plugins\bootstraptable\extensions\bootstrap-table-export.js" />
+    <Content Include="Areas\MembresiaTipo\Views\Web.config" />
+    <Content Include="Areas\MembresiaEstatus\Views\Web.config" />
+    <Content Include="Areas\Membresia\Views\Web.config" />
+    <Content Include="Areas\MembresiaTipo\Views\MembresiaTipo\Index.cshtml" />
+    <Content Include="Areas\MembresiaTipo\Views\MembresiaTipo\Edit.cshtml" />
+    <Content Include="Areas\MembresiaTipo\Views\MembresiaTipo\Delete.cshtml" />
+    <Content Include="Areas\MembresiaTipo\Views\MembresiaTipo\Create.cshtml" />
+    <Content Include="Areas\MembresiaEstatus\Views\MembresiaEstatus\Index.cshtml" />
+    <Content Include="Areas\MembresiaEstatus\Views\MembresiaEstatus\Edit.cshtml" />
+    <Content Include="Areas\MembresiaEstatus\Views\MembresiaEstatus\Delete.cshtml" />
+    <Content Include="Areas\MembresiaEstatus\Views\MembresiaEstatus\Create.cshtml" />
+    <Content Include="Areas\Membresia\Views\Membresia\Index.cshtml" />
+    <Content Include="Areas\Membresia\Views\Membresia\Edit.cshtml" />
+    <Content Include="Areas\Membresia\Views\Membresia\Delete.cshtml" />
+    <Content Include="Areas\Membresia\Views\Membresia\Create.cshtml" />
+    <Content Include="Areas\Tarifa\Views\Web.config" />
+    <Content Include="Areas\Tarifa\Views\Tarifa\Index.cshtml" />
+    <Content Include="Areas\Tarifa\Views\Tarifa\Edit.cshtml" />
+    <Content Include="Areas\Tarifa\Views\Tarifa\Delete.cshtml" />
+    <Content Include="Areas\Tarifa\Views\Tarifa\Create.cshtml" />
+    <Content Include="Areas\Cotizacion\Views\Web.config" />
+    <Content Include="Areas\Venta\Views\Web.config" />
+    <Content Include="Areas\Cotizacion\Views\Cotizacion\Index.cshtml" />
+    <Content Include="Areas\Cotizacion\Views\Cotizacion\Edit.cshtml" />
+    <Content Include="Areas\Cotizacion\Views\Cotizacion\Delete.cshtml" />
+    <Content Include="Areas\Cotizacion\Views\Cotizacion\Create.cshtml" />
+    <Content Include="Areas\Venta\Views\Venta\Index.cshtml" />
+    <Content Include="Areas\Venta\Views\Venta\Edit.cshtml" />
+    <Content Include="Areas\Venta\Views\Venta\Create.cshtml" />
+    <Content Include="Areas\Cirugia\Views\Cirugia\Index.cshtml" />
+    <Content Include="Areas\Cirugia\Views\Cirugia\Edit.cshtml" />
+    <Content Include="Areas\Cirugia\Views\Cirugia\Delete.cshtml" />
+    <Content Include="Areas\Estudio\Views\Estudio\Index.cshtml" />
+    <Content Include="Areas\Estudio\Views\Estudio\Edit.cshtml" />
+    <Content Include="Areas\Estudio\Views\Estudio\Delete.cshtml" />
+    <Content Include="Areas\Estudio\Views\Estudio\Create.cshtml" />
+    <Content Include="Areas\Material\Views\Material\Index.cshtml" />
+    <Content Include="Areas\Material\Views\Material\Edit.cshtml" />
+    <Content Include="Areas\Material\Views\Material\Delete.cshtml" />
+    <Content Include="Areas\Material\Views\Material\Create.cshtml" />
+    <Content Include="Areas\Medicamento\Views\Medicamento\Index.cshtml" />
+    <Content Include="Areas\Medicamento\Views\Medicamento\Edit.cshtml" />
+    <Content Include="Areas\Medicamento\Views\Medicamento\Delete.cshtml" />
+    <Content Include="Areas\Medicamento\Views\Medicamento\Create.cshtml" />
+    <Content Include="Areas\ServicioMedico\Views\ServicioMedico\Index.cshtml" />
+    <Content Include="Areas\ServicioMedico\Views\ServicioMedico\Edit.cshtml" />
+    <Content Include="Areas\ServicioMedico\Views\ServicioMedico\Delete.cshtml" />
+    <Content Include="Areas\ServicioMedico\Views\ServicioMedico\Create.cshtml" />
+    <Content Include="Areas\ServicioAdministrativo\Views\Web.config" />
+    <Content Include="Areas\ServicioSubrogadoTipo\Views\Web.config" />
+    <Content Include="Areas\ServicioSubrogadoTipo\Views\ServicioSubrogadoTipo\Index.cshtml" />
+    <Content Include="Areas\ServicioSubrogadoTipo\Views\ServicioSubrogadoTipo\Edit.cshtml" />
+    <Content Include="Areas\ServicioSubrogadoTipo\Views\ServicioSubrogadoTipo\Delete.cshtml" />
+    <Content Include="Areas\ServicioSubrogadoTipo\Views\ServicioSubrogadoTipo\Create.cshtml" />
+    <Content Include="Areas\ServicioAdministrativo\Views\ServicioAdministrativo\Index.cshtml" />
+    <Content Include="Areas\ServicioAdministrativo\Views\ServicioAdministrativo\Edit.cshtml" />
+    <Content Include="Areas\ServicioAdministrativo\Views\ServicioAdministrativo\Delete.cshtml" />
+    <Content Include="Areas\ServicioAdministrativo\Views\ServicioAdministrativo\Create.cshtml" />
+    <Content Include="Areas\ServicioSubrogado\Views\Web.config" />
+    <Content Include="Areas\ServicioSubrogado\Views\ServicioSubrogado\Index.cshtml" />
+    <Content Include="Areas\ServicioSubrogado\Views\ServicioSubrogado\Edit.cshtml" />
+    <Content Include="Areas\ServicioSubrogado\Views\ServicioSubrogado\Delete.cshtml" />
+    <Content Include="Areas\ServicioSubrogado\Views\ServicioSubrogado\Create.cshtml" />
+    <Content Include="Areas\MembresiaRenovacion\Views\Web.config" />
+    <Content Include="Areas\MembresiaContrato\Views\Web.config" />
+    <Content Include="Areas\MembresiaPersona\Views\Web.config" />
+    <Content Include="Areas\MembresiaPersona\Views\MembresiaPersona\Index.cshtml" />
+    <Content Include="Areas\CotizacionTipo\Views\Web.config" />
+    <Content Include="Areas\VentaTipo\Views\Web.config" />
+    <Content Include="Areas\Servicio\Views\Web.config" />
+    <Content Include="Areas\AreaNegocio\Views\Web.config" />
+    <Content Include="Areas\AreaNegocio\Views\AreaNegocio\Index.cshtml" />
+    <Content Include="Areas\AreaNegocio\Views\AreaNegocio\Edit.cshtml" />
+    <Content Include="Areas\AreaNegocio\Views\AreaNegocio\Delete.cshtml" />
+    <Content Include="Areas\AreaNegocio\Views\AreaNegocio\Create.cshtml" />
+    <Content Include="Areas\Servicio\Views\Servicio\_CtrlUserBusquedaServicio.cshtml" />
+    <Content Include="Areas\Parentesco\Views\Web.config" />
+    <Content Include="Areas\Parentesco\Views\Parentesco\Index.cshtml" />
+    <Content Include="Areas\Parentesco\Views\Parentesco\Edit.cshtml" />
+    <Content Include="Areas\Parentesco\Views\Parentesco\Delete.cshtml" />
+    <Content Include="Areas\Parentesco\Views\Parentesco\Create.cshtml" />
+    <Content Include="Areas\TarifaDetalle\Views\Web.config" />
+    <Content Include="Areas\Persona\Views\Persona\_CtrlUserBusquedaPersona.cshtml" />
+    <Content Include="Areas\Empresa\Views\Empresa\_CtrlUserBusquedaEmpresa.cshtml" />
+    <Content Include="Areas\CotizacionDetalle\Views\Web.config" />
+    <Content Include="Areas\CotizacionDetalle\Views\CotizacionDetalle\_IndexView.cshtml" />
+    <Content Include="Areas\Persona\Views\Persona\_CtrlUserBusquedaPersonaParentesco.cshtml" />
+    <Content Include="Areas\VentaDetalle\Views\Web.config" />
+    <Content Include="Areas\VentaDetalle\Views\VentaDetalle\_IndexView.cshtml" />
+    <Content Include="Areas\Cotizacion\Views\Cotizacion\_CtrlUserViewCotizacion.cshtml" />
+    <Content Include="Areas\Procedimiento\Views\Web.config" />
+    <Content Include="Areas\ProcedimientoDetalle\Views\Web.config" />
+    <Content Include="Areas\Procedimiento\Views\Procedimiento\Index.cshtml" />
+    <Content Include="Areas\Procedimiento\Views\Procedimiento\Edit.cshtml" />
+    <Content Include="Areas\ProcedimientoDetalle\Views\ProcedimientoDetalle\Index.cshtml" />
+    <Content Include="Areas\TarifaDetalle\Views\TarifaDetalle\Index.cshtml" />
+    <Content Include="Areas\CotizacionProcedimientoDetalle\Views\Web.config" />
+    <Content Include="Areas\CotizacionProcedimientoDetalle\Views\CotizacionProcedimientoDetalle\Index.cshtml" />
+    <Content Include="Areas\CotizacionProcedimientoDetalle\Views\CotizacionProcedimientoDetalle\_CtrlUserCotizacionProcedimientoDetalle.cshtml" />
+    <Content Include="Areas\VentaProcedimientoDetalle\Views\Web.config" />
+    <Content Include="Areas\VentaProcedimientoDetalle\Views\VentaProcedimientoDetalle\_CtrlUserVentaProcedimientoDetalle.cshtml" />
+    <Content Include="Areas\TarifaDetalleDesglose\Views\Web.config" />
+    <Content Include="Areas\TarifaDetalleDesglose\Views\TarifaDetalleDesglose\Index.cshtml" />
+    <Content Include="Areas\TarifaDetalle\Views\TarifaDetalle\_Create.cshtml" />
+    <Content Include="Areas\ContratoCobertura\Views\ContratoCobertura\_CtrlUserContratoCobertura.cshtml" />
+    <Content Include="Plantilla\LayoutCotizacion.pdf" />
+    <Content Include="Areas\MembresiaRenovacion\Views\MembresiaRenovacion\Index.cshtml" />
+    <Content Include="Areas\MembresiaRenovacion\Views\MembresiaRenovacion\Create.cshtml" />
+    <Content Include="Areas\Estudio\Views\Estudio\Visualizer.cshtml" />
+    <Content Include="Areas\Material\Views\Material\Visualizer.cshtml" />
+    <Content Include="Areas\Genero\Views\Web.config" />
+    <Content Include="Areas\PaqueteCoberturaDetalle\Views\PaqueteCoberturaDetalle\_CtrlUserCirugiaPaqueteCoberturaDetalleView.cshtml" />
+    <Content Include="Areas\PaqueteCoberturaDetalle\Views\PaqueteCoberturaDetalle\_CtrlUserEstudioPaqueteCoberturaDetalleView.cshtml" />
+    <Content Include="Areas\PaqueteCoberturaDetalle\Views\PaqueteCoberturaDetalle\_CtrlUserMaterialPaqueteCoberturaDetalleView.cshtml" />
+    <Content Include="Areas\PaqueteCoberturaDetalle\Views\PaqueteCoberturaDetalle\_CtrlUserMedicamentoPaqueteCoberturaDetalleView.cshtml" />
+    <Content Include="Areas\PaqueteCoberturaDetalle\Views\PaqueteCoberturaDetalle\_CtrlUserServicioMedicoPaqueteCoberturaDetalleView.cshtml" />
+    <Content Include="Areas\Venta\Views\Venta\_LineaVida.cshtml" />
+    <Content Include="Areas\Membresia\Views\Membresia\_LineaVida.cshtml" />
+    <Content Include="Areas\Cliente\Views\Web.config" />
+    <Content Include="Areas\Cliente\Views\Cliente\Index.cshtml" />
+    <Content Include="Areas\Cliente\Views\Cliente\Edit.cshtml" />
+    <Content Include="Areas\Cliente\Views\Cliente\Delete.cshtml" />
+    <Content Include="Areas\Cliente\Views\Cliente\Create.cshtml" />
+    <Content Include="Areas\EmpresaDocumento\Views\Web.config" />
+    <Content Include="Areas\EmpresaDocumento\Views\EmpresaDocumento\Index.cshtml" />
+    <Content Include="Areas\EmpresaDocumento\Views\EmpresaDocumento\_Create.cshtml" />
+    <Content Include="Areas\EmpresaArchivoTipo\Views\Web.config" />
+    <Content Include="Areas\EmpresaDocumentoTipo\Views\Web.config" />
+    <Content Include="Areas\Empresa\Views\Empresa\_CtrlUserEmpresaCoberturaCondicion.cshtml" />
+    <Content Include="Areas\Estado\Views\Web.config" />
+    <Content Include="Areas\Municipio\Views\Web.config" />
+    <Content Include="Areas\Pais\Views\Web.config" />
+    <Content Include="Areas\ContratoCoberturaPaqueteCondicion\Views\Web.config" />
+    <Content Include="Areas\ContratoCoberturaPaqueteExclusion\Views\Web.config" />
+    <Content Include="Areas\EmpresaTipo\Views\Web.config" />
+    <Content Include="Areas\FormaPago\Views\Web.config" />
+    <Content Include="Areas\FrecuenciaPago\Views\Web.config" />
+    <Content Include="Areas\MetodoPago\Views\Web.config" />
+    <Content Include="Areas\ContratoCoberturaPaqueteCondicion\Views\ContratoCoberturaPaqueteCondicion\_Create.cshtml" />
+    <Content Include="Areas\CoberturaCantidadTipo\Views\Web.config" />
+    <Content Include="Areas\CoberturaCondicionTipo\Views\Web.config" />
+    <Content Include="Areas\CoberturaCopagoTipo\Views\Web.config" />
+    <Content Include="Areas\CoberturaPeriodoTipo\Views\Web.config" />
+    <Content Include="Areas\ContratoCoberturaPaqueteCondicion\Views\ContratoCoberturaPaqueteCondicion\_Edit.cshtml" />
+    <Content Include="Areas\ContratoCoberturaPaqueteExclusion\Views\ContratoCoberturaPaqueteExclusion\_Edit.cshtml" />
+    <Content Include="Areas\ContratoCoberturaPaqueteExclusion\Views\ContratoCoberturaPaqueteExclusion\_Create.cshtml" />
+    <Content Include="Areas\ContratoCoberturaPaqueteExclusion\Views\ContratoCoberturaPaqueteExclusion\_Index.cshtml" />
+    <Content Include="Areas\ClienteTipo\Views\Web.config" />
+    <Content Include="Areas\EmpresaContrato\Views\EmpresaContrato\_CtrlUserEmpresaContactoView.cshtml" />
+    <Content Include="Areas\EmpresaContacto\Views\Web.config" />
+    <Content Include="Areas\EmpresaContrato\Views\EmpresaContrato\Index.cshtml" />
+    <Content Include="Areas\EmpresaDatosFiscales\Views\Web.config" />
+    <Content Include="Areas\ContactoTipo\Views\Web.config" />
+    <Content Include="Areas\EmpresaContacto\Views\EmpresaContacto\_Create.cshtml" />
+    <Content Include="Areas\EmpresaContacto\Views\EmpresaContacto\_Edit.cshtml" />
+    <Content Include="Areas\EmpresaContacto\Views\EmpresaContacto\_CtrlUserEmpresaContactoView.cshtml" />
+    <Content Include="Areas\PersonaMoper\Views\Web.config" />
+    <Content Include="Assets\fonts\glyphicons\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Assets\fonts\glyphicons\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Assets\fonts\glyphicons\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Assets\fonts\glyphicons\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Areas\Venta\Views\Venta\_CancelarVenta.cshtml" />
+    <Content Include="Areas\Venta\Views\Venta\_Delete.cshtml" />
+    <Content Include="Areas\VentaMotivoCancelacionTipo\Views\Web.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\SACMVC.pubxml" />
+    <Content Include="Scripts\helper.ajax.js" />
+    <Content Include="Scripts\helper.var.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Areas\PaqueteCobertura\PaqueteCobertura.js" />
+    <Content Include="Scripts\validaCURP.js" />
+    <Content Include="Scripts\WS_SAI\Seguridad.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_Header_Blank.cshtml" />
+    <Content Include="Views\Shared\_Layout_Blank.cshtml" />
+    <Content Include="Views\Home\SinPermiso.cshtml" />
+    <Content Include="Views\Shared\_HeaderCaja.cshtml" />
+    <Content Include="Views\Shared\_HeaderMembresia.cshtml" />
+    <Content Include="Views\Shared\_HeaderTarifa.cshtml" />
+    <Content Include="Views\Shared\_HeaderVentas.cshtml" />
+    <Content Include="Views\Shared\_HeaderVigencia.cshtml" />
+    <Content Include="Views\Shared\_LayoutCaja.cshtml" />
+    <Content Include="Views\Shared\_LayoutMembresia.cshtml" />
+    <Content Include="Views\Shared\_LayoutTarifa.cshtml" />
+    <Content Include="Views\Shared\_LayoutVentas.cshtml" />
+    <Content Include="Views\Shared\_LayoutVigencia.cshtml" />
+    <Content Include="Views\Shared\_NavigationCaja.cshtml" />
+    <Content Include="Views\Shared\_NavigationMembresia.cshtml" />
+    <Content Include="Views\Shared\_NavigationTarifa.cshtml" />
+    <Content Include="Views\Shared\_NavigationVentas.cshtml" />
+    <Content Include="Views\Shared\_NavigationVigencia.cshtml" />
+    <Content Include="Views\Home\Main.cshtml" />
+    <Content Include="Views\Home\IndexVigencia.cshtml" />
+    <Content Include="Views\Home\IndexMembresia.cshtml" />
+    <Content Include="Views\Home\IndexVentas.cshtml" />
+    <Content Include="Views\Home\IndexTarifa.cshtml" />
+    <Content Include="Views\Home\IndexCaja.cshtml" />
+    <Content Include="Views\Shared\_ModalProgressBar.cshtml" />
+    <Content Include="Views\Shared\_ModalError.cshtml" />
+    <Content Include="Views\Shared\_ModalSuccess.cshtml" />
+    <Content Include="Views\Shared\_ModalBusquedaPersona.cshtml" />
+    <Content Include="Views\Shared\_ModalWarning.cshtml" />
+    <Content Include="Views\Home\SessionExpirada.cshtml" />
+    <Content Include="Views\Home\IndexSQL.cshtml" />
+    <Content Include="Views\Home\LoginJS.cshtml" />
+    <Content Include="Views\Home\ErrorCreatePdf.cshtml" />
+    <Content Include="Views\Home\IndexSQLsoporte.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\AreaNegocio\Models\" />
+    <Folder Include="Areas\AreaNegocio\Views\Shared\" />
+    <Folder Include="Areas\Asociado\Models\" />
+    <Folder Include="Areas\Asociado\Views\Shared\" />
+    <Folder Include="Areas\Cirugia\Models\" />
+    <Folder Include="Areas\Cirugia\Views\Shared\" />
+    <Folder Include="Areas\ClienteTipo\Models\" />
+    <Folder Include="Areas\ClienteTipo\Views\Shared\" />
+    <Folder Include="Areas\Cliente\Models\" />
+    <Folder Include="Areas\Cliente\Views\Shared\" />
+    <Folder Include="Areas\CoberturaCantidadTipo\Models\" />
+    <Folder Include="Areas\CoberturaCantidadTipo\Views\Shared\" />
+    <Folder Include="Areas\CoberturaCondicionTipo\Models\" />
+    <Folder Include="Areas\CoberturaCondicionTipo\Views\Shared\" />
+    <Folder Include="Areas\CoberturaCopagoTipo\Models\" />
+    <Folder Include="Areas\CoberturaCopagoTipo\Views\Shared\" />
+    <Folder Include="Areas\CoberturaPeriodoTipo\Models\" />
+    <Folder Include="Areas\CoberturaPeriodoTipo\Views\Shared\" />
+    <Folder Include="Areas\ContactoTipo\Models\" />
+    <Folder Include="Areas\ContactoTipo\Views\Shared\" />
+    <Folder Include="Areas\ContratoCoberturaPaqueteCondicion\Models\" />
+    <Folder Include="Areas\ContratoCoberturaPaqueteCondicion\Views\Shared\" />
+    <Folder Include="Areas\ContratoCoberturaPaqueteExclusion\Models\" />
+    <Folder Include="Areas\ContratoCoberturaPaqueteExclusion\Views\Shared\" />
+    <Folder Include="Areas\ContratoCoberturaPaquete\Models\" />
+    <Folder Include="Areas\ContratoCoberturaPaquete\Views\Shared\" />
+    <Folder Include="Areas\ContratoCobertura\Models\" />
+    <Folder Include="Areas\ContratoCobertura\Views\Shared\" />
+    <Folder Include="Areas\ContratoProductoPaquete\Models\" />
+    <Folder Include="Areas\ContratoProductoPaquete\Views\Shared\" />
+    <Folder Include="Areas\ContratoProducto\Models\" />
+    <Folder Include="Areas\ContratoProducto\Views\Shared\" />
+    <Folder Include="Areas\ContratoTipo\Models\" />
+    <Folder Include="Areas\ContratoTipo\Views\Shared\" />
+    <Folder Include="Areas\Contrato\Models\" />
+    <Folder Include="Areas\Contrato\Views\Shared\" />
+    <Folder Include="Areas\CotizacionDetalle\Models\" />
+    <Folder Include="Areas\CotizacionDetalle\Views\Shared\" />
+    <Folder Include="Areas\CotizacionProcedimientoDetalle\Models\" />
+    <Folder Include="Areas\CotizacionProcedimientoDetalle\Views\Shared\" />
+    <Folder Include="Areas\CotizacionTipo\Models\" />
+    <Folder Include="Areas\CotizacionTipo\Views\Shared\" />
+    <Folder Include="Areas\Cotizacion\Models\" />
+    <Folder Include="Areas\Cotizacion\Views\Shared\" />
+    <Folder Include="Areas\EmpresaArchivoTipo\Models\" />
+    <Folder Include="Areas\EmpresaArchivoTipo\Views\Shared\" />
+    <Folder Include="Areas\EmpresaContacto\Models\" />
+    <Folder Include="Areas\EmpresaContacto\Views\Shared\" />
+    <Folder Include="Areas\EmpresaContrato\Models\" />
+    <Folder Include="Areas\EmpresaContrato\Views\Shared\" />
+    <Folder Include="Areas\EmpresaDatosFiscales\Models\" />
+    <Folder Include="Areas\EmpresaDatosFiscales\Views\Shared\" />
+    <Folder Include="Areas\EmpresaDocumentoTipo\Models\" />
+    <Folder Include="Areas\EmpresaDocumentoTipo\Views\Shared\" />
+    <Folder Include="Areas\EmpresaDocumento\Models\" />
+    <Folder Include="Areas\EmpresaDocumento\Views\Shared\" />
+    <Folder Include="Areas\EmpresaPlanta\Models\" />
+    <Folder Include="Areas\EmpresaPlanta\Views\Shared\" />
+    <Folder Include="Areas\EmpresaTipo\Models\" />
+    <Folder Include="Areas\EmpresaTipo\Views\Shared\" />
+    <Folder Include="Areas\Empresa\Models\" />
+    <Folder Include="Areas\Empresa\Views\Shared\" />
+    <Folder Include="Areas\Estado\Models\" />
+    <Folder Include="Areas\Estado\Views\Shared\" />
+    <Folder Include="Areas\Estudio\Models\" />
+    <Folder Include="Areas\Estudio\Views\Shared\" />
+    <Folder Include="Areas\FormaPago\Models\" />
+    <Folder Include="Areas\FormaPago\Views\Shared\" />
+    <Folder Include="Areas\FrecuenciaPago\Models\" />
+    <Folder Include="Areas\FrecuenciaPago\Views\Shared\" />
+    <Folder Include="Areas\Genero\Models\" />
+    <Folder Include="Areas\Genero\Views\Shared\" />
+    <Folder Include="Areas\Material\Models\" />
+    <Folder Include="Areas\Material\Views\Shared\" />
+    <Folder Include="Areas\MedicamentoCuadroTipo\Models\" />
+    <Folder Include="Areas\MedicamentoCuadroTipo\Views\Shared\" />
+    <Folder Include="Areas\Medicamento\Models\" />
+    <Folder Include="Areas\Medicamento\Views\Shared\" />
+    <Folder Include="Areas\MembresiaContrato\Models\" />
+    <Folder Include="Areas\MembresiaContrato\Views\Shared\" />
+    <Folder Include="Areas\MembresiaEstatus\Models\" />
+    <Folder Include="Areas\MembresiaEstatus\Views\Shared\" />
+    <Folder Include="Areas\MembresiaPersona\Models\" />
+    <Folder Include="Areas\MembresiaPersona\Views\Shared\" />
+    <Folder Include="Areas\MembresiaRenovacion\Models\" />
+    <Folder Include="Areas\MembresiaRenovacion\Views\Shared\" />
+    <Folder Include="Areas\MembresiaTipo\Models\" />
+    <Folder Include="Areas\MembresiaTipo\Views\Shared\" />
+    <Folder Include="Areas\Membresia\Models\" />
+    <Folder Include="Areas\Membresia\Views\Shared\" />
+    <Folder Include="Areas\MetodoPago\Models\" />
+    <Folder Include="Areas\MetodoPago\Views\Shared\" />
+    <Folder Include="Areas\Municipio\Models\" />
+    <Folder Include="Areas\Municipio\Views\Shared\" />
+    <Folder Include="Areas\Pais\Models\" />
+    <Folder Include="Areas\Pais\Views\Shared\" />
+    <Folder Include="Areas\PaqueteCoberturaDetalle\Models\" />
+    <Folder Include="Areas\PaqueteCoberturaDetalle\Views\Shared\" />
+    <Folder Include="Areas\PaqueteCobertura\Models\" />
+    <Folder Include="Areas\PaqueteCobertura\Views\Shared\" />
+    <Folder Include="Areas\PaqueteDetalle\Models\" />
+    <Folder Include="Areas\PaqueteDetalle\Views\Shared\" />
+    <Folder Include="Areas\PaqueteTipo\Models\" />
+    <Folder Include="Areas\PaqueteTipo\Views\Shared\" />
+    <Folder Include="Areas\Paquete\Models\" />
+    <Folder Include="Areas\Paquete\Views\Shared\" />
+    <Folder Include="Areas\Parentesco\Models\" />
+    <Folder Include="Areas\Parentesco\Views\Shared\" />
+    <Folder Include="Areas\PersonaContrato\Models\" />
+    <Folder Include="Areas\PersonaContrato\Views\Shared\" />
+    <Folder Include="Areas\PersonaMoper\Models\" />
+    <Folder Include="Areas\PersonaMoper\Views\Shared\" />
+    <Folder Include="Areas\Persona\Models\" />
+    <Folder Include="Areas\Persona\Views\Shared\" />
+    <Folder Include="Areas\ProcedimientoDetalle\Models\" />
+    <Folder Include="Areas\ProcedimientoDetalle\Views\Shared\" />
+    <Folder Include="Areas\Procedimiento\Models\" />
+    <Folder Include="Areas\Procedimiento\Views\Shared\" />
+    <Folder Include="Areas\Seguridad\Models\" />
+    <Folder Include="Areas\Seguridad\Views\Shared\" />
+    <Folder Include="Areas\ServicioAdministrativo\Models\" />
+    <Folder Include="Areas\ServicioAdministrativo\Views\Shared\" />
+    <Folder Include="Areas\ServicioMedicoTipo\Models\" />
+    <Folder Include="Areas\ServicioMedicoTipo\Views\Shared\" />
+    <Folder Include="Areas\ServicioMedico\Models\" />
+    <Folder Include="Areas\ServicioMedico\Views\Shared\" />
+    <Folder Include="Areas\ServicioSubrogadoTipo\Models\" />
+    <Folder Include="Areas\ServicioSubrogadoTipo\Views\Shared\" />
+    <Folder Include="Areas\ServicioSubrogado\Models\" />
+    <Folder Include="Areas\ServicioSubrogado\Views\Shared\" />
+    <Folder Include="Areas\Servicio\Models\" />
+    <Folder Include="Areas\Servicio\Views\Shared\" />
+    <Folder Include="Areas\TarifaDetalleDesglose\Models\" />
+    <Folder Include="Areas\TarifaDetalleDesglose\Views\Shared\" />
+    <Folder Include="Areas\TarifaDetalle\Models\" />
+    <Folder Include="Areas\TarifaDetalle\Views\Shared\" />
+    <Folder Include="Areas\Tarifa\Models\" />
+    <Folder Include="Areas\Tarifa\Views\Shared\" />
+    <Folder Include="Areas\UsuarioContrato\Models\" />
+    <Folder Include="Areas\UsuarioContrato\Views\Shared\" />
+    <Folder Include="Areas\Usuario\Models\" />
+    <Folder Include="Areas\Usuario\Views\Shared\" />
+    <Folder Include="Areas\VentaDetalle\Models\" />
+    <Folder Include="Areas\VentaDetalle\Views\Shared\" />
+    <Folder Include="Areas\VentaMotivoCancelacionTipo\Models\" />
+    <Folder Include="Areas\VentaMotivoCancelacionTipo\Views\Shared\" />
+    <Folder Include="Areas\VentaProcedimientoDetalle\Models\" />
+    <Folder Include="Areas\VentaProcedimientoDetalle\Views\Shared\" />
+    <Folder Include="Areas\VentaTipo\Models\" />
+    <Folder Include="Areas\VentaTipo\Views\Shared\" />
+    <Folder Include="Areas\VentaUnitariaDetalleTipo\Models\" />
+    <Folder Include="Areas\VentaUnitariaDetalleTipo\Views\Shared\" />
+    <Folder Include="Areas\VentaUnitariaDetalle\Views\Shared\" />
+    <Folder Include="Areas\VentaUnitariaEspecialDetalle\Views\Shared\" />
+    <Folder Include="Areas\VentaUnitariaEspecial\Views\Shared\" />
+    <Folder Include="Areas\VentaUnitaria\Views\Shared\" />
+    <Folder Include="Areas\Venta\Models\" />
+    <Folder Include="Areas\Venta\Views\Shared\" />
+    <Folder Include="Assets\dataTables\Languages\" />
+    <Folder Include="obj\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Header.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Navigation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\Plugins\animate.css\.editorconfig" />
+    <Content Include="Assets\css\Plugins\animate.css\animate-config.json" />
+    <Content Include="Assets\css\Plugins\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\css\Plugins\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\css\Plugins\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\css\Plugins\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\css\Plugins\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\css\common.scss" />
+    <Content Include="Assets\dataTables\Buttons-1.4.2\css\mixins.scss" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-300\Open-Sans-300.eot" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-300\Open-Sans-300.ttf" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-300\Open-Sans-300.woff" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-300\Open-Sans-300.woff2" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-600\Open-Sans-600.eot" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-600\Open-Sans-600.ttf" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-600\Open-Sans-600.woff" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-600\Open-Sans-600.woff2" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-700\Open-Sans-700.eot" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-700\Open-Sans-700.ttf" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-700\Open-Sans-700.woff" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-700\Open-Sans-700.woff2" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-800\Open-Sans-800.eot" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-800\Open-Sans-800.ttf" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-800\Open-Sans-800.woff" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-800\Open-Sans-800.woff2" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-regular\Open-Sans-regular.eot" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-regular\Open-Sans-regular.ttf" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-regular\Open-Sans-regular.woff" />
+    <Content Include="Assets\fonts\Open-Sans\fonts\Open-Sans-regular\Open-Sans-regular.woff2" />
+    <Content Include="Assets\sass\homer\style.css.map" />
+    <Content Include="Assets\sass\ternium\style.ternium.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SACC.Entidades\SACC.Entidades.csproj">
+      <Project>{ef685fb3-77ce-44da-beb4-f39320d1a165}</Project>
+      <Name>SACC.Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SACC.LogicaNegocio\SACC.LogicaNegocio.csproj">
+      <Project>{60df1fff-9ec9-476f-86b2-c2f82f73eefa}</Project>
+      <Name>SACC.LogicaNegocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SACC.Modelo\SACC.Modelo.csproj">
+      <Project>{899f741f-ad56-4a51-ad61-8f8b596669ab}</Project>
+      <Name>SACC.Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>20699</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:20699/Nova/SistemaMedio/SACC/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\LibSassHost.Native.win-x86.1.1.5\build\LibSassHost.Native.win-x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\LibSassHost.Native.win-x86.1.1.5\build\LibSassHost.Native.win-x86.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

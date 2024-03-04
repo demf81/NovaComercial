@@ -1,0 +1,26 @@
+INSERT INTO PUB.mvt_movigcct
+(
+	mvt_contrat_id,
+	mvt_contrato_id,
+	mvt_fec_mov,
+	mvt_hora_mov,
+	mvt_mot_post,
+	mvt_motivo_id,
+	mvt_orig_vigen,
+	mvt_socio_id,
+	mvt_usuario,
+	mvt_vigencia
+)
+VALUES
+(
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?
+)

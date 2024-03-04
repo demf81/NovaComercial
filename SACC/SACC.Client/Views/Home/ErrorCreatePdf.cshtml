@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Blank.cshtml";
+}
+
+
+<div class="error-container">
+    <i class="fa fa-file-pdf-o fa-5x text-danger "></i>
+
+    <h1>404</h1>
+
+    <strong>Error al generar el pdf de la membresia</strong>
+
+    <p>
+        @ViewBag.Error
+    </p>
+
+    @Html.ActionLink("Regresar", "Login", "Home", new { @class = "btn btn-primary btn-md" })
+</div>

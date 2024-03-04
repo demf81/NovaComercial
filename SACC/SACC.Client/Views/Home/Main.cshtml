@@ -1,0 +1,162 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Blank.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+}
+
+
+<div class="content animate-panel">
+    <div class="row">
+        <div class="col-lg-12 text-center m-t-md">
+            <h2>Bienvenido(a) al @System.Configuration.ConfigurationManager.AppSettings["NombreAplicacion"].ToString()</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        &nbsp;
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 nsw-tile submenu-tiles panelanimado animated-panel zoomIn" id="tblComercial" style="animation-delay: 0.1s;">
+            <div class="hpanel hred contact-panel">
+                <div class="panel-body text-center h-160">
+                    <i class="pe-7s-tools fa-4x"></i>
+                    <a href="@Url.Action("Index", "Home")"><h3 class="m-xs text-danger nsw-tile-text1">Comercial</h3></a>
+                    <small>Haga click aquí para iniciar.</small>
+                </div>
+                <div class="panel-footer contact-footer">
+                    <div class="row">
+                        @*<div class="col-md-4 border-right"> <div class="contact-stat"><span>Empresas: </span> <strong>200</strong></div> </div>*@
+                        @*<div class="col-md-4 border-right"> <div class="contact-stat"><span>Contratos: </span> <strong>300</strong></div> </div>*@
+                        @*<div class="col-md-4"><div class="contact-stat"><span>Views: </span> <strong>400</strong></div> </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 nsw-tile submenu-tiles panelanimado animated-panel zoomIn" id="tblVigencia" style="animation-delay: 0.1s;">
+            <div class="hpanel hyellow contact-panel">
+                <div class="panel-body text-center h-160">
+                    <i class="pe-7s-users fa-4x"></i>
+                    <a href="@Url.Action("IndexVigencia", "Home")"><h3 class="m-xs text-warning nsw-tile-text1">Vigencia</h3></a>
+                    <small>Haga click aquí para iniciar.</small>
+                </div>
+                <div class="panel-footer contact-footer">
+                    <div class="row">
+                        @*<div class="col-md-4 border-right"> <div class="contact-stat"><span>Afiliados: </span> <strong>200</strong></div> </div>*@
+                        @*<div class="col-md-4 border-right"> <div class="contact-stat"><span>Contratos: </span> <strong>300</strong></div> </div>
+                        <div class="col-md-4"><div class="contact-stat"><span>Views: </span> <strong>400</strong></div> </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 nsw-tile submenu-tiles panelanimado animated-panel zoomIn" id="tblMembresia" style="animation-delay: 0.1s;">
+            <div class="hpanel hgreen contact-panel">
+                <div class="panel-body text-center h-160">
+                    <i class="pe-7s-id fa-4x"></i>
+                    <a href="@Url.Action("IndexMembresia", "Home")"><h3 class="m-xs text-success">Membresias</h3></a>
+                    <small>Haga click aquí para iniciar.</small>
+                </div>
+                <div class="panel-footer contact-footer">
+                    <div class="row">
+                        @*<div class="col-md-4 border-right"> <div class="contact-stat"><span>Membresias: </span> <strong>200</strong></div> </div>*@
+                        @*<div class="col-md-4 border-right"> <div class="contact-stat"><span>Contratos: </span> <strong>300</strong></div> </div>
+                        <div class="col-md-4"><div class="contact-stat"><span>Views: </span> <strong>400</strong></div> </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 nsw-tile submenu-tiles panelanimado animated-panel zoomIn" id="tblVentas" style="animation-delay: 0.1s;">
+            <div class="hpanel hblue contact-panel">
+                <div class="panel-body text-center h-160">
+                    <i class="pe-7s-shopbag fa-4x"></i>
+                    <a href="@Url.Action("IndexVentas", "Home")"><h3 class="m-xs text-info">Ventas</h3></a>
+                    <small>Haga click aquí para iniciar.</small>
+                </div>
+                <div class="panel-footer contact-footer">
+                    <div class="row">
+                        @*<div class="col-md-4 border-right"> <div class="contact-stat"><span>Cotizaciones: </span> <strong>200</strong></div> </div>*@
+                        @*<div class="col-md-4 border-right"> <div class="contact-stat"><span>VEntas: </span> <strong>300</strong></div> </div>*@
+                        @*<div class="col-md-4"><div class="contact-stat"><span>Views: </span> <strong>400</strong></div> </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 nsw-tile submenu-tiles panelanimado animated-panel zoomIn" id="tblCostos" style="animation-delay: 0.1s;">
+            <div class="hpanel hred contact-panel">
+                <div class="panel-body text-center h-160">
+                    <i class="pe-7s-graph1 fa-4x"></i>
+                    <a href="@Url.Action("IndexTarifa", "Home")"><h3 class="m-xs text-danger nsw-tile-text1">Tarifas</h3></a>
+                    <small>Haga click aquí para iniciar.</small>
+                </div>
+                <div class="panel-footer contact-footer">
+                    @*<div class="row">
+                        <div class="col-md-4 border-right"> <div class="contact-stat"><span>Empresas: </span> <strong>200</strong></div> </div>
+                        <div class="col-md-4 border-right"> <div class="contact-stat"><span>Contratos: </span> <strong>300</strong></div> </div>
+                        <div class="col-md-4"><div class="contact-stat"><span>Views: </span> <strong>400</strong></div> </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 nsw-tile submenu-tiles panelanimado animated-panel zoomIn" id="tblCaja" style="animation-delay: 0.1s;">
+            <div class="hpanel hyellow contact-panel">
+                <div class="panel-body text-center h-160">
+                    <i class="pe-7s-cash fa-4x"></i>
+                    <a href="@Url.Action("IndexCaja", "Home")"><h3 class="m-xs text-warning nsw-tile-text1">Caja</h3></a>
+                    <small>Haga click aquí para iniciar.</small>
+                </div>
+                <div class="panel-footer contact-footer">
+                    @*<div class="row">
+                        <div class="col-md-4 border-right"> <div class="contact-stat"><span>Empresas: </span> <strong>200</strong></div> </div>
+                        <div class="col-md-4 border-right"> <div class="contact-stat"><span>Contratos: </span> <strong>300</strong></div> </div>
+                        <div class="col-md-4"><div class="contact-stat"><span>Views: </span> <strong>400</strong></div> </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 nsw-tile submenu-tiles panelanimado animated-panel zoomIn" id="tblReportes" style="animation-delay: 0.1s;">
+            <div class="hpanel hgreen contact-panel">
+                <div class="panel-body text-center h-160">
+                    <i class="pe-7s-display1 fa-4x"></i>
+                    <a href="@Url.Action("IndexClubSalud", "Home")"><h3 class="m-xs text-success">Reportes</h3></a>
+                    <small>Haga click aquí para iniciar.</small>
+                </div>
+                <div class="panel-footer contact-footer">
+                    @*<div class="row">
+                        <div class="col-md-4 border-right"> <div class="contact-stat"><span>Empresas: </span> <strong>200</strong></div> </div>
+                        <div class="col-md-4 border-right"> <div class="contact-stat"><span>Contratos: </span> <strong>300</strong></div> </div>
+                        <div class="col-md-4"><div class="contact-stat"><span>Views: </span> <strong>400</strong></div> </div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+
+        @*<div class="col-lg-3 col-md-4 col-sm-6 nsw-tile submenu-tiles panelanimado animated-panel zoomIn" id="tblVentas" style="animation-delay: 0.1s;">
+            <div class="hpanel">
+                <div class="panel-body text-center h-160">
+                    <i class="pe-7s-lock fa-2x"></i>
+                    <a href="@Url.Action("IndexVentas", "Home")"><h3 class="m-xs text-info">Ventas</h3></a>
+                    <small>Haga click aquí para iniciar una venta.</small>
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>*@
+    </div>
+</div>

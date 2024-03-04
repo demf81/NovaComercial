@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <meta charset="UTF-8">
+
+        <script type="text/javascript">
+            function disableBack() {
+                window.history.forward();
+                window.history.forward(-1);
+            }
+
+            setTimeout("disableBack()", 0);
+            window.onunload = function () { null };
+        </script>
+
+
+        <title>SACC</title>
+        <link rel="shortcut icon" type="image/ico" href="~/Assets/images/logo.jpg" />
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+
+        @Styles.Render("~/css/sweetalert")
+        @Styles.Render("~/css/layout")
+        @Styles.Render("~/css/fonts")
+        @Styles.Render("~/css/datatables")
+        @Styles.Render("~/css/select")
+        @RenderSection("Styles", required: false)
+    </head>
+    
+    <body>
+        <!--[if lt IE 7]>
+            <p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Header -->
+        <div id="header">
+            @Html.Partial("_HeaderCaja")
+        </div>
+
+        <!-- Navigation -->
+        <aside id="menu">
+            @Html.Partial("_NavigationCaja")
+        </aside>
+
+        <!-- Main view  -->
+        <div id="wrapper">
+            @RenderBody()
+        </div>
+
+        @Html.Partial("_ModalProgressBar")
+        @Html.Partial("_ModalSuccess")
+        @Html.Partial("_ModalError")
+
+        <!-- Modal Progress bar Start here-->
+        @*<div class="modal fade bs-example-modal-sm" id="pleaseWaitDialog" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            <i class="fa fa-clock-o"></i> Procesando...
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="progress m-t-xs full progress-striped active">
+                            <div style="width: 100%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" class=" progress-bar progress-bar-warning"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <!-- Modal Progress bar ends Here -->
+        <!-- Modal error alert generico -->
+        @*<div class="modal fade hmodal-danger" id="myModalAlertError" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Error</h4>
+                        <small class="font-bold">La aplicaci&oacute;n ha fallado consulte a su administrador.</small>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert-container">
+                            <i class="pe-7s-close-circle text-danger big-icon"></i>
+                            <h1 id="txtAlertError_StatusCode">Error Inesperado</h1>
+                            <strong id="txtAlertError_StatusText"></strong>
+                            <p id="txtAlertError_Text"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <!-- Modal error alert generico -->
+        <!-- Modal success alert generico -->
+        @*<div class="modal fade hmodal-success" id="myModalAlertSuccess" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="color-line"></div>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Mensaje</h4>
+                        <small class="font-bold">La operaci&oacute;n ha sido completada.</small>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert-container">
+                            <i class="pe-7s-like2 text-success big-icon"></i>
+                            <h1 id="txtAlertSuccess_Status">Acción Completada</h1>
+                            <strong id="txtAlertSuccess_StatusText"></strong>
+                            <p id="txtAlertSuccess_Text"></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+        <!-- Modal success alert generico -->
+
+
+        @Html.Hidden("txtUrlPrincipal", @System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString())
+
+
+        <section id="scripts-section">
+            @Scripts.Render("~/js/layout")
+            @Scripts.Render("~/js/helper")
+            @Scripts.Render("~/js/datatables")
+            @Scripts.Render("~/js/select")
+            @Scripts.Render("~/js/sweetalert")
+            @Scripts.Render("~/js/switch")
+            @Scripts.Render("~/js/CtrlUserPersona")
+            @Scripts.Render("~/js/CtrlUserContratoCobertura")
+            @RenderSection("Scripts", required: false)
+        </section>
+    </body>
+</html>

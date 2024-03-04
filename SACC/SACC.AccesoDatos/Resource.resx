@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="InsertaPaquete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\InsertaPaquete.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spcct_titulares_Actualizar_Baja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spcct_titulares_Actualizar_Baja.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spcct_titulares_Actualizar_Reactivacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spcct_titulares_Actualizar_Reactivacion.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spcct_titulares_Consultar_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spcct_titulares_Consultar_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spcct_titulares_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spcct_titulares_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spccu_usuarios_Actualizar_Baja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spccu_usuarios_Actualizar_Baja.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spccu_usuarios_Actualizar_Reactivacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spccu_usuarios_Actualizar_Reactivacion.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spccu_usuarios_ConsultarPorNumeroSocio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spccu_usuarios_ConsultarPorNumeroSocio.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spccu_usuarios_Consultar_Count_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spccu_usuarios_Consultar_Count_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spccu_usuarios_Consultar_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spccu_usuarios_Consultar_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spccu_usuarios_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spccu_usuarios_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spcl_colonias_Consultar_PorNombre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spcl_colonias_Consultar_PorNombre.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spco_contratos_Consultar_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spco_contratos_Consultar_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spec_edocivil_Consultar_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spec_edocivil_Consultar_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sped_estados_Consultar_PorNombre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sped_estados_Consultar_PorNombre.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spmu_municipios_Consultar_PorNombre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spmu_municipios_Consultar_PorNombre.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spmvst_movigsercct_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spmvst_movigsercct_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spmvsu_movigserccu_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spmvsu_movigserccu_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spmvt_movigcct_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spmvt_movigcct_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spmvu_movigccu_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spmvu_movigccu_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sppa_pais_ConsultarPorNombre" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sppa_pais_ConsultarPorNombre.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spps_paqserv_Consultar_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spps_paqserv_Consultar_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spsc_servdecto_ConsultarPorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spsc_servdecto_ConsultarPorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spsd_serdepaq_Consultar_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spsd_serdepaq_Consultar_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spsd_serdepaq_Consultar_PorSocioClaveFamId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spsd_serdepaq_Consultar_PorSocioClaveFamId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spsd_serdepaq_Consultar_PorSocioId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spsd_serdepaq_Consultar_PorSocioId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spst_serdetit_Actualizar_Baja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spst_serdetit_Actualizar_Baja.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spst_serdetit_Actualizar_Reactivacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spst_serdetit_Actualizar_Reactivacion.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spst_serdetit_Consultar_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spst_serdetit_Consultar_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spst_serdetit_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spst_serdetit_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spsu_serdeusu_Actualizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spsu_serdeusu_Actualizar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spsu_serdeusu_Actualizar_Baja" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spsu_serdeusu_Actualizar_Baja.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spsu_serdeusu_Actualizar_Reactivacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spsu_serdeusu_Actualizar_Reactivacion.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spsu_serdeusu_Consultar_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spsu_serdeusu_Consultar_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spsu_serdeusu_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spsu_serdeusu_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spti_titulares_Actualizar_GopFam_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spti_titulares_Actualizar_GopFam_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spti_titulares_Actualizar_Todo_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spti_titulares_Actualizar_Todo_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spti_titulares_Consultar_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spti_titulares_Consultar_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spti_titulares_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spti_titulares_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sptmu_usuarios_ConsultarPorCurp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sptmu_usuarios_ConsultarPorCurp.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sptmu_usuarios_Consultar_Maximo_Folio" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sptmu_usuarios_Consultar_Maximo_Folio.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sptmu_usuarios_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sptmu_usuarios_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="sptu_tipoUsuario_Consultar_PorTipoId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\sptu_tipoUsuario_Consultar_PorTipoId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spus_usuarios_Actualizar_Todo_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spus_usuarios_Actualizar_Todo_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spus_usuarios_ConsultaPorCURP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spus_usuarios_ConsultaPorCURP.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spus_usuarios_ConsultaPorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spus_usuarios_ConsultaPorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spus_usuarios_Consultar_PorId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spus_usuarios_Consultar_PorId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spus_usuarios_Consultar_PorSIASS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spus_usuarios_Consultar_PorSIASS.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spus_usuarios_Consultar_PorSocioClaveFamId" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spus_usuarios_Consultar_PorSocioClaveFamId.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="spus_usuarios_Insertar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\spus_usuarios_Insertar.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+</root>

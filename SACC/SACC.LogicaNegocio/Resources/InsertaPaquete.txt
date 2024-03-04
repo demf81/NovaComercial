@@ -1,0 +1,1 @@
+ALTER TABLE dbo.PersonaContrato ALTER COLUMN [EstatusId] SMALLINT NOT NULL;

@@ -1,0 +1,47 @@
+﻿@using PortalEmpresa.Client.Helpers
+
+
+<div id="navigation">
+    <div class="profile-picture">
+        @*<a href="@Url.Action("Index", "Home", new { Area = "" }, null)">
+            <img src="~/Images/profile.jpg" class="img-circle m-b" alt="logo">
+            <i class="fa fa-user fa-5x"></i>
+        </a>*@
+
+        <div class="stats-label text-color">
+            <span class="font-extra-bold font-uppercase"></span>
+        </div>
+    </div>
+
+    <ul class="nav" id="side-menu">
+        <li class="@Html.IsSelected(controller: "Home")">
+            <a href="@Url.Action("Index", "Home", new { Area = "" }, null)"> <span class="nav-label">Inicio</span> </a>
+        </li>
+        <li class="@Html.IsSelected(controller: "Catalogo")">
+            <a href="#"><span class="nav-label">Cat&aacute;logos</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.IsSelected(controller: "Persona", action: "Index")"><a href="@Url.Action("Index", "Persona", new { Area = "Persona" }, null)">Poblaci&oacute;n</a></li>
+            </ul>
+        </li>
+        @*<li class="">
+            <a href="#"><span class="nav-label">Servicios</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class=""><a href="@Url.Action("Index", "Servicio"     , new { Area = "Servicio" }     , null)">Asignaci&oacute;n</a></li>
+                <li class=""><a href="@Url.Action("Index", "Checkup"      , new { Area = "Checkup" }      , null)">Programaci&oacute;n de Checkup</a></li>
+                <li class=""><a href="@Url.Action("Index", "ExamenIngreso", new { Area = "ExamenIngreso" }, null)">Ex&aacute;men de Ingreso</a></li>
+            </ul>
+        </li>*@
+        @*<li class="">
+            <a href="#"><span class="nav-label">Seguridad</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class=""><a href="@Url.Action("User", "Seguridad", new { Area = "Seguridad" }, null)">Usuarios</a></li>
+            </ul>
+        </li>*@
+        <li class="@Html.IsSelected(controller: "Seguridad")">
+            <a href="@Url.Action("Perfil", "Seguridad", new { Area = "Seguridad" }, null)"> <span class="nav-label">Mi Perfil</span> </a>
+        </li>
+        <li class="">
+            <a href="@Url.Action("Logout", "Home", new { Area = "" }, null)"> <span class="nav-label">Cerrar Sesi&oacute;n</span> </a>
+        </li>
+    </ul>
+</div>

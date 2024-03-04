@@ -1,0 +1,5 @@
+SELECT
+	cl_colonia_id
+FROM PUB.cl_colonias
+WHERE
+	cl_nombre = ?

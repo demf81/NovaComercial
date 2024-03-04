@@ -1,0 +1,5 @@
+SELECT
+	*
+FROM pub.ps_paqserv
+WHERE
+	ps_paquete_id = ?

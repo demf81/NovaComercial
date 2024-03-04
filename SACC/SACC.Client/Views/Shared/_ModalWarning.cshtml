@@ -1,0 +1,41 @@
+﻿<!-- Modal warning alert generico -->
+<div class="modal fade hmodal-warning" id="myModalAlertWarning" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header">
+                <h4 class="modal-title">Advertencia</h4>
+                <small class="font-bold">La aplicaci&oacute;n ha fallado consulte a su administrador.</small>
+            </div>
+            <div class="modal-body">
+                <div class="alert-container">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <i class="pe-7s-attention text-warning big-icon"></i>
+                        </div>
+                        <div class="col-sm-10">
+                            <br /><br />
+                            <h1 id="txtAlertWarning_StatusCode">Error</h1>
+                        </div>
+                    </div>
+                    <p id="txtAlertWarning_Text"></p>
+                </div>
+                <br />
+                <p>
+                    <a class="btn btn-warning btn-xs" data-toggle="collapse" href="#collapseWarning" aria-expanded="false" aria-controls="collapseWarning">
+                        Ver Detlle...
+                    </a>
+                </p>
+                <div class="collapse" id="collapseWarning">
+                    <div class="card card-block">
+                        <strong id="txtAlertWarning_StatusText"></strong>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal warning alert generico -->

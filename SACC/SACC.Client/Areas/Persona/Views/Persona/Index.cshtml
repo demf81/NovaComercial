@@ -1,0 +1,144 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+                $("#lblNombre").html('@TempData["lblNombre"]');
+                $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Genero/Genero.js"   asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Persona/Persona.js" asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li class="active"><span>Poblaci&oacute;n </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Poblaci&oacute;n</h2>
+            <small>Cat&aacute;logo de Personas.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowBusqueda">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Opciones de B&uacute;squeda
+                </div>
+
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Estatus</label>
+                            <div class="col-sm-10">
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="1" class="i-checks" />
+                                    <label>Activo</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="2" class="i-checks" />
+                                    <label>Inactivo</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="-1" class="i-checks" checked="checked" />
+                                    <label>Todos</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">No. Socio</label>
+                            <div class="col-sm-10 col-lg-2">
+                                <input type="text" id="txtNumSocio" name="txtNumSocio" class="form-control input-sm" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="NumSocio" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Cve. Familiar</label>
+                            <div class="col-sm-10 col-lg-1">
+                                <input type="text" id="txtClaveFamiliar" name="txtClaveFamiliar" class="form-control input-sm" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="ClaveFamiliar" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="txtNombre" name="txtNombre" class="form-control input-sm" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Nombre" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Curp</label>
+                            <div class="col-sm-10 col-lg-2">
+                                <input type="text" id="txtCurp" name="txtCurp" class="form-control input-sm" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Curp" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">G&eacute;nero</label>
+                            <div class="col-sm-10 col-lg-5">
+                                <select id="ddlGeneroId" class="form-control input-sm"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn btn-primary btn-sm ladda-button ladda-button-buscar" data-style="expand-right" onclick="Persona.buscar();">Buscar</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-default btn-sm ladda-button ladda-button-limpiar" data-style="expand-right" onclick="Persona.limpiar();">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel hnovagrey">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-primary btn-sm ladda-button ladda-button-create" data-style="expand-right" onclick="Persona.redirecciona('PERSONA_CREATE')">Agregar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm ladda-button ladda-button-importacion" data-style="expand-right" onclick="Persona.ProcesaGuion80();">Procesa Personas-80</button>
+                    @*<button class="btn btn-default btn-sm ladda-button ladda-button-importacion" data-style="expand-right" onclick="Persona.ImportacionBajoDemanda();">Importacion Bajo Demanda</button>*@
+                </div>
+
+                <div class="panel-body">
+                    <table id="dgDatosPersona" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorPersona" value="PERSONA_INDEX" placeholder="APUNTADOR" />

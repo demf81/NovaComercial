@@ -1,0 +1,174 @@
+﻿@{ Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Persona/Persona.js" asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li><span>Poblaci&oacute;n </span></li>
+                    <li class="active"><span>Editar </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Poblaci&oacute;n</h2>
+            <small>Cat&aacute;logo de Personas.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-success btn-sm" onclick="Persona.actualizar()">Actualizar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="Persona.redirecciona('PERSONA_INDEX')">Regresar</button>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div id="rootwizard" class="tabbable">
+                            <ul>
+                                <li><a href="#tab1" data-toggle="tab">Datos Generales</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Folio</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtPersonaId" name="txtPersonaId" class="form-control input-sm" , readonly="readonly" value="@ViewBag.PersonaId" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PersonaId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">CURP</label>
+                                                        <div class="col-sm-10 col-lg-3">
+                                                            <input type="text" id="txtCurp" name="txtCurp" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Curp" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Recien Nacido</label>
+                                                        <div class="col-sm-10 col-lg-3">
+                                                            <div class="checkbox checkbox-success i-checks">
+                                                                <input id="chkRecienNacido" name="chkRecienNacido" type="checkbox">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Extranjero</label>
+                                                        <div class="col-sm-10 col-lg-3">
+                                                            <div class="checkbox checkbox-success i-checks">
+                                                                <input id="chkExtranjero" name="chkExtranjero" type="checkbox">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Nombre</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="txtNombre" name="txtNombre" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Nombre" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Apellido Paterno</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="txtPaterno" name="txtPaterno" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Paterno" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Apellido Materno</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="txtMaterno" name="txtMaterno" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Materno" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Genero</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="radio radio-inline">
+                                                                <input type="radio" id="rbGeneroId" name="rbGeneroId" value="1" class="i-checks" />
+                                                                <label>Masculino</label>
+                                                            </div>
+
+                                                            <div class="radio radio-inline">
+                                                                <input type="radio" id="rbGeneroId" name="rbGeneroId" value="0" class="i-checks" />
+                                                                <label>Femenino</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Fecha de Nacimiento</label>
+                                                        <div class="col-sm-10 col-lg-3">
+                                                            <div class="input-group date">
+                                                                <input class="form-control input-sm" id="dtpFechaNacimiento" name="dtpFechaNacimiento" readonly="readonly" />
+                                                                <span class="input-group-addon input-sm btn-sm"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="FechaNacimiento" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <hr class="solid">
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Estatus</label>
+                                                        <div class="col-sm-10">
+                                                            <label class="radio radio-inline">
+                                                                <input type="radio" class="i-checks" id="rbEstatusId" name="rbEstatusId" value="1" /> Activo
+                                                            </label>
+                                                            <label class="radio radio-inline">
+                                                                <input type="radio" class="i-checks" id="rbEstatusId" name="rbEstatusId" value="2" /> Inactivo
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorPersona" value="PERSONA_EDIT" placeholder="APUNTADOR" />

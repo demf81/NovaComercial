@@ -1,0 +1,29 @@
+﻿<style type="text/css">
+    .fixed-table-body {
+        height: 230px;
+    }
+</style>
+
+
+<div role="form" class="form-horizontal">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="txtCtrlUserBusqueadaItemDescripcion" name="txtCtrlUserBusqueadaItemDescripcion" class="form-control input-sm" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CtrlUserBusqueadaItemDescripcion" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-primary btn-sm" onclick="ContratoCoberturaPaqueteExclusion.buscar($('#txtCtrlUserBusqueadaItemDescripcion').val())">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table id="dgDatosCtrlUserContratoCoberturaPaqueteExclusion" data-height="280" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="false"></table>

@@ -1,0 +1,488 @@
+﻿@model SACC.Client.Areas.VentaUnitariaEspecial.Models.VentaUnitariaEspecialModel
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/VentaUnitariaEspecial/VentaUnitariaEspecial.js"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Asociado/Asociado.js"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/ContratoProductoPaquete/CtrlUserContratoProductoPaquete.js"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Admisi&oacute;n </span></li>
+                    <li><span>Venta Unitaria Especial</span></li>
+                    <li class="active"><span>Alta </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Venta Unitaria Especial</h2>
+            <small>Generador de Ventas Unitarias con n&uacute;mero de socio.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="false"> Datos Generales</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            <div class="col-lg-12">
+                                <div id="rootwizard" class="tabbable">
+                                    <ul>
+                                        <li><a href="#tab1" data-toggle="tab">Paso 1 - Selecci&oacute;n de Socio</a></li>
+                                        <li><a href="#tab2" data-toggle="tab">Paso 2 - Seleccion de Empresa Planta</a></li>
+                                        <li><a href="#tab3" data-toggle="tab">Paso 3 - Selecci&oacute;n de Contrato</a></li>
+                                        <li><a href="#tab4" data-toggle="tab">Paso 4 - Detalle</a></li>
+                                        <li><a href="#tab5" data-toggle="tab">Paso 5 - Finalizar</a></li>
+                                    </ul>
+
+                                    <div class="tab-content">
+                                        <div class="tab-pane" id="tab1">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div role="form" class="form-horizontal">
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.wizard_txtPersonaId, new { @class = "col-sm-2 control-label" })
+                                                            <div class="col-sm-10 col-lg-2">
+                                                                @Html.TextBoxFor(m => m.wizard_txtPersonaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                @Html.ValidationMessageFor(m => m.wizard_txtPersonaId, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.wizard_txtNumSocio, new { @class = "col-sm-2 control-label" })
+                                                            <div class="col-sm-10 col-lg-2">
+                                                                @Html.TextBoxFor(m => m.wizard_txtNumSocio, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                @Html.ValidationMessageFor(m => m.wizard_txtNumSocio, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.wizard_txtNombre, new { @class = "col-sm-2 control-label" })
+                                                            <div class="col-sm-10">
+                                                                @Html.TextBoxFor(m => m.wizard_txtNombre, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                @Html.ValidationMessageFor(m => m.wizard_txtNombre, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group form-group-bottom">
+                                                            <div class="col-sm-8 col-sm-offset-2">
+                                                                <button onclick="javascript:AbreModalAfiliado()" class="btn btn-primary btn-sm">Agregar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="tab-pane" id="tab2">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div role="form" class="form-horizontal">
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.wizard_EmpresaPlantaId, new { @class = "col-sm-2 control-label" })
+                                                            <div class="col-sm-10 col-lg-5">
+                                                                @Html.DropDownListFor(m => m.wizard_EmpresaPlantaId, Model.EmpresaPlantas, new { @class = "form-control input-sm select2-chosen" })
+                                                                @Html.ValidationMessageFor(m => m.wizard_EmpresaPlantaId, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="tab-pane" id="tab3">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div role="form" class="form-horizontal">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-2 control-label">&nbsp;</label>
+                                                            <div class="col-sm-10 col-lg-6">
+                                                                <label id="lblNombreEdad">Dan Menchaca</label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.wizard_ContratoId, new { @class = "col-sm-2 control-label" })
+                                                            <div class="col-sm-10 col-lg-5">
+                                                                @Html.DropDownListFor(m => m.wizard_ContratoId, Model.Contratos, new { @class = "form-control input-sm" })
+                                                                @Html.ValidationMessageFor(m => m.wizard_ContratoId, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.wizard_ContratoProductoId, new { @class = "col-sm-2 control-label" })
+                                                            <div class="col-sm-10 col-lg-5">
+                                                                @Html.DropDownListFor(m => m.wizard_ContratoProductoId, Model.Productos, new { @class = "form-control input-sm" })
+                                                                @Html.ValidationMessageFor(m => m.wizard_ContratoProductoId, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.wizard_PaqueteId, new { @class = "col-sm-2 control-label" })
+                                                            <div class="col-sm-10 col-lg-5">
+                                                                @Html.DropDownListFor(m => m.wizard_PaqueteId, Model.Paquetes, new { @class = "form-control input-sm" })
+                                                                @Html.ValidationMessageFor(m => m.wizard_PaqueteId, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="tab-pane" id="tab4">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div role="form" class="form-horizontal">
+                                                        <div class="form-group">
+                                                            @Html.LabelFor(m => m.wizard_txtFechaVigencia, new { @class = "col-sm-2 control-label" })
+                                                            <div class="col-sm-10 col-lg-3">
+                                                                <div class="input-group date">
+                                                                    @Html.TextBoxFor(m => m.wizard_txtFechaVigencia, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                    <span class="input-group-addon input-sm btn-sm"><i class="fa fa-calendar"></i></span>
+                                                                </div>
+                                                                @Html.ValidationMessageFor(m => m.wizard_txtFechaVigencia, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            
+                                                        </div>
+
+                                                        <div class="content animate-panel">
+                                                            <table id="dgDatosPaqueteDetalle" data-height="280" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th data-field="CampoComplemento_ServicioDescripcion"><span>Descripci&oacute;n</span></th>
+                                                                        <th data-field="CampoComplemento_ServicioTipoDescripcion"><span>Tipo</span></th>
+                                                                        <th data-field="Cantidad" data-align="center" data-formatter="CantidadFormatter"><span>Cantidad</span></th>
+                                                                        <th data-field="Amparado" data-align="center" data-formatter="AmparadoFormatter"><span>Amparado</span></th>
+                                                                    </tr>
+                                                                </thead>
+                                                            </table>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="tab-pane" id="tab5">
+                                            <div class="col-lg-12">
+                                                <div class="row">
+                                                    <div role="form" class="form-horizontal">
+                                                        <div class="normalheader transition animated fadeIn">
+                                                            <div class="hpanel">
+                                                                <div class="panel-body resumen">
+                                                                    <h2 class="font-light m-b-xs">Resumen de Venta</h2>
+                                                                    <small>Favor de validar las condiciones de venta antes de guardar.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="content animate-panel">
+                                                            <div class="row projects">
+                                                                <div class="col-lg-12 animated-panel zoomIn" style="animation-delay: 0.5s;">
+                                                                    <div class="hpanel hyellow">
+                                                                        <div class="panel-body">
+                                                                            <div class="row">
+                                                                                <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                                                                    <h4><a href="">Persona</a></h4>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-5">
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.PersonaId, new { @class = "col-sm-4 control-label" })
+                                                                                                <div class="col-sm-8">
+                                                                                                    @Html.TextBoxFor(m => m.PersonaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                                                    @Html.ValidationMessageFor(m => m.PersonaId, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-7">
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                                                                                <div class="col-sm-10">
+                                                                                                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                                                    @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                                <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                                                                    <h4><a href=""> Contratante</a></h4>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-5">
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.EmpresaId, new { @class = "col-sm-4 control-label" })
+                                                                                                <div class="col-sm-8">
+                                                                                                    @Html.TextBoxFor(m => m.EmpresaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                                                    @Html.ValidationMessageFor(m => m.EmpresaId, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-7">
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.Empresa, new { @class = "col-sm-2 control-label" })
+                                                                                                <div class="col-sm-10">
+                                                                                                    @Html.TextBoxFor(m => m.Empresa, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                                                    @Html.ValidationMessageFor(m => m.Empresa, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                                <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                                                                    <h4><a href=""> Contrato</a></h4>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-5">
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.ContratoId, new { @class = "col-sm-4 control-label" })
+                                                                                                <div class="col-sm-8">
+                                                                                                    @Html.TextBoxFor(m => m.ContratoId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                                                    @Html.ValidationMessageFor(m => m.ContratoId, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-7">
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.Contrato, new { @class = "col-sm-2 control-label" })
+                                                                                                <div class="col-sm-10">
+                                                                                                    @Html.TextBoxFor(m => m.Contrato, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                                                    @Html.ValidationMessageFor(m => m.Contrato, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                                <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                                                                    <h4><a href=""> Descripci&oacute;n</a></h4>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-5">
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.FechaVigencia, new { @class = "col-sm-4 control-label" })
+                                                                                                <div class="col-sm-8">
+                                                                                                    @Html.TextBoxFor(m => m.FechaVigencia, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                                                    @Html.ValidationMessageFor(m => m.FechaVigencia, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="col-md-7">
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.VentaUnitariaDescripcion, new { @class = "col-sm-2 control-label" })
+                                                                                                <div class="col-sm-10">
+                                                                                                    @Html.TextBoxFor(m => m.VentaUnitariaDescripcion, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                                                                    @Html.ValidationMessageFor(m => m.VentaUnitariaDescripcion, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                                <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                                                                    <h4><a href=""> Items</a></h4>
+
+                                                                                    <table id="dgDatosResumen" data-height="300" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+                                                                                        <thead>
+                                                                                            <tr>
+                                                                                                <th data-field="VentaUnitariaDetalleId"     data-visible="false"                                                             ><span>VentaUnitariaDetalleId    </span></th>
+                                                                                                <th data-field="VentaUnitariaId"            data-visible="false"                                                             ><span>VentaUnitariaId           </span></th>
+                                                                                                <th data-field="VentaUnitariaDetalleTipoId" data-visible="false"                                                             ><span>VentaUnitariaDetalleTipoId</span></th>
+                                                                                                <th data-field="PaqueteCoberturaId"         data-visible="false"                                                             ><span>PaqueteCoberturaId        </span></th>
+                                                                                                <th data-field="itemId"                     data-visible="false"                                                             ><span>ArticuloId                </span></th>
+                                                                                                <th data-field="ArticuloDescripcion"                             data-align="left"                                           ><span>Descripci&oacute;n        </span></th>
+                                                                                                <th data-field="Cantidad"                                        data-align="center" data-editable="true"                    ><span>Cantidad                  </span></th>
+                                                                                                <th data-field="Precio"                                          data-align="right"  data-formatter="priceFormatter"         ><span>Precio ($)                </span></th>
+                                                                                                <th data-field="Subtotal"                                        data-align="right"  data-formatter="priceFormatter"         ><span>SubTotal ($)              </span></th>
+                                                                                                <th data-field="Amparado"                                        data-align="center" data-formatter="AmparadoFormatter"      ><span>Amparado                  </span></th>
+                                                                                                <th data-formatter="operateDeleteDetalleFormatter"               data-align="center" data-events="operateDeleteDetalleEvents"><span>                          </span></th>
+                                                                                            </tr>
+                                                                                        </thead>
+                                                                                    </table>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                                <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                                                                    <h4><a href=""> Condiciones de Venta</a></h4>
+                                                                                    <div class="row">
+                                                                                        <div class="col-md-5">
+                                                                                            <div class="form-group">
+                                                                                                @Html.Label(" ", new { @class = "col-sm-4 control-label" })
+                                                                                                <div class="col-sm-8">
+                                                                                                    <div class="checkbox">
+                                                                                                        @Html.CheckBoxFor(m => m.EsquemaPrePago, new { @class = "i-checks", @disabled = "disabled" }) &nbsp; Esquema de PrePago
+                                                                                                    </div>
+                                                                                                    @Html.ValidationMessageFor(m => m.EsquemaPrePago, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="form-group">
+                                                                                                @Html.Label(" ", new { @class = "col-sm-4 control-label" })
+                                                                                                <div class="col-sm-8">
+                                                                                                    <div class="checkbox">
+                                                                                                        @Html.CheckBoxFor(m => m.CobroAnticipado, new { @class = "i-checks", @disabled = "disabled" }) &nbsp; Aplica Cobro Anticipado
+                                                                                                    </div>
+                                                                                                    @Html.ValidationMessageFor(m => m.CobroAnticipado, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.PorcentajeUtilidadSobreTarifa, new { @class = "col-sm-4 control-label" })
+                                                                                                <div class="col-sm-8">
+                                                                                                    <div class="input-group">
+                                                                                                        @Html.TextBoxFor(m => m.PorcentajeUtilidadSobreTarifa, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                                                                        <span class="input-group-addon">%</span>
+                                                                                                    </div>
+                                                                                                    @Html.ValidationMessageFor(m => m.PorcentajeUtilidadSobreTarifa, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.PorcentajeCopagoContratante, new { @class = "col-sm-4 control-label" })
+                                                                                                <div class="col-sm-8">
+                                                                                                    <div class="input-group">
+                                                                                                        @Html.TextBoxFor(m => m.PorcentajeCopagoContratante, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                                                                        <span class="input-group-addon">%</span>
+                                                                                                    </div>
+                                                                                                    @Html.ValidationMessageFor(m => m.PorcentajeCopagoContratante, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                            <div class="form-group">
+                                                                                                @Html.LabelFor(m => m.PorcentajeDescuentoSobreTarifa, new { @class = "col-sm-4 control-label" })
+                                                                                                <div class="col-sm-8">
+                                                                                                    <div class="input-group">
+                                                                                                        @Html.TextBoxFor(m => m.PorcentajeDescuentoSobreTarifa, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                                                                        <span class="input-group-addon">%</span>
+                                                                                                    </div>
+                                                                                                    @Html.ValidationMessageFor(m => m.PorcentajeDescuentoSobreTarifa, "", new { @class = "text-danger" })
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <div class="row">
+                                                                                <div class="col-sm-12 col-sm-offset-2 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                                                                    <button class="btn btn-success btn-sm" onclick="javascript:GuardaVentaUnitariaEspecial();">Guardar</button>
+                                                                                        
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <div class="panel-footer">
+                                                                            <div class="form-group">
+                                                                                @Html.LabelFor(m => m.Total, new { @class = "col-sm-1 control-label" })
+                                                                                <div class="col-sm-10 col-lg-4">
+                                                                                    <div class="input-group">
+                                                                                        <span class="input-group-addon">$</span>
+                                                                                        @Html.TextBoxFor(m => m.Total, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                                                    </div>
+                                                                                    @Html.ValidationMessageFor(m => m.Total, "", new { @class = "text-danger" })
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @*<br />*@
+                                        <ul class="pager wizard">
+                                            <li class="previous"><a href="#">Anterior</a></li>
+                                            <li class="next"><a href="#">Siguiente</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalAsociado" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Selecci&oacute;n de Socio</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserAsociado", "Asociado", new { Area = "Asociado" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button onclick="javascript:AgregarAsociado()" class="btn btn-primary btn-sm">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="modal fade" id="myModalAddPaquete" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Selecci&oacute;n de Paquete</h4>
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserContratoProductoPaquete", "ContratoProductoPaquete", new { Area = "ContratoProductoPaquete" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button onclick="javascript:AgregarPaquete()" class="btn btn-primary btn-sm">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>*@

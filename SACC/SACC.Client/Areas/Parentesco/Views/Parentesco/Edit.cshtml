@@ -1,0 +1,109 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMembresia.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    }
+
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Parentesco/Parentesco.js"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li><span>Tipo de Membresia </span></li>
+                    <li class="active"><span>Editar </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Tipo de Membresia</h2>
+            <small>Cat&aacute;logo de Tipo de Membresia.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1">Datos Generales</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            <div role="form" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Folio</label>
+                                    <div class="col-sm-10 col-lg-2">
+                                        <input type="text" id="txtParentescoId" name="txtParentescoId" class="form-control input-sm" , readonly="readonly" value="@ViewBag.ParentescoId" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="ParentescoId" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" id="txtParentescoDescripcion" class="form-control input-sm" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="ParentescoDescripcion" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Clave Familiar Inicio</label>
+                                    <div class="col-sm-10 col-lg-2">
+                                        <input type="text" id="txtClaveFamiliarInicio" class="form-control input-sm" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="ClaveFamiliarInicio" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Clave Familiar Fin</label>
+                                    <div class="col-sm-10 col-lg-2">
+                                        <input type="text" id="txtClaveFamiliarFin" class="form-control input-sm" />
+                                        <span class="field-validation-valid text-danger" data-valmsg-for="ClaveFamiliarFin" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Estatus</label>
+                                    <div class="col-sm-10">
+                                        <label class="radio radio-inline">
+                                            <input type="radio" class="i-checks" id="rbEstatusId" name="rbEstatusId" value="1" /> Activo
+                                        </label>
+                                        <label class="radio radio-inline">
+                                            <input type="radio" class="i-checks" id="rbEstatusId" name="rbEstatusId" value="2" /> Inactivo
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group form-group-bottom">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <button class="btn btn-primary btn-sm" onclick="Parentesco.actualizar();">Guardar</button>
+
+                                        <button class="btn btn-default btn-sm" onclick="Parentesco.redirecciona('PARENTESCO_INDEX')">Regresar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorParentesco" value="PARENTESCO_EDIT" placeholder="APUNTADOR" />

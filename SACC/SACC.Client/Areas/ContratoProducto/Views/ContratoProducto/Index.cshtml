@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/ContratoProducto/ContratoProducto.js"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Configuraci&oacute;n </span></li>
+                    <li><span>Contrato </span></li>
+                    <li class="active"><span>Producto </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Contrato Producto</h2>
+            <small>Asignacion de Productos.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content contentPrimario animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-default btn-sm" onclick="ContratoProducto.redirecciona('CONTRATO_INDEX');">Regresar</button>
+                </div>
+
+                <div class="alert alert-warning">
+                    <h4>Datos del Contrato</h4>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div role="form" class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Folio</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="txtContratoId" name="txtContratoId" class="form-control input-sm" , readonly="readonly" value="@ViewBag.ContratoId" />
+                                                <span class="field-validation-valid text-danger" data-valmsg-for="ContratoId" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Contrato</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="txtContratoDescripcion" name="txtContratoDescripcion" class="form-control input-sm" , readonly="readonly" value="@ViewBag.ContratoDescripcion" />
+                                                <span class="field-validation-valid text-danger" data-valmsg-for="ContratoDescripcion" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content contentPrimario animate-panel">
+    <div class="row rowTabDatosGeneralesSecundario">
+        <div class="col-lg-12">
+            <div class="hpanel hnovagrey">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button onclick="ContratoProducto.redirecciona('CONTRATO_PRODUCTO_CREATE')" class="btn btn-primary btn-sm">Agregar</button>
+                </div>
+
+                <div class="panel-body">
+                    <table id="dgDatosContratoProducto" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">
+                    <p class="text-info">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorContratoProducto" value="CONTRATO_PRODUCTO_INDEX" placeholder="APUNTADOR" />

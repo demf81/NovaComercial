@@ -1,0 +1,157 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Genero/Genero.js"           asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/PaqueteTipo/PaqueteTipo.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Paquete/Paquete.js"         asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li><span>Paquete </span></li>
+                    <li class="active"><span>Eliminar </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Paquete</h2>
+            <small>Cat&aacute;logo de Paquetes.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-danger btn-sm" onclick="Paquete.baja();">Eliminar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="Paquete.redirecciona('PAQUETE_INDEX')">Regresar</button>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div id="rootwizard" class="tabbable">
+                            <ul>
+                                <li><a href="#tab1" data-toggle="tab">Datos Generales</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Folio</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtPaqueteId" name="txtPaqueteId" class="form-control input-sm" , readonly="readonly" value="@ViewBag.PaqueteId" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PaqueteId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">C&oacute;digo</label>
+                                                        <div class="col-sm-10 col-lg-5">
+                                                            <input type="text" id="txtCodigo" name="txtCodigo" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Codigo" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="txtPaqueteDescripcion" name="txtPaqueteDescripcion" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PaqueteDescripcion" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Tipo de Paquete</label>
+                                                        <div class="col-sm-10 col-lg-5">
+                                                            <select id="ddlPaqueteTipoId" class="form-control input-sm"></select>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PaqueteTipoId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Genero</label>
+                                                        <div class="col-sm-10 col-lg-5">
+                                                            <select id="ddlGeneroId" class="form-control input-sm"></select>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="GeneroId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Edad Desde</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtEdadDesde" name="txtEdadDesde" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="EdadDesde" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Edad Hasta</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtEdadHasta" name="txtEdadHasta" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="EdadHasta" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Precio de Lista</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <div class="input-group">
+                                                                <input type="text" id="txtPrecioLista" name="txtPrecioLista" class="form-control input-sm text-right" />
+                                                                <span class="input-group-addon input-sm btn-sm">$</span>
+                                                            </div>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PrecioLista" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Precio de Venta</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <div class="input-group">
+                                                                <input type="text" id="txtPrecioVenta" name="txtPrecioVenta" class="form-control input-sm text-right" />
+                                                                <span class="input-group-addon input-sm btn-sm">$</span>
+                                                            </div>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PrecioVenta" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorPaquete" value="PAQUETE_DELETE" />

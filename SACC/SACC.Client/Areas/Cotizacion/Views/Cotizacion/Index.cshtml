@@ -1,0 +1,169 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutVentas.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Cotizacion/Cotizacion.js"               asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/CotizacionDetalle/CotizacionDetalle.js" asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Operaci&oacute;n </span></li>
+                    <li class="active"><span>Cotizaci&oacute;n </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Cotizaci&oacute;n</h2>
+            <small>Generador de Cotizaciones.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowBusqueda">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Opciones de B&uacute;squeda
+                </div>
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Estatus</label>
+                            <div class="col-sm-10">
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="1" class="i-checks" />
+                                    <label>Activa</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="2" class="i-checks" />
+                                    <label>Inactiva</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="3" class="i-checks" />
+                                    <label>Procesada</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="-1" class="i-checks" checked="checked" />
+                                    <label>Todos</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="txtCotizacionDescripcion" name="txtCotizacionDescripcion" class="form-control input-sm" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="CotizacionDescripcion" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Fecha</label>
+                            <div class="col-sm-4">
+                                <div class="input-daterange input-group" id="datepicker">
+                                    <input type="text" class="input-sm form-control" id="dtpFechaInicial" name="dtpFechaInicial" readonly="readonly">
+                                    <span class="input-group-addon">A</span>
+                                    <input type="text" class="input-sm form-control" id="dtpFechaFinal" name="dtpFechaFinal" readonly="readonly">
+                                </div>
+                                <span class="field-validation-valid text-danger" data-valmsg-for="Fecha" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tipo de Cotizaci&oacute;n</label>
+                            <div class="col-sm-10">
+                                <div class="radio radio-inline">
+                                    <input type="radio" class="i-checks" id="rbCotizacionTipoId" name="rbCotizacionTipoId" value="1" /> No socio
+                                </div>
+                                <div class="radio radio-inline">
+                                    <input type="radio" class="i-checks" id="rbCotizacionTipoId" name="rbCotizacionTipoId" value="2" /> Socio Nova
+                                </div>
+                                <div class="radio radio-inline">
+                                    <input type="radio" class="i-checks" id="rbCotizacionTipoId" name="rbCotizacionTipoId" value="3" /> Empresa
+                                </div>
+                                <div class="radio radio-inline">
+                                    <input type="radio" class="i-checks" id="rbCotizacionTipoId" name="rbCotizacionTipoId" value="4" /> Emprsa Nova
+                                </div>
+                                <div class="radio radio-inline">
+                                    <input type="radio" class="i-checks" id="rbCotizacionTipoId" name="rbCotizacionTipoId" value="-1" /> Todas
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn btn-primary btn-sm" onclick="Cotizacion.buscar();">Buscar</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-default btn-sm" onclick="Cotizacion.limpiar();">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel hnovagrey">
+                <div class="panel-tools"></div>
+
+                <div class="panel-heading hbuilt">
+                    <button class="btn btn-primary btn-sm" onclick="Cotizacion.redirecciona('COTIZACION_CREATE')">Agregar</button>
+                </div>
+
+                <div class="panel-body">
+                    <table id="dgDatosCotizacion" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalCotizacionDetalle" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Detalle de Cotizaci&oacute;n</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_IndexView", "CotizacionDetalle", new { Area = "CotizacionDetalle" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                @*<button class="btn btn-primary btn-sm" onclick="Cotizacion.AgregarEmpresa()">Agregar</button>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorCotizacion" value="COTIZACION_INDEX" />

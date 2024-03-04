@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WS_SAI" />
+  <xs:element name="Version">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VersionResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerFoto">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CuentaRed" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerFotoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerFotoResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerConfiguracionSistema">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SistemaId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerConfiguracionSistemaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerConfiguracionSistemaResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscaAmbientePorLlave">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Llave" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscaAmbientePorLlaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BuscaAmbientePorLlaveResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarAmbienteSAP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SistemaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Mandante" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UsuarioSAP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NumeroSistema" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Lenguaje" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PoolSize" type="xs:int" />
+        <xs:element minOccurs="0" name="IdleTimeout" type="xs:int" />
+        <xs:element minOccurs="0" name="ClaveSAP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ServidorSAP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UsuarioModificacionId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="Baja" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarAmbienteSAPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgregarAmbienteSAPResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizaAmbienteSAP">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AmbienteSAPId" type="xs:int" />
+        <xs:element minOccurs="0" name="SistemaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Mandante" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UsuarioSAP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NumeroSistema" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Lenguaje" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PoolSize" type="xs:int" />
+        <xs:element minOccurs="0" name="IdleTimeout" type="xs:int" />
+        <xs:element minOccurs="0" name="ClaveSAP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ServidorSAP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UsuarioModificacionId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="Baja" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizaAmbienteSAPResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ActualizaAmbienteSAPResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DesencriptaClave">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Llave" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Texto" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DesencriptaClaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DesencriptaClaveResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscaUsuarioSAIPorId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UsuarioId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscaUsuarioSAIPorIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BuscaUsuarioSAIPorIdResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscaUsuarioSAIPorCuentaRed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CuentaRed" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuscaUsuarioSAIPorCuentaRedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BuscaUsuarioSAIPorCuentaRedResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CuentaRed" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerUsuarioResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutenticarUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CuentaRed" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Contraseña" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Sistema" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutenticarUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WS_SAI" minOccurs="0" name="AutenticarUsuarioResult" nillable="true" type="q1:Autenticar" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutenticarExterno">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WS_SAI" minOccurs="0" name="token" nillable="true" type="q2:Token" />
+        <xs:element minOccurs="0" name="pServicioId" type="xs:int" />
+        <xs:element minOccurs="0" name="pMetodoId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutenticarExternoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WS_SAI" minOccurs="0" name="AutenticarExternoResult" nillable="true" type="q3:Mensaje" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarUsuario">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Dominio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CuentaRed" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarUsuarioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgregarUsuarioResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarUsuarioSistema">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UsuarioId" type="xs:int" />
+        <xs:element minOccurs="0" name="SistemaId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AgregarUsuarioSistemaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AgregarUsuarioSistemaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPermisos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SistemaId" type="xs:int" />
+        <xs:element minOccurs="0" name="CuentaRed" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerPermisosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ObtenerPermisosResult" nillable="true">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:appinfo>
+                <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+              </xs:appinfo>
+            </xs:annotation>
+            <xs:sequence>
+              <xs:element ref="xs:schema" />
+              <xs:any />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

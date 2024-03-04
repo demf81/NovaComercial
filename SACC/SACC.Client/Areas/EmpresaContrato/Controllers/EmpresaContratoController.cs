@@ -1,0 +1,250 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Web.Mvc;
+
+
+namespace SACC.Client.Areas.EmpresaContrato.Controllers
+{
+    public class EmpresaContratoController : Client.Controllers.BaseController
+    {
+        const Int32 _AplicacionId = 167;
+
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult Index(int pEmpresaId, string pEmpresaDescripcion)
+        {
+            if (GetUsuarioId() == -1)
+                Response.Redirect("~/Home/SessionExpirada");
+
+            if (HttpContext.Session["Permisos"] == null)
+                Response.Redirect("~/Home/SinPermiso");
+
+            int varPermisoValido = Nova.SDK.SAI.Permiso.Validar(_AplicacionId, Nova.SDK.PermisoGeneral.VISUALIZAR, HttpContext.Session["Permisos"] as System.Data.DataTable);
+            if (varPermisoValido == 0)
+                Response.Redirect("~/Home/SinPermiso");
+
+            #region VARIABLES DE MENU
+            TempData["lblNombre"] = GetNombreUsuario();
+            if (HttpContext.Session["Foto"] != null)
+                TempData["imgFoto"] = "data:image/jpg;base64," + Convert.ToBase64String((byte[])HttpContext.Session["Foto"]);
+            #endregion
+
+            ViewBag.EmpresaId         = pEmpresaId;
+            ViewBag.EmpresaDescripcion = pEmpresaDescripcion;
+
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult EmpresaContratoGridJson(Int32 pEmpresaId, Int32 pContratoId, Int16 pEstatusId)
+        {
+            if (GetUsuarioId() == -1)
+                Response.Redirect("~/Home/SessionExpirada");
+
+            if (HttpContext.Session["Permisos"] == null)
+                Response.Redirect("~/Home/SinPermiso");
+
+            int varPermisoValido = Nova.SDK.SAI.Permiso.Validar(_AplicacionId, Nova.SDK.PermisoGeneral.VISUALIZAR, HttpContext.Session["Permisos"] as System.Data.DataTable);
+            if (varPermisoValido == 0)
+                Response.Redirect("~/Home/SinPermiso");
+
+            Modelo.ModeloJsonResponse<Modelo.NovaComercial.dbo.EmpresaContrato.DtoGridEmpresaContrato> res = LogicaNegocio.NovaComercial.dbo.EmpresaContrato.ConsultarGrid(pEmpresaId, pContratoId, pEstatusId);
+
+            Response.StatusCode = (int)(HttpStatusCode.OK);
+            res.StatusCode      = (int)(HttpStatusCode.OK);
+            res.DelayTime       = true;
+
+            if (res.Error) {
+                res.DelayTime    = false;
+                res.MuestraAlert = true;
+            }
+
+            return Json(new { success = (res.Error == false ? true : false), data = res });
+        }
+
+
+
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult Delete(int pEmpresaContratoId, int pEmpresaId, string pEmpresaDescripcion, int pContratoId, string pcontratoDescripcion)
+        {
+            if (GetUsuarioId() == -1)
+                Response.Redirect("~/Home/SessionExpirada");
+
+            if (HttpContext.Session["Permisos"] == null)
+                Response.Redirect("~/Home/SinPermiso");
+
+            int varPermisoValido = Nova.SDK.SAI.Permiso.Validar(_AplicacionId, Nova.SDK.PermisoGeneral.ELIMINAR, HttpContext.Session["Permisos"] as System.Data.DataTable);
+            if (varPermisoValido == 0)
+                Response.Redirect("~/Home/SinPermiso");
+
+            #region VARIABLES DE MENU
+            TempData["lblNombre"] = GetNombreUsuario();
+            if (HttpContext.Session["Foto"] != null)
+                TempData["imgFoto"] = "data:image/jpg;base64," + Convert.ToBase64String((byte[])HttpContext.Session["Foto"]);
+            #endregion
+
+            return View();
+        }
+        
+        [Authorize]
+        [HttpPost]
+        public ActionResult Delete(Modelo.NovaComercial.dbo.EmpresaContrato.DtoEmpresaContrato model)
+        {
+            if (GetUsuarioId() == -1)
+                Response.Redirect("~/Home/SessionExpirada");
+
+            if (HttpContext.Session["Permisos"] == null)
+                Response.Redirect("~/Home/SinPermiso");
+
+            int varPermisoValido = Nova.SDK.SAI.Permiso.Validar(_AplicacionId, Nova.SDK.PermisoGeneral.ELIMINAR, HttpContext.Session["Permisos"] as System.Data.DataTable);
+            if (varPermisoValido == 0)
+                Response.Redirect("~/Home/SinPermiso");
+
+            Modelo.ModeloJsonResponse res = LogicaNegocio.NovaComercial.dbo.EmpresaContrato.BajaLogica(model.EmpresaContratoId, GetUsuarioId());
+
+            #region VARIABLES DE MENU
+            TempData["lblNombre"] = GetNombreUsuario();
+            if (HttpContext.Session["Foto"] != null)
+                TempData["imgFoto"] = "data:image/jpg;base64," + Convert.ToBase64String((byte[])HttpContext.Session["Foto"]);
+            #endregion
+
+            Response.StatusCode = (int)(HttpStatusCode.OK);
+            res.StatusCode      = (int)(HttpStatusCode.OK);
+            res.DelayTime       = true;
+            res.MuestraAlert    = true;
+
+            if (res.Error) {
+                res.DelayTime = false;
+            }
+
+            return Json(new { success = (res.Error == false ? true : false), data = res });
+        }
+
+
+
+
+        [Authorize]
+        [HttpPost]
+        public JsonResult Create(List<Modelo.NovaComercial.dbo.EmpresaContrato.DtoEmpresaContrato> list)
+        {
+            if (GetUsuarioId() == -1)
+                Response.Redirect("~/Home/SessionExpirada");
+
+            if (HttpContext.Session["Permisos"] == null)
+                Response.Redirect("~/Home/SinPermiso");
+
+            int varPermisoValido = Nova.SDK.SAI.Permiso.Validar(_AplicacionId, Nova.SDK.PermisoGeneral.AGREGAR, HttpContext.Session["Permisos"] as System.Data.DataTable);
+            if (varPermisoValido == 0)
+                Response.Redirect("~/Home/SinPermiso");
+
+            Modelo.ModeloJsonResponse res = new Modelo.ModeloJsonResponse();
+
+            if (list.Count > 0)
+            {
+               foreach (Modelo.NovaComercial.dbo.EmpresaContrato.DtoEmpresaContrato item in list)
+                {
+                    Entidades.NovaComercial.dbo.EmpresaContrato obj = new Entidades.NovaComercial.dbo.EmpresaContrato
+                    {
+                        EmpresaContratoId     = 0,
+                        EmpresaId             = item.EmpresaId,
+                        ContratoId            = item.ContratoId,
+                        UsuarioCreacionId     = GetUsuarioId(),
+                        UsuarioModificacionId = GetUsuarioId()
+                    };
+
+                    res = LogicaNegocio.NovaComercial.dbo.EmpresaContrato.Guardar(obj);
+                    if (res.Error) break;
+                }
+            }
+
+            #region VARIABLES DE MENU
+            TempData["lblNombre"] = GetNombreUsuario();
+            if (HttpContext.Session["Foto"] != null)
+                TempData["imgFoto"] = "data:image/jpg;base64," + Convert.ToBase64String((byte[])HttpContext.Session["Foto"]);
+            #endregion
+
+            Response.StatusCode = (int)(HttpStatusCode.OK);
+            res.StatusCode      = (int)(HttpStatusCode.OK);
+            res.DelayTime       = true;
+            res.MuestraAlert    = true;
+
+            if (res.Error) {
+                res.DelayTime = false;
+            }
+
+            return Json(new { success = (res.Error == false ? true : false), data = res });
+        }
+
+
+
+
+        [Authorize]
+        [HttpPost]
+        public JsonResult EmpresaContratoComboJson(OpcionesCombo _opcion, Int32 pEmpresaId)
+        {
+            if (GetUsuarioId() == -1)
+                Response.Redirect("~/Home/SessionExpirada");
+
+            if (HttpContext.Session["Permisos"] == null)
+                Response.Redirect("~/Home/SinPermiso");
+
+            int varPermisoValido = Nova.SDK.SAI.Permiso.Validar(_AplicacionId, Nova.SDK.PermisoGeneral.VISUALIZAR, HttpContext.Session["Permisos"] as System.Data.DataTable);
+            if (varPermisoValido == 0)
+                Response.Redirect("~/Home/SinPermiso");
+
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            Modelo.ModeloJsonResponse<Modelo.NovaComercial.dbo.EmpresaContrato.DtoComboEmpresaContrato> res = LogicaNegocio.NovaComercial.dbo.EmpresaContrato.ConsultarComboJon(pEmpresaId);
+
+            Response.StatusCode = (int)(HttpStatusCode.OK);
+            res.StatusCode      = (int)(HttpStatusCode.OK);
+            res.DelayTime       = true;
+
+            if (res.Error) {
+                res.DelayTime    = false;
+                res.MuestraAlert = true;
+            }
+
+            if (_opcion == OpcionesCombo.TODOS)
+            {
+                items.Add(
+                new SelectListItem
+                    {
+                        Text  = "[TODOS]",
+                        Value = "-1"
+                    }
+                );
+            }
+
+            if (_opcion == OpcionesCombo.SELECCIONE)
+            {
+                items.Add(
+                new SelectListItem
+                {
+                    Text  = "[Seleccione...]",
+                    Value = "0"
+                }
+                );
+            }
+
+            foreach (Modelo.NovaComercial.dbo.EmpresaContrato.DtoComboEmpresaContrato item in res.Datos)
+            {
+                items.Add(
+                    new SelectListItem
+                    {
+                        Text  = item.ContratoDescripcion.ToString(),
+                        Value = item.ContratoId.ToString()
+                    }
+                );
+            }
+
+            res.Lista = items;
+
+            return Json(new { success = (res.Error == false ? true : false), data = res });
+        }
+    }
+}

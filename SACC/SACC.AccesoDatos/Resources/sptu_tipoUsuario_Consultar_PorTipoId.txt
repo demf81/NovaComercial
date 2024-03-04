@@ -1,0 +1,4 @@
+SELECT
+	tu_tipous_id AS Clave
+FROM PUB.tu_tipousuario
+WHERE tu_tipous_id = ?

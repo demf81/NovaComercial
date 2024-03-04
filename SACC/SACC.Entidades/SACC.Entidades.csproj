@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF685FB3-77CE-44DA-BEB4-F39320D1A165}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SACC.Entidades</RootNamespace>
+    <AssemblyName>SACC.Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntidadBase\EntidadBase.cs" />
+    <Compile Include="EntidadBase\EntidadJsonResponse.cs" />
+    <Compile Include="EntidadBase\EntidadResponse.cs" />
+    <Compile Include="helper\Articulo.cs" />
+    <Compile Include="NovaComercial\dbo\PersonaMoper.cs" />
+    <Compile Include="NovaComercial\SACC\ClienteTipo.cs" />
+    <Compile Include="NovaComercial\SACC\ContactoTipo.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaqueteCondicion.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaqueteExclusion.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaTipo.cs" />
+    <Compile Include="NovaComercial\SACC\Cliente.cs" />
+    <Compile Include="NovaComercial\SACC\CoberturaCantidadTipo.cs" />
+    <Compile Include="NovaComercial\SACC\CoberturaCondicionTipo.cs" />
+    <Compile Include="NovaComercial\SACC\CoberturaCopagoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\CoberturaPeriodoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\CotizacionDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\CotizacionProcedimientoDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\Empresa.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaArchivoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaContacto.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaDatosFiscales.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaDocumento.cs" />
+    <Compile Include="NovaComercial\SACC\EmpresaDocumentoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\Estado.cs" />
+    <Compile Include="NovaComercial\SACC\FormaPago.cs" />
+    <Compile Include="NovaComercial\SACC\FrecuenciaPago.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaPersona.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaRenovacion.cs" />
+    <Compile Include="NovaComercial\SACC\MetodoPago.cs" />
+    <Compile Include="NovaComercial\SACC\Municipio.cs" />
+    <Compile Include="NovaComercial\SACC\Pais.cs" />
+    <Compile Include="NovaComercial\SACC\Parentesco.cs" />
+    <Compile Include="NovaComercial\SACC\Procedimiento.cs" />
+    <Compile Include="NovaComercial\SACC\ProcedimientoDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\Servicio.cs" />
+    <Compile Include="NovaComercial\dbo\Asociado.cs" />
+    <Compile Include="NovaComercial\dbo\Cirugia.cs" />
+    <Compile Include="NovaComercial\dbo\Contrato.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCobertura.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoCoberturaPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoProductoPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoProducto.cs" />
+    <Compile Include="NovaComercial\dbo\ContratoTipo.cs" />
+    <Compile Include="NovaComercial\SACC\Cotizacion.cs" />
+    <Compile Include="NovaComercial\dbo\Empresa.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="NovaComercial\dbo\EmpresaContrato.cs" />
+    <Compile Include="NovaComercial\dbo\EmpresaPlanta.cs" />
+    <Compile Include="NovaComercial\dbo\Estudio.cs" />
+    <Compile Include="NovaComercial\dbo\LogImportacionesSACC.cs" />
+    <Compile Include="NovaComercial\dbo\Material.cs" />
+    <Compile Include="NovaComercial\dbo\Medicamento.cs" />
+    <Compile Include="NovaComercial\dbo\MedicamentoCuadroTipo.cs" />
+    <Compile Include="NovaComercial\SACC\Membresia.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaEstatus.cs" />
+    <Compile Include="NovaComercial\SACC\MembresiaTipo.cs" />
+    <Compile Include="NovaComercial\dbo\Paquete.cs" />
+    <Compile Include="NovaComercial\dbo\PaqueteDetalle.cs" />
+    <Compile Include="NovaComercial\dbo\PaqueteTipo.cs" />
+    <Compile Include="NovaComercial\dbo\Persona.cs" />
+    <Compile Include="NovaComercial\dbo\PersonaAsociado.cs" />
+    <Compile Include="NovaComercial\dbo\PersonaContrato.cs" />
+    <Compile Include="NovaComercial\dbo\PersonaNumeroSocio.cs" />
+    <Compile Include="NovaComercial\dbo\PersonaPaquete.cs" />
+    <Compile Include="NovaComercial\dbo\Servicio.cs" />
+    <Compile Include="NovaComercial\SACC\ServicioAdministrativo.cs" />
+    <Compile Include="NovaComercial\SACC\ServicioSubrogado.cs" />
+    <Compile Include="NovaComercial\SACC\ServicioSubrogadoTipo.cs" />
+    <Compile Include="NovaComercial\dbo\ServicioTipo.cs" />
+    <Compile Include="NovaComercial\SACC\Tarifa.cs" />
+    <Compile Include="NovaComercial\dbo\Venta.cs" />
+    <Compile Include="NovaComercial\dbo\VentaUnitaria.cs" />
+    <Compile Include="NovaComercial\dbo\VentaUnitariaDetalle.cs" />
+    <Compile Include="NovaComercial\dbo\VentaUnitariaDetalleTipo.cs" />
+    <Compile Include="NovaComercial\PortalEmpresa\Perfil.cs" />
+    <Compile Include="NovaComercial\PortalEmpresa\Usuario.cs" />
+    <Compile Include="NovaComercial\PortalEmpresa\UsuarioContrato.cs" />
+    <Compile Include="NovaComercial\SACC\AreaNegocio.cs" />
+    <Compile Include="NovaComercial\SACC\TarifaDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\Venta.cs" />
+    <Compile Include="NovaComercial\SACC\VentaCancelacion.cs" />
+    <Compile Include="NovaComercial\SACC\VentaDetalle.cs" />
+    <Compile Include="NovaComercial\SACC\VentaMotivoCancelacionTipo.cs" />
+    <Compile Include="NovaComercial\SACC\VentaProcedimientoDetalle.cs" />
+    <Compile Include="NovaComercial\WebService\AsociadoLog.cs" />
+    <Compile Include="NovaComercial\WebService\AsociadoPaso.cs" />
+    <Compile Include="Nova_ServiciosMedicos\dbo\CatAsociado.cs" />
+    <Compile Include="Nova_ServiciosMedicos\dbo\tblVentasUnitarias.cs" />
+    <Compile Include="Nova_ServiciosMedicos\dbo\TranDatosAfiliado.cs" />
+    <Compile Include="Nova_ServiciosMedicos\dbo\TranDatosEmpresa.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro\dbo\CheckUp_Persona.cs" />
+    <Compile Include="Registro\dbo\CheckUp_Programacion.cs" />
+    <Compile Include="SAI\Usuario.cs" />
+    <Compile Include="SISS\dbo\Persona.cs" />
+    <Compile Include="VigenciaII\PUB\ccu_usuarios.cs" />
+    <Compile Include="VigenciaII\PUB\co_contratos.cs" />
+    <Compile Include="VigenciaII\PUB\mvu_movigccu.cs" />
+    <Compile Include="VigenciaII\PUB\tmu_usuarios.cs" />
+    <Compile Include="VigenciaII\PUB\us_usuarios.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

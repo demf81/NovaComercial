@@ -1,0 +1,411 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutVentas.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Servicio/Servicio.js"                                           asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Servicio/CtrlUserBusquedaServicio.js"                           asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Persona/CtrlUserBusquedaPersona.js"                             asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Empresa/CtrlUserBusquedaEmpresa.js"                             asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Cotizacion/CtrlUserCotizacion.js"                               asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/VentaProcedimientoDetalle/CtrlUserVentaProcedimientoDetalle.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Venta/Venta.js"                                                 asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Operaci&oacute;n </span></li>
+                    <li><span>Venta </span></li>
+                    <li class="active"><span>Alta </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Venta</h2>
+            <small>Generador de Ventas.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <button class="btn btn-default btn-sm" onclick="Venta.redirecciona('VENTA_INDEX', $('#txtOpcion').val())">Regresar</button>
+
+                    @*<button class="btn btn-primary btn-sm" onclick="Venta.AbreModalCotizacion()">Importar Cotizaci&oacute;n</button>*@
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div id="rootwizard" class="tabbable">
+                            <ul>
+                                <li><a href="#tab1" data-toggle="tab">Datos Generales              </a></li>
+                                <li><a href="#tab2" data-toggle="tab">Selecci&oacute;n de Servicios</a></li>
+                                <li><a href="#tab3" data-toggle="tab">Resumen                      </a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Folio</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <input type="text" class="form-control input-sm" id="txtVentaId" name="txtVentaId" readonly="readonly">
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <label class="col-sm-2 control-label">Cotizaci&oacute;n</label>
+                                                                </div>
+                                                                <div class="col-md-2">
+                                                                    <input type="text" class="form-control input-sm" id="txtCoticacionId" name="txtCotizacionId" readonly="readonly" value="0">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control input-sm" id="txtVentaDescripcion" name="txtVentaDescripcion" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="VentaDescripcion" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Fecha</label>
+                                                        <div class="col-sm-10 col-lg-3">
+                                                            <div class="input-group date">
+                                                                <input class="form-control input-sm" id="dtpFecha" name="dtpFecha" readonly="readonly" />
+                                                                <span class="input-group-addon input-sm btn-sm"><i class="fa fa-calendar"></i></span>
+                                                            </div>
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Fecha" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Tipo de Cotizaci&oacute;n</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="radio radio-inline">
+                                                                <input type="radio" class="i-checks" id="rbVentaTipoId" name="rbVentaTipoId" value="1" /> Socio Nova
+                                                            </div>
+                                                            <div class="radio radio-inline">
+                                                                <input type="radio" class="i-checks" id="rbVentaTipoId" name="rbVentaTipoId" value="2" /> Empresa Nova
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group" id="divAfiliado" name="divAfiliado">
+                                                        <label class="col-sm-2 control-label">Persona</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <input type="text" id="txtPersonaId" name="txtPersonaId" class="form-control input-sm" disabled="disabled" />
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="input-group">
+                                                                        @*<span class="input-group-btn"><button onclick="Venta.AbreModalConsultarPersona()" class="btn btn-warning btn-sm">Consultar</button></span>*@
+                                                                        <input type="text" id="txtNombrePersona" name="txtNombrePersona" class="form-control input-sm" disabled="disabled" />
+                                                                        <span class="input-group-btn"><button onclick="Venta.AbreModalPersona()" class="btn btn-primary btn-sm">Buscar</button></span>
+                                                                    </div>
+                                                                    <span class="field-validation-valid text-danger" data-valmsg-for="NombrePersona" data-valmsg-replace="true"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group hide" id="divConvenio" name="divConvenio">
+                                                        <label class="col-sm-2 control-label">Empresa</label>
+                                                        <div class="col-sm-10">
+                                                            <div class="row">
+                                                                <div class="col-md-2">
+                                                                    <input type="text" id="txtEmpresaId" name="txtEmpresaId" class="form-control input-sm" disabled="disabled" />
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <div class="input-group">
+                                                                        @*<span class="input-group-btn"><button onclick="Venta.AbreModalConsultarEmpresa()" class="btn btn-warning btn-sm">Consultar</button></span>*@
+                                                                        <input type="text" id="txtNombreEmpresa" name="txtNombreEmpresa" class="form-control input-sm" disabled="disabled" />
+                                                                        <span class="input-group-btn"><button onclick="Venta.AbreModalEmpresa()" class="btn btn-primary btn-sm">Buscar</button></span>
+                                                                    </div>
+                                                                    <span class="field-validation-valid text-danger" data-valmsg-for="NombreEmpresa" data-valmsg-replace="true"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="tab2">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="hpanel hnova">
+                                                            <div class="panel-hbuilt hbuilt">
+                                                                <div class="panel-tools"></div>
+
+                                                                <button onclick="Venta.AbreModalArticulo()" class="btn btn-primary btn-sm">Agregar Item</button>
+                                                            </div>
+                                                            <div class="panel-body" style="display: block;">
+                                                                <span class="field-validation-valid text-danger" data-valmsg-for="DatosVentaDetalle" data-valmsg-replace="true"></span>
+                                                                <table id="dgDatosVentaDetalle" data-height="300" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                                                            </div>
+                                                            <div class="panel-footer">
+                                                                <div class="row">
+                                                                    <div class="col-lg-3">
+                                                                        <div class="form-group-detalle-cotizacion hide">
+                                                                            <label class="control-label">Subtotal</label>
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">$</span>
+                                                                                <input class="form-control input-sm text-right" id="txtSubTotal" name="txtSubTotal" disabled="disabled" value="0.00" />
+                                                                            </div>
+                                                                            <span class="field-validation-valid text-danger" data-valmsg-for="SubTotal" data-valmsg-replace="true"></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-3 hide">
+                                                                        <div class="form-group-detalle-cotizacion">
+                                                                            <label class="control-label">Iva</label>
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">$</span>
+                                                                                <input class="form-control input-sm text-right" id="txtIva" name="txtIva" disabled="disabled" value="0.00" />
+                                                                            </div>
+                                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Iva" data-valmsg-replace="true"></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-3">
+                                                                        <div class="form-group-detalle-cotizacion">
+                                                                            <label class="control-label">Desct</label>
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">$</span>
+                                                                                <input class="form-control input-sm text-right" id="txtDescuento" name="txtDescuento" disabled="disabled" value="0.00" />
+                                                                            </div>
+                                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Descuento" data-valmsg-replace="true"></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-3">
+                                                                        <div class="form-group-detalle-cotizacion">
+                                                                            <label class="control-label">Anticipo</label>
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">$</span>
+                                                                                <input class="form-control input-sm text-right" id="txtAnticipo" name="txtAnticipo" disabled="disabled" value="0.00" />
+                                                                            </div>
+                                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Anticipo" data-valmsg-replace="true"></span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-3">
+                                                                        <div class="form-group-detalle-cotizacion">
+                                                                            <label class="control-label">Total</label>
+                                                                            <div class="input-group">
+                                                                                <span class="input-group-addon">$</span>
+                                                                                <input class="form-control input-sm text-right" id="txtTotal" name="txtTotal" disabled="disabled" value="0.00" />
+                                                                            </div>
+                                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Total" data-valmsg-replace="true"></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="tab3">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Referencia</label>
+                                                    <div class="col-sm-10 col-lg-3">
+                                                        <input type="text" class="form-control input-sm" id="txtReferencia" name="txtReferencia" value="" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="Referencia" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Total de Anticipo</label>
+                                                    <div class="col-sm-10 col-lg-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">$</span>
+                                                            <input type="text" class="form-control input-sm text-right" id="txtAnticipoVenta" name="txtAnticipoVenta" readonly="readonly" value="0.00" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Total de Venta</label>
+                                                    <div class="col-sm-10 col-lg-3">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">$</span>
+                                                            <input type="text" class="form-control input-sm text-right" id="txtTotalVenta" name="txtTotalVenta" readonly="readonly" value="0.00" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group form-group-bottom">
+                                                    <div class="col-sm-8 col-sm-offset-2">
+                                                        <button class="btn btn-primary btn-sm" onclick="Venta.guardar();">Guardar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ul class="pager wizard">
+                                    <li class="previous"><a href="#">Anterior</a></li>
+                                    <li class="next"><a href="#">Siguiente</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalBusquedaServicio" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Art&iacute;culos Vigentes</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserBusquedaServicio", "Servicio", new { Area = "Servicio" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary btn-sm" onclick="Venta.AgregarItem()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalBusquedaPersona" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Selecci&oacute;n de Persona</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserBusquedaPersona", "Persona", new { Area = "Persona" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary btn-sm" onclick="Venta.AgregarPersona()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalBusquedaEmpresa" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Selecci&oacute;n de Empresa</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserBusquedaEmpresa", "Empresa", new { Area = "Empresa" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary btn-sm" onclick="Venta.AgregarEmpresa()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalImportarCotizacion" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Cotizaci&oacute;n Activas</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserViewCotizacion", "Cotizacion", new { Area = "Cotizacion" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary btn-sm" onclick="Venta.AgregarCotizacion()">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalProcedimientoDetalle" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Detalle del Procedimiento</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserVentaProcedimientoDetalle", "VentaProcedimientoDetalle", new { Area = "VentaProcedimientoDetalle" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary btn-sm" onclick="Venta.ActualizaProcedimientoDetalle()">Actualizar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorVenta" value="VENTA_CREATE" />
+<input type="hidden" id="txtOpcion" value="@ViewBag.Opcion" />

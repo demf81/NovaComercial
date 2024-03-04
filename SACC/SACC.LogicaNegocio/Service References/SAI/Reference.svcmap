@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Id="d2e815e1-2157-4ccb-af24-dd57fb6f627e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://termxnvadb14/Nova/WebService/SAI/SAI.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SAI.xsd" MetadataType="Schema" Id="33f78a95-04ce-4596-9882-54d6d70aa73b" SourceId="1" SourceUrl="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?xsd=xsd3" />
+    <MetadataFile FileName="SAI1.xsd" MetadataType="Schema" Id="2b756828-741f-4748-9cb2-979553644fb5" SourceId="1" SourceUrl="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?xsd=xsd2" />
+    <MetadataFile FileName="SAI.disco" MetadataType="Disco" Id="c6f4d0c9-d3e2-40f8-83c3-b8d3b2441fad" SourceId="1" SourceUrl="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?disco" />
+    <MetadataFile FileName="SAI2.xsd" MetadataType="Schema" Id="4640f3a7-646e-4aea-a211-023fc429b223" SourceId="1" SourceUrl="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?xsd=xsd0" />
+    <MetadataFile FileName="SAI.wsdl" MetadataType="Wsdl" Id="24d42ef9-a9ce-4e52-854b-7171f32846e7" SourceId="1" SourceUrl="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?wsdl" />
+    <MetadataFile FileName="SAI3.xsd" MetadataType="Schema" Id="6ac9e561-5cb0-43cd-a233-3aba79cd0515" SourceId="1" SourceUrl="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

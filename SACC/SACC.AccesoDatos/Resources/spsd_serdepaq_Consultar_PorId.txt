@@ -1,0 +1,6 @@
+SELECT
+	*
+FROM pub.sd_serdepaq sd
+	JOIN pub.sv_servicios s ON (sd.sd_servicio_id = s.sv_servicio_id)
+WHERE
+	sd.sd_paquete_id = ?

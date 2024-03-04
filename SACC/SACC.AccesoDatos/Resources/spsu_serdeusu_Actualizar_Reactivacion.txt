@@ -1,0 +1,12 @@
+UPDATE pub.su_serdeusu
+SET	su_vigencia     = 'AC',
+	su_fec_reactiva = ?,
+	su_ult_act		= ?,
+	su_usuario_act  = ?,
+	su_hora_act		= ?,
+	su_campos_act   = ? 
+WHERE su_vigencia = 'BA'
+	AND	su_socio_id    = ?
+	AND su_cvefam      = ?
+	AND	su_contrat_id  = ?
+	AND	su_contrato_id = ?

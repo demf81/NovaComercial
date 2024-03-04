@@ -1,0 +1,32 @@
+INSERT INTO PUB.su_serdeusu
+(
+	su_campos_act,
+	su_contrat_id,
+	su_contrato_id,
+	su_cvefam,
+	su_fec_alta,
+	su_fec_baja,
+	su_hora_act,
+	su_orig_vigen,
+	su_servicio_id,
+	su_socio_id,
+	su_ult_act,
+	su_usuario_act,
+	su_vigencia
+)
+VALUES
+(
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?
+)

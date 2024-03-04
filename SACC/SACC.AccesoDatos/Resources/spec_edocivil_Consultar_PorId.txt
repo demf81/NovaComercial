@@ -1,0 +1,4 @@
+SELECT
+	ec_edocivil AS Clave
+FROM PUB.ec_edocivil
+WHERE ec_edocivil = ?

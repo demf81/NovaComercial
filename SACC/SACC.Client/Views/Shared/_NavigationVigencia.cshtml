@@ -1,0 +1,92 @@
+﻿@using SACC.Client.Helpers
+
+
+<div id="navigation">
+    <div class="profile-picture">
+        <a href="@Url.Action("Index", "Home", new { Area = "" }, null)">
+            <img id="imgFoto" src="~/Images/profile.jpg" class="img-circle m-b" alt="logo">
+        </a>
+
+        <div class="stats-label text-color">
+            <span id="lblNombre" class="font-extra-bold font-uppercase"></span>
+        </div>
+    </div>
+
+
+
+    <ul class="nav" id="side-menu">
+        <li class="@Html.VIGENCIA_IsSelected(controller: "Dashboard")">
+            <a href="#"><i class="pe-7s-keypad pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Dashboard</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li class="">      <a href="@Url.Action("Index"         , "Home", new { area = "" })">Comercial </a></li>
+                <li class="active"><a href="@Url.Action("IndexVigencia" , "Home", new { area = "" })">Vigencia  </a></li>
+                <li class="">      <a href="@Url.Action("IndexMembresia", "Home", new { area = "" })">Membresia </a></li>
+                <li class="">      <a href="@Url.Action("IndexVentas"   , "Home", new { area = "" })">Venta     </a></li>
+                <li class="">      <a href="@Url.Action("IndexTarifa"   , "Home", new { area = "" })">Tarifa    </a></li>
+                <li class="">      <a href="@Url.Action("IndexCaja"     , "Home", new { area = "" })">Caja      </a></li>
+                <li class="">      <a href="@Url.Action("IndexClubSalud", "Home", new { area = "" })">Reportes  </a></li>
+            </ul>
+        </li>
+
+        <li class="@Html.VIGENCIA_IsSelected(controller: "Home")">
+            <a href="@Url.Action("IndexVigencia", "Home", new { Area = "" }, null)"><i class="pe-7s-culture pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Inicio</span></a>
+        </li>
+        
+        <li class="@Html.VIGENCIA_IsSelected(controller: "Catalogo")">
+            <a href="#"><i class="pe-7s-wallet pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Cat&aacute;logos</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.VIGENCIA_IsSelected(controller: "CicloEscolar"         , action: "Index")"><a href="@Url.Action("Index", "CicloEscolar"         , new { Area = "CicloEscolar"          }, null)">Ciclo Escolar</a></li>
+                @*<li class="@Html.IsSelected(controller: "Empresa"       , action: "Index")"><a href="@Url.Action("Index", "Empresa"         , new { Area = "Empresa"          }, null)">Empresa</a></li>
+                <li class="@Html.IsSelected(controller: "PaqueteTipo"     , action: "Index")"><a href="@Url.Action("Index", "PaqueteTipo"     , new { Area = "PaqueteTipo"      }, null)">Tipo de Paquete</a></li>
+                <li class="@Html.IsSelected(controller: "LocalizacionTipo", action: "Index")"><a href="@Url.Action("Index", "LocalizacionTipo", new { Area = "LocalizacionTipo" }, null)">Tipo de Localizaci&oacute;n</a></li>
+                <li class="@Html.IsSelected(controller: "ContactoTipo"    , action: "Index")"><a href="@Url.Action("Index", "ContactoTipo"    , new { Area = "ContactoTipo"     }, null)">Tipo de Contacto</a></li>
+                <li class="@Html.IsSelected(controller: "Paquete"         , action: "Index")"><a href="@Url.Action("Index", "Paquete"         , new { Area = "Paquete"          }, null)">Productos</a></li>
+                <li class="@Html.IsSelected(controller: "PaqueteCobertura", action: "Index")"><a href="@Url.Action("Index", "PaqueteCobertura", new { Area = "PaqueteCobertura" }, null)">Coberturas</a></li>
+                <li class="@Html.IsSelected(controller: "Persona"         , action: "Index")"><a href="@Url.Action("Index", "Persona"         , new { Area = "Persona"          }, null)">Poblaci&oacute;n</a></li>
+                <li class="@Html.IsSelected(controller: "Tarifa"          , action: "Index")"><a href="@Url.Action("Index", "Tarifa"          , new { Area = "Tarifa"           }, null)">Tarifa</a></li>*@
+            </ul>
+        </li>
+        
+        <li class="@Html.VIGENCIA_IsSelected(controller: "Operacion")">
+            <a href="#"><i class="pe-7s-portfolio pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Operaci&oacute;n</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.VIGENCIA_IsSelected(controller: "Contrato", action: "Index")"><a href="@Url.Action("Index", "Contrato", new { Area = "Contrato" }, null)">Comprobaci&oacute;n de Estudios</a></li>
+            </ul>
+        </li>
+        
+        <li class="@Html.VIGENCIA_IsSelected(controller: "Poblacion")">
+            <a href="#"><i class="pe-7s-user pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Poblaci&oacute;n</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.VIGENCIA_IsSelected(controller: "Contrato", action: "Index")"><a href="@Url.Action("Index", "Contrato", new { Area = "Contrato" }, null)">Fidecomitentes</a></li>
+                <li class="@Html.VIGENCIA_IsSelected(controller: "Contrato", action: "Index")"><a href="@Url.Action("Index", "Contrato", new { Area = "Contrato" }, null)">General de Salud</a></li>
+                <li class="@Html.VIGENCIA_IsSelected(controller: "Contrato", action: "Index")"><a href="@Url.Action("Index", "Contrato", new { Area = "Contrato" }, null)">Membresia (Club Salud)</a></li>
+            </ul>
+        </li>
+        
+        <li class="@Html.VIGENCIA_IsSelected(controller: "Configuracion")">
+            <a href="#"><i class="pe-7s-config pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Configuraci&oacute;n</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.VIGENCIA_IsSelected(controller: "Contrato", action: "Index")"><a href="@Url.Action("Index", "Contrato", new { Area = "Contrato" }, null)">Contrato</a></li>
+            </ul>
+        </li>
+        
+        @*<li class="@Html.IsSelected(controller: "Ventas")">
+            <a href="#"><span class="nav-label">Ventas</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.IsSelected(controller: "VentaUnitaria"        , action: "Index")"><a href="@Url.Action("Index", "VentaUnitaria"        , new { Area = "VentaUnitaria"         }, null)">Venta Unitaria</a></li>
+                <li class="@Html.IsSelected(controller: "VentaUnitariaEspecial", action: "Index")"><a href="@Url.Action("Index", "VentaUnitariaEspecial", new { Area = "VentaUnitariaEspecial" }, null)">Venta Unitaria Especial</a></li>
+                <li class="@Html.IsSelected(controller: "EstadoCuenta"         , action: "Index")"><a href="@Url.Action("Index", "EstadoCuenta"         , new { Area = "EstadoCuenta"          }, null)">Estado de Cuenta</a></li>
+            </ul>
+        </li>*@
+        @*<li class="@Html.IsSelected(controller: "PortalEmpresa")">
+            <a href="#"><span class="nav-label">Portal Empresa</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.IsSelected(controller: "Usuario", action: "Index")"><a href="@Url.Action("Index", "Usuario", new { Area = "Usuario" }, null)">Usuarios</a></li>
+            </ul>
+        </li>*@
+        
+        <li class="">
+            <a href="@Url.Action("Logout", "Home", new { Area = "" }, null)"><i class="pe-7s-upload pe-rotate-90 pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Cerrar Sesi&oacute;n</span> </a>
+        </li>
+    </ul>
+</div>

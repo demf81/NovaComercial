@@ -1,0 +1,24 @@
+﻿&nbsp;
+
+
+<div role="form" class="form-horizontal">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="txtCtrlUserEstudioViewDescripcion" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-primary btn-sm" onclick="javascript:GridCtrlUserEstudioView($('#PaqueteId').val(), $('#EstudioDescripcion').val())">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table id="dgDatosCtrlUserEstudioPaqueteCoberturaDetalleView" data-height="430" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>

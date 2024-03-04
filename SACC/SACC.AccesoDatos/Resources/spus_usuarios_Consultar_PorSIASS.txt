@@ -1,0 +1,5 @@
+SELECT Id_SIASS
+FROM pub.us_usuarios
+WHERE Id_SIASS = ?
+AND (us_socio_id <> ?
+OR us_cvefam <> ?)

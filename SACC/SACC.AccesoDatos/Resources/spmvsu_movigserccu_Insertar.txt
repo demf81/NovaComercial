@@ -1,0 +1,30 @@
+INSERT INTO PUB.mvsu_movigserccu
+(
+	mvsu_contrat_id,
+	mvsu_contrato_id,
+	mvsu_cvefam,
+	mvsu_fec_mov,
+	mvsu_hora_mov,
+	mvsu_mot_post,
+	mvsu_motivo_id,
+	mvsu_orig_vigen,
+	mvsu_servicio_id,
+	mvsu_socio_id,
+	mvsu_usuario,
+	mvsu_vigencia
+)
+VALUES
+(
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?
+)

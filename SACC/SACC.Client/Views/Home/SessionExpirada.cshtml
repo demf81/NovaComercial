@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout_Blank.cshtml";
+}
+
+
+<div class="error-container">
+    <i class="pe-7s-lock text-danger big-icon"></i>
+
+    <h1>401</h1>
+
+    <strong>Sessi&oacute;n Expirada</strong>
+
+    <p>
+        Sorry, but the page you are looking for has note been found. Try checking the URL for error, then hit the refresh button on your browser or try found something else in our app.
+    </p>
+
+    @*<a href="Login.cshtml" class="btn btn-primary">Iniciar Session</a>*@
+    @Html.ActionLink("Regresar", "Login", "Home", new { @class = "btn btn-primary btn-md" })
+</div>

@@ -1,0 +1,9 @@
+SELECT
+	TOP 100 cu.ccu_fec_baja, cu.ccu_vigencia, cu.ccu_socio_id, cu.ccu_cvefam
+FROM pub.ccu_usuarios cu
+WHERE
+	cu.ccu_socio_id = @ccu_socio_id
+	AND
+	cu.ccu_cvefam = @ccu_cvefam
+	AND
+	cu.ccu_vigencia   = 'AC'

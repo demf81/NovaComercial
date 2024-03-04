@@ -1,0 +1,30 @@
+INSERT INTO PUB.cct_titulares
+(
+	cct_campos_act,
+	cct_contrat_id,
+	cct_contrato_id,
+	cct_fec_alta,
+	cct_fec_baja,
+	cct_hora_act,
+	cct_orig_vigen,
+	cct_socio_id,
+	cct_tipocont,
+	cct_ult_act,
+	cct_usuario_act,
+	cct_vigencia
+)
+VALUES
+(
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?
+)

@@ -1,0 +1,50 @@
+﻿@model SACC.Client.Areas.ContratoProductoPaquete.Models.CtrlUserContratoProductoPaquete
+
+
+<div role="form" class="form-horizontal">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="form-group">
+                @Html.LabelFor(m => m.CtrlUserContratoProductoPaquete_TipoArticuloId, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10 col-lg-5">
+                    @Html.DropDownListFor(m => m.CtrlUserContratoProductoPaquete_TipoArticuloId, Model.TipoArticulos, new { @class = "form-control input-sm" })
+                    @Html.ValidationMessageFor(m => m.CtrlUserContratoProductoPaquete_TipoArticuloId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.CtrlUserContratoProductoPaquete_Descripcion, new { @class = "col-sm-2 control-label" })
+                <div class="col-sm-10 col-lg-9">
+                    <div class="input-group">
+                        @Html.TextBoxFor(m => m.CtrlUserContratoProductoPaquete_Descripcion, new { @class = "form-control input-sm" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary btn-sm" onclick="javascript:GridContratoCoberturaPaqueteConPrecio($('#wizard_ProductoId').val(), $('#wizard_txtPersonaId').val(), $('#CtrlUserContratoProductoPaquete_Descripcion').val(), 'dgDatosCtrlUserContratoProductoPaquete');" type="button">Buscar</button>
+                        </span>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.CtrlUserContratoProductoPaquete_Descripcion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <table id="dgDatosCtrlUserContratoCoberturaPaquete" data-height="280" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+            <thead>
+                <tr>
+                    <th data-field="VentaUnitariaDetalleId"     data-visible="false"                                                                           ><span>VentaUnitariaDetalleId    </span></th>
+                    <th data-field="VentaUnitariaId"            data-visible="false"                                                                           ><span>VentaUnitariaId           </span></th>
+                    <th data-field="VentaUnitariaDetalleTipoId" data-visible="false"                                                                           ><span>VentaUnitariaDetalleTipoId</span></th>
+                    <th data-field="itemId"                                          data-halign="center" data-align="center"                                  ><span>Folio                     </span></th>
+                    <th data-field="ArticuloDescripcion"                             data-halign="center" data-align="left"                                    ><span>Descripci&oacute;n        </span></th>
+                    <th data-field="Cantidad"                   data-visible="false" data-halign="center" data-align="center"                                  ><span>Cantidad                  </span></th>
+                    <th data-field="Precio"                                          data-halign="center" data-align="right"  data-formatter="priceFormatter"  ><span>Precio ($)                </span></th>
+                    <th data-field="Subtotal"                   data-visible="false" data-halign="center" data-align="right"  data-formatter="priceFormatter"  ><span>SubTotal                  </span></th>
+                    <th data-field="state" data-checkbox="true"                                                               data-formatter="ValidaPrecioCero"><span>                          </span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>

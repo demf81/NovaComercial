@@ -1,0 +1,157 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutMembresia.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/MembresiaTipo/MembresiaTipo.js"             asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/MembresiaRenovacion/MembresiaRenovacion.js" asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Operaci&oacute;n </span></li>
+                    <li><span>Pago Extempor&aacute;neo</span></li>
+                    <li class="active"><span>Alta </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Membresia</h2>
+            <small>Registro de pago extempor&aacute;neo.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-primary btn-sm" onclick="MembresiaRenovacion.guardar();">Guardar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="MembresiaRenovacion.redirecciona('MEMBRESIA_RENOVACION_INDEX')">Regresar</button>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div id="rootwizard" class="tabbable">
+                            <ul>
+                                <li><a href="#tab1" data-toggle="tab">Datos Generales</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Folio</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtMembresiaRenovacionId" name="txtMembresiaRenovacionId" class="form-control input-sm" , readonly="readonly" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="MembresiaRenovacionId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">No. Membresia</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtMembresiaId" name="txtMembresiaId" class="form-control input-sm" value="@ViewBag.MembresiaId" readonly="readonly" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="MembresiaId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Tipo de Membresia</label>
+                                                        <div class="col-sm-10 col-lg-4">
+                                                            <select class="form-control input-sm" id="ddlMembresiaTipoId" name="ddlMembresiaTipoId" disabled="disabled" readonly="readonly"></select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Contratante</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="txtContratante" class="form-control input-sm" readonly="readonly" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="Contratante" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Fecha Contrato</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtFechaContrato" class="form-control input-sm" readonly="readonly" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="FechaContrato" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Fecha Vence</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtFechaVencimiento" class="form-control input-sm" readonly="readonly" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="FechaVencimiento" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Cant. Beneficiarios</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtCantidadAfiliados" class="form-control input-sm" readonly="readonly" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="CantidadAfiliados" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Cant. Adicionales</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtCantidadAdicionales" class="form-control input-sm" readonly="readonly" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="CantidadAdicionales" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Num Pedido</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtNumPedido" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="NumPedido" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Num Recibo</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtNumRecibo" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="NumRecibo" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorMembresiaRenovacion" value="MEMBRESIA_RENOVACION_CREATE" placeholder="APUNTADOR" />

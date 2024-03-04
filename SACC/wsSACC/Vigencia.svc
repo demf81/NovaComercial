@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="wsSACC.Vigencia" CodeBehind="Vigencia.svc.cs" %>

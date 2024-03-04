@@ -1,0 +1,32 @@
+﻿<div role="form" class="form-horizontal">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Descripci&oacute;n</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <input type="text" id="txtCtrlUserBusquedaServicioMedicoDescripcion" class="form-control input-sm" />
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary btn-sm" onclick="CtrlUserBusquedaServicioMedico.buscar()">Buscar</button>
+                            </span>
+                        </div>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CtrlUserBusquedaServicioMedicoDescripcion" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Tipo de Servicio</label>
+                    <div class="col-sm-7">
+                        <select id="ddlCtrlUserBusquedaServicioMedicoTipoId" class="form-control input-sm"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table id="dgDatosCtrlUserBusquedaServicioMedico" data-height="330" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>

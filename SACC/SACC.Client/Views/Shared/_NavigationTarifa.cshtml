@@ -1,0 +1,69 @@
+﻿@using SACC.Client.Helpers
+
+
+<div id="navigation">
+    <div class="profile-picture">
+        <a href="@Url.Action("Index", "Home", new { Area = "" }, null)">
+            <img id="imgFoto" src="~/Images/profile.jpg" class="img-circle m-b" alt="logo">
+        </a>
+
+        <div class="stats-label text-color">
+            <span id="lblNombre" class="font-extra-bold font-uppercase"></span>
+        </div>
+    </div>
+
+
+
+    <ul class="nav" id="side-menu">
+        <li class="@Html.MEMBRESIA_IsSelected(controller: "Dashboard")">
+            <a href="#"><i class="pe-7s-keypad pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Dashboard</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li class="">      <a href="@Url.Action("Index"         , "Home", new { area = "" })">Comercial </a></li>
+                <li class="">      <a href="@Url.Action("IndexVigencia" , "Home", new { area = "" })">Vigencia  </a></li>
+                <li class="">      <a href="@Url.Action("IndexMembresia", "Home", new { area = "" })">Membresia </a></li>
+                <li class="">      <a href="@Url.Action("IndexVentas"   , "Home", new { area = "" })">Venta     </a></li>
+                <li class="active"><a href="@Url.Action("IndexTarifa"   , "Home", new { area = "" })">Tarifa    </a></li>
+                <li class="">      <a href="@Url.Action("IndexCaja"     , "Home", new { area = "" })">Caja      </a></li>
+                <li class="">      <a href="@Url.Action("IndexClubSalud", "Home", new { area = "" })">Reportes  </a></li>
+            </ul>
+        </li>
+
+        <li class="@Html.TARIFA_IsSelected(controller: "Home")">
+            <a href="@Url.Action("IndexTarifa", "Home", new { Area = "" }, null)"><i class="pe-7s-culture pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Inicio</span></a>
+        </li>
+
+        <li class="@Html.TARIFA_IsSelected(controller: "Catalogo")">
+            <a href="#"><i class="pe-7s-wallet pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Cat&aacute;logos</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.TARIFA_IsSelected(controller: "Material"              , action: "Index")"><a href="@Url.Action("Index", "Material"               , new { Area = "Material"                }, null)">Materiales</a></li>
+                <li class="@Html.TARIFA_IsSelected(controller: "Medicamento"           , action: "Index")"><a href="@Url.Action("Index", "Medicamento"            , new { Area = "Medicamento"             }, null)">Medicamentos</a></li>
+                <li class="@Html.TARIFA_IsSelected(controller: "Estudio"               , action: "Index")"><a href="@Url.Action("Index", "Estudio"                , new { Area = "Estudio"                 }, null)">Estudios</a></li>
+                <li class="@Html.TARIFA_IsSelected(controller: "ServicioMedico"        , action: "Index")"><a href="@Url.Action("Index", "ServicioMedico"         , new { Area = "ServicioMedico"          }, null)">Servicios Medicos</a></li>
+                <li class="@Html.TARIFA_IsSelected(controller: "Cirugia"               , action: "Index")"><a href="@Url.Action("Index", "Cirugia"                , new { Area = "Cirugia"                 }, null)">Cirugias</a></li>
+                <li class="@Html.TARIFA_IsSelected(controller: "ServicioSubrogado"     , action: "Index")"><a href="@Url.Action("Index", "ServicioSubrogado"      , new { Area = "ServicioSubrogado"       }, null)">Subrogados</a></li>
+                <li class="@Html.TARIFA_IsSelected(controller: "ServicioAdministrativo", action: "Index")"><a href="@Url.Action("Index", "ServicioAdministrativo" , new { Area = "ServicioAdministrativo"  }, null)">Servicios Administrativos</a></li>
+                <li class="@Html.TARIFA_IsSelected(controller: "Procedimiento"         , action: "Index")"><a href="@Url.Action("Index", "Procedimiento"          , new { Area = "Procedimiento"           }, null)">Procedimientos</a></li>
+            </ul>
+        </li>
+
+        <li class="@Html.TARIFA_IsSelected(controller: "Maestro")">
+            <a href="#"><i class="pe-7s-ribbon pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Maestros</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.TARIFA_IsSelected(controller: "ServicioSubrogadoTipo", action: "Index")"><a href="@Url.Action("Index", "ServicioSubrogadoTipo", new { Area = "ServicioSubrogadoTipo" }, null)">Tipo de Subrogados</a></li>
+                @*<li class="@Html.TARIFA_IsSelected(controller: "ServicioSubrogadoTipo", action: "Index")"><a href="@Url.Action("Index", "ServicioSubrogadoTipo"          , new { Area = "ServicioSubrogadoTipo"           }, null)">Tipo de Servicios Medicos</a></li>*@
+            </ul>
+        </li>
+        
+        <li class="@Html.TARIFA_IsSelected(controller: "Configuracion")">
+            <a href="#"><i class="pe-7s-config pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Configuraci&oacute;n</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                @*<li class="@Html.TARIFA_IsSelected(controller: "Estructura", action: "Index")"><a href="@Url.Action("Index", "Estructura", new { Area = "Estructura" }, null)">Estructuras</a></li>*@
+                <li class="@Html.TARIFA_IsSelected(controller: "Tarifa", action: "Index")"><a href="@Url.Action("Index", "Tarifa", new { Area = "Tarifa" }, null)">Tarifas</a></li>
+            </ul>
+        </li>
+
+        <li class="">
+            <a href="@Url.Action("Logout", "Home", new { Area = "" }, null)"><i class="pe-7s-upload pe-rotate-90 pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Cerrar Sesi&oacute;n</span> </a>
+        </li>
+    </ul>
+</div>

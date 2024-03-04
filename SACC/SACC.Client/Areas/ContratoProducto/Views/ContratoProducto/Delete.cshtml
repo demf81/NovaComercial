@@ -1,0 +1,237 @@
+﻿@model SACC.Client.Areas.ContratoProducto.Models.ContratoProductoModel
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript">
+        $(function () {
+            $('.input-group.date').datepicker({
+                format: "dd-MM-yyyy",
+                autoclose: true,
+                language: 'es'
+            });
+
+            $('#VigenciaDesde').datepicker({
+                format: 'dd-MM-yyyy',
+                minDate: new Date(),
+                language: 'es'
+            });
+
+            $('#VigenciaHasta').datepicker({
+                format: 'dd-MM-yyyy',
+                minDate: new Date(),
+                language: 'es'
+            });
+        });
+
+        function confirmForm(ctl, event) {
+            event.preventDefault();
+            swal({
+                title: "¿Estás seguro de eliminar el registro?",
+                text: "",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Si",
+                cancelButtonText: "No",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $("#DeleteForm").submit();
+                }
+                else {
+                    swal("La acción se ha cancelado", "", "error");
+                    return false;
+                }
+            });
+        }
+    </script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Configuraci&oacute;n </span></li>
+                    <li><span>Contrato </span></li>
+                    <li><span>Producto </span></li>
+                    <li class="active"><span>Eliminar </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Contrato Producto</h2>
+            <small>Cat&aacute;logo de Productos.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    @using (Html.BeginForm("Delete", "ContratoProducto", FormMethod.Post, new { id = "DeleteForm" }))
+    {
+        <div class="row rowDatosGenerales">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> Datos del Contrato</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="panel-body">
+                                <div role="form" class="form-horizontal">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.ContratoId, new { @class = "col-sm-2 control-label" })
+                                                    <div class="col-sm-10">
+                                                        @Html.TextBoxFor(m => m.ContratoId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.ContratoDescripcion, new { @class = "col-sm-2 control-label" })
+                                                    <div class="col-sm-10">
+                                                        @Html.TextBoxFor(m => m.ContratoDescripcion, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <div class="col-sm-10">
+                                                        @Html.ActionLink("Regresar", "Index", "ContratoProducto", new { @pContratoId = Model.ContratoId, @pContratoDescripcion = Model.ContratoDescripcion }, new { @class = "btn btn-default btn-sm" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row rowDatosGenerales">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-1"> Datos Generales</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="panel-body">
+                                <div role="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.ContratoProductoId, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.TextBoxFor(m => m.ContratoProductoId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.ContratoProductoId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.ContratoProductoDescripcion, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.ContratoProductoDescripcion, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.ContratoProductoDescripcion, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.Label(" ", new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            <div class="checkbox">
+                                                @Html.CheckBoxFor(m => m.EsquemaPrePago, new { @class = "i-checks", @disabled = "disabled" }) &nbsp; Esquema de PrePago
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.Label(" ", new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            <div class="checkbox">
+                                                @Html.CheckBoxFor(m => m.CobroAnticipado, new { @class = "i-checks", @disabled = "disabled" }) &nbsp; Aplica Cobro Anticipado
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.PorcentajeUtilidadSobreTarifa, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            <div class="input-group">
+                                                @Html.TextBoxFor(m => m.PorcentajeUtilidadSobreTarifa, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.PorcentajeUtilidadSobreTarifa, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.PorcentajeCopagoContratante, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            <div class="input-group">
+                                                @Html.TextBoxFor(m => m.PorcentajeCopagoContratante, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.PorcentajeCopagoContratante, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.PorcentajeDescuentoSobreTarifa, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            <div class="input-group">
+                                                @Html.TextBoxFor(m => m.PorcentajeDescuentoSobreTarifa, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                <span class="input-group-addon">%</span>
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.PorcentajeDescuentoSobreTarifa, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Baja, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            <div class="radio radio-inline">
+                                                @Html.RadioButtonFor(m => m.Baja, false, new { @class = "i-checks", @disabled = "disabled" }) Activo
+                                            </div>
+                                            <div class="radio radio-inline">
+                                                @Html.RadioButtonFor(m => m.Baja, true, new { @checked = "checked", @class = "i-checks", @disabled = "disabled" }) Inactivo
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-group-bottom">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <button class="btn btn-primary btn-sm" onclick="return confirmForm(this, event);" type="submit">Eliminar</button>
+
+                                            @Html.ActionLink("Regresar", "Index", "ContratoProducto", new { @pContratoId = Model.ContratoId, @pContratoDescripcion = Model.ContratoDescripcion }, new { @class = "btn btn-default btn-sm" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

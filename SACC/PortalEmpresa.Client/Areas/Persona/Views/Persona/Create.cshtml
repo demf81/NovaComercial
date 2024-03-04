@@ -1,0 +1,147 @@
+﻿@model PortalEmpresa.Client.Areas.Persona.Models.PersonaModel
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('.input-group.date').datepicker({
+                format: "dd-MM-yyyy",
+                autoclose: true
+            });
+            
+            $('#FechaNacimiento').datepicker({
+                format: 'dd-MM-yyyy',
+                minDate: new Date()
+            });
+        });
+    </script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li class="active"><span>Poblaci&oacute;n </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Poblaci&oacute;n</h2>
+            <small>Cat&aacute;logo de Personal.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    @using (Html.BeginForm("Create", "Persona", FormMethod.Post))
+    {
+        <div class="row rowDatosGenerales">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">Datos Generales</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="panel-body">
+                                <div role="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                        <div class="col-sm-10">
+                                            <span class="label label-warning">La persona no est&aacute; registrada dento de la poblacion</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.PersonaId, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.TextBoxFor(m => m.PersonaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.CURP, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-3">
+                                            @Html.TextBoxFor(m => m.CURP, new { @class = "form-control input-sm" })
+                                            @Html.ValidationMessageFor(m => m.CURP, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm" })
+                                            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Paterno, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.Paterno, new { @class = "form-control input-sm" })
+                                            @Html.ValidationMessageFor(m => m.Paterno, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Materno, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.Materno, new { @class = "form-control input-sm" })
+                                            @Html.ValidationMessageFor(m => m.Materno, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Genero, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            <div class="radio radio-inline">
+                                                @Html.RadioButtonFor(m => m.Genero, false, new { @class = "i-checks" }) Femenino
+                                            </div>
+                                            <div class="radio radio-inline">
+                                                @Html.RadioButtonFor(m => m.Genero, true, new { @class = "i-checks" }) Masculino
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FechaNacimiento, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-3">
+                                            <div class="input-group date">
+                                                @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                <span class="input-group-addon input-sm btn-sm"><i class="fa fa-calendar"></i></span>
+                                            </div>
+                                            @Html.ValidationMessageFor(m => m.FechaNacimiento, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.SocioId, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.TextBoxFor(m => m.SocioId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-group-bottom">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
+
+                                            @Html.ActionLink("Regresar", "Index", "Paquete", new { @class = "btn btn-default btn-sm" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

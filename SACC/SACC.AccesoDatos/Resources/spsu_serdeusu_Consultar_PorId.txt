@@ -1,0 +1,13 @@
+SELECT
+	*
+FROM PUB.su_serdeusu
+WHERE
+	su_vigencia    = 'AC'
+	AND
+	su_socio_id    = ?
+	AND
+	su_contrat_id  = ?
+	AND
+	su_contrato_id = ?
+	AND
+	su_servicio_id = ?

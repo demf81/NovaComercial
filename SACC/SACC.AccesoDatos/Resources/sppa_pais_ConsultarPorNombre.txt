@@ -1,0 +1,4 @@
+SELECT
+	pa_pais_Id
+FROM PUB.pa_pais
+WHERE pa_nombre = ? 

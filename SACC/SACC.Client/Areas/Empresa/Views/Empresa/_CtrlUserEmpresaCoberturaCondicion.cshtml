@@ -1,0 +1,59 @@
+﻿<div class="row">
+    <div role="form" class="form-horizontal">
+        <div class="row">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Contrato</label>
+                <div class="col-sm-10 col-lg-4">
+                    <select id="ddlEmpresaContratoId" class="form-control input-sm"></select>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="EmpresaContratoId" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    @*<div role="form" class="form-horizontal">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="hpanel">
+                        <div class="panel-hbuilt">
+                            <div class="panel-tools"></div>
+                        </div>
+                        <div class="panel-body" style="display: block;">
+                            <table id="dgDatosEmpresaContratoCobertura" data-height="250" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    <div class="col-lg-12">
+        <div id="rootwizard" class="tabbable">
+            <ul>
+                <li><a href="#tab1" data-toggle="tab">Condiciones</a></li>
+                <li><a href="#tab2" data-toggle="tab">Consumos</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane" id="tab1">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <br />
+                            <table id="dgDatosEmpresaContratoCoberturaCondicion" data-height="250" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane" id="tab2">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <br />
+                            <table id="dgDatosEmpresaContratoCoberturaConsumo" data-height="250" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

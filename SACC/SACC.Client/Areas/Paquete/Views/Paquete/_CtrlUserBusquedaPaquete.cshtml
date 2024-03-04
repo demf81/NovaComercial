@@ -1,0 +1,22 @@
+﻿<div role="form" class="form-horizontal">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="txtCtrlUserBusqueadaPaqueteDescripcion" name="txtCtrlUserBusqueadaPaqueteDescripcion" class="form-control input-sm" />
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CtrlUserBusqueadaPaqueteDescripcion" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-primary btn-sm" onclick="CtrlUserBusquedaPaquete.buscar($('#txtCtrlUserBusqueadaPaqueteDescripcion').val()">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table id="dgDatosCtrlUserBusquedaPaquete" data-height="330" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>

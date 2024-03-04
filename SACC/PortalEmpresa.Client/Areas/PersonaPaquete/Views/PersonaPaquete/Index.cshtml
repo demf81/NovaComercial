@@ -1,0 +1,148 @@
+﻿@model PortalEmpresa.Client.Areas.PersonaPaquete.Models.PersonaPaqueteVisualizar
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/PersonaPaquete/PersonaPaquete.js"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Paquete/CtrlUserPaquete.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GridPersonaPaquete($("#PersonaId").val());
+
+            GridCtrlUserPaquete($("#PersonaId").val(), $("#Nombre").val());
+        });
+    </script>
+
+
+    @if (TempData["text"] != null)
+    {
+        <script type="text/javascript">
+            $(window).load(function() {
+                $(document).ready(function() {
+                    swal({
+                        title: "@TempData["title"]",
+                        text: "@TempData["text"]",
+                        type: "@TempData["type"]"
+                    });
+                });
+            });
+        </script>
+    };
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li><span>Poblaci&oacute;n </span></li>
+                    <li class="active"><span>Servicios </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Cat&aacute;logo - Poblaci&oacute;n</h2>
+            <small>Asignacion de Servicios.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> Datos de la Empresa</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            <div role="form" class="form-horizontal">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.PersonaId, new { @class = "col-sm-2 control-label" })
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(m => m.PersonaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    @Html.ActionLink("Regresar", "Index", "Persona", new { Area = "Persona" }, new { @class = "btn btn-default btn-sm" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <button data-toggle="modal" data-target="#myModal" class="btn btn-primary btn-sm">Agregar</button>
+                </div>
+
+                <table id="dgDatosPersonaPaquete" data-height="430" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+                    <thead>
+                        <tr>
+                            <th data-field="PersonaPaqueteId"                          data-sortable="true" data-align="center"                     ><span>Folio</span></th>
+                            <th data-field="CampoComplemento_PaqueteDescripcion"       data-sortable="true"                                         ><span>Paquete</span></th>
+                            <th data-field="PaqueteId"                                                                    data-visible="false"><span>EmpresaId</span></th>
+                            <th data-field="PersonaId"                                                                    data-visible="false" ><span>PersonaId</span></th>
+                            <th data-field="CampoComplemento_NombreCompleto"                                              data-visible="false" ><span>Nombre</span></th>
+                            <th data-field="Baja" data-formatter="estatusFormatter"                         data-align="center"                     ><span>Estatus</span></th>
+                            <th data-formatter="operateActionFormatter_PersonaPaquete"                      data-align="center"                     ><span>Acci&oacute;n</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Paquetes Vigentes</h4>
+                @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserPaquete", "Paquete", new { Area = "Paquete" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary btn-sm" onclick="javascript:GuardaPersonaPaquete();">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+SELECT
+	mu_muni_id
+FROM PUB.mu_municipios
+WHERE mu_nombre = ?

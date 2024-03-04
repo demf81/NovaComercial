@@ -1,0 +1,34 @@
+INSERT INTO PUB.ccu_usuarios
+(
+	ccu_campos_act,
+	ccu_contrat_id,
+	ccu_contrato_id,
+	ccu_cvefam,
+	ccu_desc_nomina,
+	ccu_fec_alta,
+	ccu_fec_baja,
+	ccu_hora_act,
+	ccu_orig_vigen,
+	ccu_socio_id,
+	ccu_tipocont,
+	ccu_ult_act,
+	ccu_usuario_act,
+	ccu_vigencia
+)
+VALUES
+(
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?
+)

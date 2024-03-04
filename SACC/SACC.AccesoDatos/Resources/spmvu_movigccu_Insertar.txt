@@ -1,0 +1,28 @@
+INSERT INTO PUB.mvu_movigccu
+(
+	mvu_contrat_id,
+	mvu_contrato_id,
+	mvu_cvefam,
+	mvu_fec_mov,
+	mvu_hora_mov,
+	mvu_mot_post,
+	mvu_motivo_id,
+	mvu_orig_vigen,
+	mvu_socio_id,
+	mvu_usuario,
+	mvu_vigencia
+)
+VALUES
+(
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?,
+	?
+)

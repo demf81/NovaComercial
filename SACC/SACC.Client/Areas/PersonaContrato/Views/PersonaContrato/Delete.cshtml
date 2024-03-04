@@ -1,0 +1,265 @@
+﻿@*@model SACC.Client.Areas.PersonaContrato.Models.PersonaContratoModel
+
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/PersonaContrato/PersonaContrato.js"></script>
+
+    @if (TempData["text"] != null)
+    {
+        <script type="text/javascript">
+            $(window).load(function() {
+                $(document).ready(function() {
+                    swal({
+                        title: "@TempData["title"]",
+                        text: "@TempData["text"]",
+                        type: "@TempData["type"]"
+                    });
+                });
+            });
+        </script>
+    };
+}
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li class="active"><span>Persona </span></li>
+                    <li class="active"><span>Contrato </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Persona - Contrato</h2>
+            <small>Asignacion de Contratos.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> Datos de la Persona</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            <div role="form" class="form-horizontal">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.PersonaId, new { @class = "col-sm-2 control-label" })
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(m => m.PersonaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                                <div class="col-sm-10">
+                                                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <div class="col-sm-10">
+                                                    @Html.ActionLink("Regresar", "Index", "Persona", new { Area = "Persona" }, new { @class = "btn btn-default btn-sm" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                </div>
+
+                <table id="dgDatosPersonaContrato" data-height="430" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+                    <thead>
+                        <tr>
+                            <th data-field="PersonaContratoId" data-sortable="true" data-align="center"><span>Folio</span></th>
+                            <th data-field="CampoComplemento_ContratoDescripcion" data-sortable="true"><span>Contrato</span></th>
+                            <th data-field="CampoComplemento_ContratoCoberturaDescripcion" data-sortable="true"><span>Cobertura Activa</span></th>
+                            <th data-field="CampoComplemento_PaqueteDescripcion" data-sortable="true"><span>Paquete Activo</span></th>
+
+                            <th data-field="Baja" data-formatter="estatusFormatter" data-align="center"><span>Estatus</span></th>
+                            <th data-formatter="operateActionFormatter_PersonaContrato" data-align="center"><span>Acci&oacute;n</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+@model SACC.Client.Areas.PersonaContrato.Models.PersonaContratoModel
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript">
+        function confirmForm(ctl, event) {
+            event.preventDefault();
+            swal({
+                title: "¿Estás seguro de eliminar el registro?",
+                text: "",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Si",
+                cancelButtonText: "No",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $("#DeleteForm").submit();
+                }
+                else {
+                    swal("La acción se ha cancelado", "", "error");
+                    return false;
+                }
+            });
+        }
+    </script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logo </span></li>
+                    <li><span>Poblaci&oacute;n </span></li>
+                    <li><span>Contrato </span></li>
+                    <li class="active"><span>Eliminar </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Persona Contrato</h2>
+            <small>Asignaci&oacute;n de Contrato.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true"> Datos Generales</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            @using (Html.BeginForm("Delete", "PersonaContrato", FormMethod.Post, new { id = "DeleteForm" }))
+                            {
+                                <div role="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.PersonaContratoId, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.TextBoxFor(m => m.PersonaContratoId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.PersonaContratoId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group hide">
+                                        @Html.LabelFor(m => m.PersonaId, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.PersonaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group hide">
+                                        @Html.LabelFor(m => m.ContratoId, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.ContratoId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.ContratoDescripcion, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @Html.TextBoxFor(m => m.ContratoDescripcion, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Baja, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            <div class="radio radio-inline">
+                                                @Html.RadioButtonFor(m => m.Baja, false, new { @class = "i-checks", @disabled = "disabled" }) Activo
+                                            </div>
+                                            <div class="radio radio-inline">
+                                                @Html.RadioButtonFor(m => m.Baja, true, new { @checked = "checked", @class = "i-checks", @disabled = "disabled" }) Inactivo
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-group-bottom">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <button class="btn btn-primary btn-sm" onclick="return confirmForm(this, event);" type="submit">Eliminar</button>
+
+                                            @Html.ActionLink("Regresar", "Index", "PersonaContrato", new { Area = "EmpresaContrato", @pPersonaId = Model.PersonaId, @pNombre = Model.Nombre }, new { @class = "btn btn-default btn-sm" })
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

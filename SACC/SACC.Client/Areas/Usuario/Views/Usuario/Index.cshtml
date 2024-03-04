@@ -1,0 +1,126 @@
+﻿@model SACC.Client.Areas.Usuario.Models.UsuarioVisualizar
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Usuario/Usuario.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GridUsuario($('#UsuarioNombre').val(), $('#EstatusId:checked').val());
+        });
+    </script>
+
+    @if (TempData["text"] != null)
+    {
+        <script type="text/javascript">
+            $(window).load(function() {
+                $(document).ready(function() {
+                    swal({
+                        title: "@TempData["title"]",
+                        text: "@TempData["text"]",
+                        type: "@TempData["type"]"
+                    });
+                });
+            });
+        </script>
+    };
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Portal Empresa </span></li>
+                    <li class="active"><span>Usuario </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Usuario</h2>
+            <small>Cat&aacute;logo de Usuario.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowBusqueda">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Opciones de B&uacute;squeda
+                </div>
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.EstatusId, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @foreach (SACC.Client.Models.RadioModel item in Model.Estatus)
+                                {
+                                    <div class="radio radio-inline">
+                                        @Html.RadioButtonFor(x => x.EstatusId, item.Id, new { @class = "i-checks" })
+                                        @Html.Label(item.Name)
+                                    </div>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UsuarioNombre, new { @class = "col-sm-2 control-label" })
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.UsuarioNombre, new { @class = "form-control input-sm" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn btn-primary btn-sm" onclick="javascript:GridUsuario($('#UsuarioNombre').val(), $('#EstatusId:checked').val())">Buscar</button>
+
+                                <button class="btn btn-default btn-sm" onclick="javascript:RegresarUsuario();">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    @Html.ActionLink("Agregar", "Create", "Usuario", new { @class = "btn btn-primary btn-sm" })
+                </div>
+
+                <table id="dgDatosUsuario" data-height="430" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+                    <thead>
+                        <tr>
+                            <th data-field="UsuarioId"                              data-sortable="true" data-align="center"><span>Folio          </span></th>
+                            <th data-field="CampoComplemento_NombreCompleto"        data-sortable="true"                    ><span>Usuario        </span></th>
+                            <th data-field="Correo"                                 data-sortable="true"                    ><span>Correo         </span></th>
+                            <th data-field="CampoComplemento_StrFecha"              data-sortable="true" data-align="center"><span>Fin de Vigencia</span></th>
+                            <th data-field="Baja" data-formatter="estatusFormatter"                      data-align="center"><span>Estatus        </span></th>
+                            <th data-formatter="operateActionFormatter_Usuario"                          data-align="center"><span>Acci&oacute;n  </span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

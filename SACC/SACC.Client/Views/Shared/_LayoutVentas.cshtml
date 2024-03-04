@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <meta charset="UTF-8">
+
+        <script type="text/javascript">
+            function disableBack() {
+                window.history.forward();
+                window.history.forward(-1);
+            }
+
+            setTimeout("disableBack()", 0);
+            window.onunload = function () { null };
+        </script>
+
+        <title>SACC</title>
+        <link rel="shortcut icon" type="image/ico" href="~/Assets/images/logo.jpg" />
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+
+        @Styles.Render("~/css/sweetalert")
+        @Styles.Render("~/css/layout")
+        @Styles.Render("~/css/fonts")
+        @Styles.Render("~/css/datatables")
+        @Styles.Render("~/css/select")
+        @RenderSection("Styles", required: false)
+    </head>
+    
+    <body>
+        <!--[if lt IE 7]>
+            <p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <!-- Header -->
+        <div id="header">
+            @Html.Partial("_HeaderVentas")
+        </div>
+
+        <!-- Navigation -->
+        <aside id="menu">
+            @Html.Partial("_NavigationVentas")
+        </aside>
+
+        <!-- Main view  -->
+        <div id="wrapper">
+            @RenderBody()
+        </div>
+
+        @Html.Partial("_ModalProgressBar")
+        @Html.Partial("_ModalSuccess")
+        @Html.Partial("_ModalWarning")
+        @Html.Partial("_ModalError")
+
+        @Html.Hidden("txtUrlPrincipal", @System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString())
+
+        <section id="scripts-section">
+            @Scripts.Render("~/js/layout")
+            @Scripts.Render("~/js/helper")
+            @Scripts.Render("~/js/datatables")
+            @Scripts.Render("~/js/select")
+            @Scripts.Render("~/js/sweetalert")
+            @Scripts.Render("~/js/switch")
+            @Scripts.Render("~/js/CtrlUserPersona")
+            @Scripts.Render("~/js/CtrlUserContratoCobertura")
+            @RenderSection("Scripts", required: false)
+        </section>
+    </body>
+</html>

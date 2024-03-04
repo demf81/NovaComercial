@@ -1,0 +1,303 @@
+﻿@model SACC.Client.Areas.VentaUnitariaEspecial.Models.VentaUnitariaResumen
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/VentaUnitariaEspecialDetalle/VentaUnitariaEspecialDetalle.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GridVentaUnitariaEspecialDetalle($("#VentaUnitariaId").val());
+        });
+    </script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Admisi&oacute;n </span></li>
+                    <li><span>Venta Unitaria </span></li>
+                    <li class="active"><span>Resumen </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Venta Unitaria</h2>
+            <small>Generador de Ventas Unitarias.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1">Resumen de Venta</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            <div role="form" class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                        <h4><a href=""></a></h4>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.VentaUnitariaId, new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        @Html.TextBoxFor(m => m.VentaUnitariaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                        @Html.ValidationMessageFor(m => m.VentaUnitariaId, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                        <h4><a href="">Persona</a></h4>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.PersonaId, new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        @Html.TextBoxFor(m => m.PersonaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                        @Html.ValidationMessageFor(m => m.PersonaId, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                                    <div class="col-sm-10">
+                                                        @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                        @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                        <h4><a href=""> Contratante</a></h4>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.EmpresaId, new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        @Html.TextBoxFor(m => m.EmpresaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                        @Html.ValidationMessageFor(m => m.EmpresaId, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Empresa, new { @class = "col-sm-2 control-label" })
+                                                    <div class="col-sm-10">
+                                                        @Html.TextBoxFor(m => m.Empresa, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                        @Html.ValidationMessageFor(m => m.Empresa, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                        <h4><a href=""> Tipo de Servicio</a></h4>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="col-sm-4 control-label">&nbsp;</label>
+                                                    <div class="col-sm-8">
+                                                        @Html.TextBoxFor(m => m.TipoServicio, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                        @Html.ValidationMessageFor(m => m.TipoServicio, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                        <h4><a href=""> Contrato</a></h4>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.ContratoId, new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        @Html.TextBoxFor(m => m.ContratoId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                        @Html.ValidationMessageFor(m => m.ContratoId, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Contrato, new { @class = "col-sm-2 control-label" })
+                                                    <div class="col-sm-10">
+                                                        @Html.TextBoxFor(m => m.Contrato, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                        @Html.ValidationMessageFor(m => m.Contrato, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                        <h4><a href=""> Descripci&oacute;n</a></h4>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.FechaVigencia, new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        <div class="input-group date">
+                                                            @Html.TextBoxFor(m => m.FechaVigencia, "{0:yyyy-MM-dd}", new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                            <span class="input-group-addon input-sm btn-sm disabled"><i class="fa fa-calendar"></i></span>
+                                                        </div>
+                                                        @Html.ValidationMessageFor(m => m.FechaVigencia, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.VentaUnitariaDescripcion, new { @class = "col-sm-2 control-label" })
+                                                    <div class="col-sm-10">
+                                                        @Html.TextBoxFor(m => m.VentaUnitariaDescripcion, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                                        @Html.ValidationMessageFor(m => m.VentaUnitariaDescripcion, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                        <h4><a href=""> Items</a></h4>
+
+                                        <table id="dgDatosVentaUnitariaEspecialDetalle" data-height="300" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+                                            <thead>
+                                                <tr>
+                                                    <th data-field="CampoComplemento_ServicioDescripcion" data-align="left"><span>Descripci&oacute;n</span></th>
+                                                    <th data-field="Cantidad" data-align="center" data-editable="true"><span>Cantidad          </span></th>
+                                                    <th data-field="Precio" data-align="right" data-formatter="priceFormatter"><span>Precio ($)        </span></th>
+                                                    <th data-field="Subtotal" data-align="right" data-formatter="priceFormatter"><span>SubTotal ($)      </span></th>
+                                                    <th data-field="Amparado" data-align="center" data-formatter="AmparadoFormatter"><span>Amparado          </span></th>
+                                                    @*<th data-formatter="operateDeleteDetalleFormatter" data-align="center" data-events="operateDeleteDetalleEvents"><span>                          </span></th>*@
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                        <h4><a href=""> Condiciones de Venta</a></h4>
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    @Html.Label(" ", new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        <div class="checkbox">
+                                                            @Html.CheckBoxFor(m => m.EsquemaPrePago, new { @class = "i-checks", @disabled = "disabled" }) &nbsp; Esquema de PrePago
+                                                        </div>
+                                                        @Html.ValidationMessageFor(m => m.EsquemaPrePago, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.Label(" ", new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        <div class="checkbox">
+                                                            @Html.CheckBoxFor(m => m.CobroAnticipado, new { @class = "i-checks", @disabled = "disabled" }) &nbsp; Aplica Cobro Anticipado
+                                                        </div>
+                                                        @Html.ValidationMessageFor(m => m.CobroAnticipado, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.PorcentajeUtilidadSobreTarifa, new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        <div class="input-group">
+                                                            @Html.TextBoxFor(m => m.PorcentajeUtilidadSobreTarifa, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                            <span class="input-group-addon">%</span>
+                                                        </div>
+                                                        @Html.ValidationMessageFor(m => m.PorcentajeUtilidadSobreTarifa, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.PorcentajeCopagoContratante, new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        <div class="input-group">
+                                                            @Html.TextBoxFor(m => m.PorcentajeCopagoContratante, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                            <span class="input-group-addon">%</span>
+                                                        </div>
+                                                        @Html.ValidationMessageFor(m => m.PorcentajeCopagoContratante, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.PorcentajeDescuentoSobreTarifa, new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        <div class="input-group">
+                                                            @Html.TextBoxFor(m => m.PorcentajeDescuentoSobreTarifa, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                            <span class="input-group-addon">%</span>
+                                                        </div>
+                                                        @Html.ValidationMessageFor(m => m.PorcentajeDescuentoSobreTarifa, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    @Html.LabelFor(m => m.Total, new { @class = "col-sm-4 control-label" })
+                                                    <div class="col-sm-8">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">$</span>
+                                                            @Html.TextBoxFor(m => m.Total, new { @class = "form-control input-sm text-right", @readonly = "readonly" })
+                                                        </div>
+                                                        @Html.ValidationMessageFor(m => m.Total, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 col-sm-offset-2 animated-panel zoomIn" style="animation-delay: 0.6s;">
+                                        <button class="btn btn-success btn-sm" onclick="javascript:CambioVigenciaVentaUnitariaEspecial();">Guardar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

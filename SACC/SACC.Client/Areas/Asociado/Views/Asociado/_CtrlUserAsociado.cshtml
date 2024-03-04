@@ -1,0 +1,45 @@
+﻿@model SACC.Client.Areas.Asociado.Models.CtrlUserAsociado
+
+
+<div role="form" class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(m => m.CtrlUserAsociado_NumSocio, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-2">
+            @Html.TextBoxFor(m => m.CtrlUserAsociado_NumSocio, new { @class = "form-control input-sm" })
+        </div>
+
+        @Html.LabelFor(m => m.CtrlUserAsociado_ClaveFamiliar, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-2">
+            @Html.TextBoxFor(m => m.CtrlUserAsociado_ClaveFamiliar, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CtrlUserAsociado_Nombre, new { @class = "col-sm-2 control-label" })
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.CtrlUserAsociado_Nombre, new { @class = "form-control input-sm" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-8 col-sm-offset-2">
+            <button class="btn btn-primary btn-sm" onclick="javascript:GridCtrlUserAsociado($('#CtrlUserAsociado_NumSocio').val(), $('#CtrlUserAsociado_ClaveFamiliar').val(), $('#CtrlUserAsociado_Nombre').val())">Buscar</button>
+        </div>
+    </div>
+</div>
+
+
+<table id="dgDatosCtrlUserAsociado" data-height="280" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true">
+    <thead>
+        <tr>
+            <th data-field="AsociadoId"                                data-sortable="true"            data-align="center"                     ><span>Folio         </span></th>
+            <th data-field="CampoComplemento_SocioId"                  data-sortable="true"            data-align="center"                     ><span>Num. Socio    </span></th>
+            <th data-field="CampoComplemento_NombreCompleto"           data-sortable="true"                                                    ><span>Nombre        </span></th>
+            <th data-field="Curp"                                      data-sortable="true"            data-align="center"                     ><span>CURP          </span></th>
+            <th data-field="CampoComplemento_Genero"                   data-formatter="sexoFormatter"  data-sortable="true" data-align="center"><span>G&eacute;nero </span></th>
+            <th data-field="CampoComplemento_Edad"                     data-sortable="true"            data-align="center"                     ><span>Edad          </span></th>
+            <th data-field="CampoComplemento_EmpresaPlantaDescripcion" data-sortable="true"                                                    ><span>Empresa Planta</span></th>
+            <th data-field="Seleccionado" data-checkbox="true"                                                                                 ><span>              </span></th>
+        </tr>
+    </thead>
+</table>

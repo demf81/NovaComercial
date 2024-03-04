@@ -1,0 +1,121 @@
+﻿@model PortalEmpresa.Client.Areas.Seguridad.Models.CambioContrasenaModel
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*@section Scripts {
+    <script type="text/javascript">
+        @if (TempData["text"] != null) {
+            <text>
+                $(window).load(function () {
+                    $(document).ready(function () {
+                        swal({
+                            title: '@TempData["title"]',
+                            text: '@TempData["text"]',
+                            type: '@TempData["type"]'
+                        });
+                    });
+                });
+            </text>
+        };
+    </script>
+}*@
+
+
+@section Scripts {
+    @if (TempData["text"] != null) {
+        <script type="text/javascript">
+            $(window).load(function () {
+                $(document).ready(function () {
+                    swal({
+                        title: '@TempData["title"]',
+                        text: decodeURIComponent('@TempData["text"]'),
+                        type: '@TempData["type"]'
+                    });
+                });
+            });
+        </script>
+    };
+}
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Seguridad </span></li>
+                    <li class="active"><span>Mi Perfil </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Mi Perfil</h2>
+            <small>Cat&aacute;logo de Usuario.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#tab-1" aria-expanded="true">Cambio de Contrase&ntilde;a</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane active">
+                        <div class="panel-body">
+                            @using (Html.BeginForm("CambioContrasena", "Seguridad", FormMethod.Post))
+                            {
+                                <div role="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.UsuarioId, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.TextBoxFor(m => m.UsuarioId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            @Html.ValidationMessageFor(m => m.UsuarioId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Contrasena, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.TextBoxFor(m => m.Contrasena, new { @class = "form-control input-sm", @readonly = "readonly", @type = "password" })
+                                            @Html.ValidationMessageFor(m => m.Contrasena, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.NuevaContrasena, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.PasswordFor(m => m.NuevaContrasena, new { @class = "form-control input-sm" })
+                                            @Html.ValidationMessageFor(m => m.NuevaContrasena, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.ConfirmarContrasena, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.PasswordFor(m => m.ConfirmarContrasena, new { @class = "form-control input-sm" })
+                                            @Html.ValidationMessageFor(m => m.ConfirmarContrasena, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-group-bottom">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+
+                                            @Html.ActionLink("Regresar", "Perfil", "Seguridad", new { @class = "btn btn-default btn-sm" })
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

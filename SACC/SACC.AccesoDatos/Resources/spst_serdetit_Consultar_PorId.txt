@@ -1,0 +1,13 @@
+SELECT
+	*
+FROM PUB.st_serdetit
+WHERE
+	st_vigencia    = 'AC'
+	AND
+	st_socio_id    = ?
+	AND
+	st_contrat_id  = ?
+	AND
+	st_contrato_id = ?
+	AND
+	st_servicio_id = ?

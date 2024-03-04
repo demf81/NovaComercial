@@ -1,0 +1,7 @@
+SELECT
+	*
+FROM PUB.co_contratos
+WHERE
+	co_empresa_id = ?
+	AND
+	co_planta_id  = ?

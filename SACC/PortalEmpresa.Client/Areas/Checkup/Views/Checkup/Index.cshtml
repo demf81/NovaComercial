@@ -1,0 +1,138 @@
+﻿@model PortalEmpresa.Client.Areas.Checkup.Models.CheckupPersonaBuscar
+@using PortalEmpresa.Client.Areas.Checkup.Models;
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*@section Scripts {
+        <script type="text/javascript">
+        $('#dgDatos').bootstrapTable({});
+
+            $('#dpFecha').datepicker({
+                format: "DD-MM-YYYY",
+                locale: 'es',
+                minDate: new Date()
+           });
+
+           $("#datetime").each(function () {
+               $(this).datetimepicker({
+                   format: "DD-MMM-YYYY LT"
+               });
+           });
+        </script>
+    }*@
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Servicios </span></li>
+                    <li class="active"><span>Programaci&oacute;n de Checpup </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Agenda</h2>
+            <small>Programaci&oacute;n de Checpup.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Selecci&oacute;n de Poblaci&oacute;n
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("Index", "Checkup", FormMethod.Post))
+                    {
+                        <div role="form" class="form-horizontal">
+                            @*<div class="form-group">
+                                @Html.LabelFor(m => m.PersonaId, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.PersonaId, new { @class = "form-control input-sm" })
+                                </div>
+                            </div>*@
+
+                            @*<div class="form-group">
+                                @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm" })
+                                </div>
+                            </div>*@
+
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <button type="submit" class="btn btn-primary btn-sm">Buscar</button>
+
+                                    @Html.ActionLink("Limpiar", "Index", "Paquete", new { @class = "btn btn-default btn-sm" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    @*@using (Html.BeginForm("Protocolo", "Checkup", FormMethod.Post, new { model = Model. }))
+                    {
+                        <button type="submit" class="btn btn-primary btn-sm">Protocolo</button>
+                    }*@
+
+                    <button onclick="javascript: getSelecionados()" class=" btn btn-primary btn-sm">Protocolo</button>
+
+                    
+                    @*@Html.ActionLink("Seleccionar Protocolo", "Protocolo", "Checkup", new { @class = "btn btn-primary btn-sm" });*@
+                </div>
+
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table id="dgDatos" class="table table-hover table-condensed">
+                            <thead>
+                                <tr>
+                                    <th><span></span></th>
+                                    <th><span>No. Cliente</span></th>
+                                    <th><span>Nombre</span></th>
+                                    <th><span>Genero</span></th>
+                                    <th><span>Edad</span></th>
+                                    <th data-align="center" class="col-lg-1"><span></span>Estatus</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (CheckupPersonaBuscarLista item in Model.Grid)
+                                {
+                                    <tr>
+                                        <td>@Html.CheckBoxFor(CheckupPersonaBuscarLista => @item.Seleccionado)</td>
+                                        <td>@item.PersonaId</td>
+                                        <td>@item.ApellidoPaterno @item.ApellidoMaterno, @item.Nombre</td>
+                                        <td>@item.Genero</td>
+                                        <td>@item.Edad</td>
+                                        <td>@item.Estatus</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/Areas/Checkup/Checkup.js"></script>

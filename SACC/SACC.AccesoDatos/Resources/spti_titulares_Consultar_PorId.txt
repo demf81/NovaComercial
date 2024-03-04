@@ -1,0 +1,3 @@
+SELECT	ti_socio_id AS Clave
+FROM	pub.ti_titulares
+WHERE	ti_socio_id = ?

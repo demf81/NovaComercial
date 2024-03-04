@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/WS_SAI" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WS_SAI" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://termxnvadb14.ternium.techint.net/Nova/WebService/SAI/SAI.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Autenticar">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutenticacionCorrecta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="InformacionUsuario" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataSet" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:element ref="xs:schema" />
+            <xs:any />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="IntentosFallidos" type="xs:int" />
+      <xs:element minOccurs="0" name="MensajeError" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Autenticar" nillable="true" type="tns:Autenticar" />
+  <xs:complexType name="Token">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contrasena" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UsuarioCuenta" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Token" nillable="true" type="tns:Token" />
+  <xs:complexType name="Mensaje">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AutenticacionCorrecta" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IntentosFallidos" type="xs:int" />
+      <xs:element minOccurs="0" name="MensajeError" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Token" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Mensaje" nillable="true" type="tns:Mensaje" />
+</xs:schema>

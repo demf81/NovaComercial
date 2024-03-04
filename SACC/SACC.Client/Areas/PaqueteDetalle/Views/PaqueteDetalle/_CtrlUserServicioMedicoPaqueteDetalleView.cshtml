@@ -1,0 +1,33 @@
+﻿&nbsp;
+
+
+<div role="form" class="form-horizontal">
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="txtCtrlUserServicioMedicoViewDescripcion" class="form-control input-sm" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="col-sm-5 control-label">Tipo de Servicio</label>
+                    <div class="col-sm-7">
+                        <select id="ddlCtrlUSerServicioTipoViewId" class="form-control input-sm"></select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-2">
+                <button class="btn btn-primary btn-sm" onclick="CtrlUserServicioMedicoView.tabla.buscar()">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table id="dgDatosCtrlUserServicioMedicoPaqueteDetalleView" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>

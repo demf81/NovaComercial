@@ -1,0 +1,16 @@
+UPDATE pub.st_serdetit
+SET
+	st_vigencia    = 'BA',
+	st_fec_baja    = ?,
+	st_ult_act     = ?,
+	st_usuario_act = ?,
+	st_hora_act	   = ?,
+	st_campos_act  = ? 
+WHERE
+	st_vigencia    = 'AC'
+	AND
+	st_socio_id    = ?
+	AND
+	st_contrat_id  = ?
+	AND
+	st_contrato_id = ?

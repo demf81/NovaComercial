@@ -1,0 +1,226 @@
+﻿.table-warning {
+    --bs-table-color: #000;
+    --bs-table-bg: #fff3cd;
+    --bs-table-border-color: #e6dbb9;
+    --bs-table-striped-bg: #f2e7c3;
+    --bs-table-striped-color: #000;
+    --bs-table-active-bg: #e6dbb9;
+    --bs-table-active-color: #000;
+    --bs-table-hover-bg: #ece1be;
+    --bs-table-hover-color: #000;
+    color: var(--bs-table-color);
+    border-color: var(--bs-table-border-color);
+}
+
+.text-warning2 {
+    color: #e67e22;
+}
+
+.text-primary2 {
+    color: #9b59b6;
+}
+
+.h45 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.form-horizontal .form-group-detalle-cotizacion {
+     margin-right: 3px;
+     margin-left: 3px;
+}
+
+/*.hpanel.hnova .panel-collapse {
+    border-top: 2px solid #ffa722;
+}
+
+.hpanel.panel-collapse > .panel-heading, .hpanel .hbuilt {
+    background: #fff;
+    border-color: #ffa722;
+    border: 1px solid #ffa722;
+    padding: 10px 10px;
+    border-radius: 2px;
+}*/
+
+/*.hpanel.hnova .panel-heading {
+    border-bottom: 2px solid #ffa722;
+}*/
+
+.hpanel.hnova .panel-body {
+    border-top: 2px solid #ffa722;
+}
+
+.hpanel.hnova-solo {
+    padding-top: 20px;
+    /*border-top: 2px solid #ffa722;*/
+}
+
+.hpanel.hnovagrey .panel-body {
+    border-top: 2px solid #7D7D7D;
+}
+
+.fixed-table-container thead th .both {
+    color: #fff;
+}
+
+.fixed-table-container thead th {
+    background-color: #ffa722;
+    color:#fff;
+}
+
+/* LOGO */ #logo {
+    width: 250px;
+}
+
+/* MENU */
+#menu #navigation {
+    width: 250px;
+    background: #f1f3f6;
+}
+
+#menu {
+    width: 250px;
+    background: #f1f3f6;
+}
+
+#logo #TituloSitio {
+
+    padding: 9px 25px 12px 25px;
+    font-weight: 600;
+    text-align: left;
+    font-size: 15px;
+
+}
+
+#wrapper {
+    margin: 0 0 0 250px;
+    padding: 0;
+    background: #f1f3f6;
+    border-left: 1px solid #e4e5e7;
+    transition: all 0.4s ease 0s;
+    position: relative;
+    min-height: 100%;
+}
+
+#wrapper .content {
+    padding: 1px 10px 40px 10px;
+    min-width: 320px;
+    /*background-color: #ffffff; DEMF 20220401*/
+    background-color: #f1f3f6;
+}
+
+.btn-xs {
+    font-size: 15px;
+}
+
+#logo img {
+    width: 52px;
+    border: none;
+    height: 34px;
+    margin-top: 3px;
+}
+
+.profile-picture img {
+    width: 60px;
+    height: 60px;
+}
+
+#side-menu.nav > li:first-child > a:hover, #side-menu.nav > li:first-child > a:focus {
+    background-color: #e4e5e7;
+}
+
+.form-group .radio-inline, .checkbox-inline {
+    padding-left: 0px;
+}
+
+
+.small-header .panel-body {
+    padding: 8px 25px;
+}
+
+.rowBusqueda .hpanel {
+    margin-top: 12px;
+}
+
+.rowBusqueda .hpanel .panel-body {
+    padding-top: 10px;
+    padding-bottom: 1px;
+}
+
+.rowDatosGenerales .hpanel {
+    padding-top: 8px;
+}
+
+.rowTabDatosGenerales .hpanel {
+    padding-top: 8px;
+}
+
+.rowTabDatosGeneralesSecundario .hpanel {
+    padding-top: 0px;
+}
+
+.rowDatosGeneralesNew .hpanel .hnova-solo {
+    padding-top: 50px;
+}
+
+.rowDatosGeneralesNew .hpanel .hnova-solo-pb {
+    border-top: 2px solid #ffa722;
+}
+
+.rowDatosGeneralesNew .hpanel .hpanel-nova .nav {
+    border-bottom: 2px solid #7D7D7D;
+}
+
+
+.rowDatosGenerales .hpanel .nav {
+    padding-top: 8px;
+}
+
+.rowTabDatosGenerales .hpanel .nav {
+    padding-top: 8px;
+    padding-bottom: 20px;
+}
+
+.rowDatosGenerales .hpanel .nav a {
+    font-weight: bold;
+}
+
+.rowTabDatosGenerales .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: #7D7D7D;
+}
+
+.rowTabDatosGenerales .hpanel .nav a {
+    font-weight: bold;
+    text-align: left;
+}
+
+.rowTabDatosGenerales .form-horizontal .form-group {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.rowTabDatosGenerales .alert h4 {
+    margin-bottom: 0;
+}
+
+#wrapper .contentPrimario {
+    padding: 1px 10px 20px 10px;
+}
+
+.form-horizontal .form-group-bottom {
+    margin-bottom: 1px;
+}
+
+
+#rootwizard .tab-pane .resumen {
+    border-top: 1px solid #e4e5e7;
+}
+
+#rootwizard .normalheader {
+    padding: 0px 20px 20px 20px;
+}
+
+#rootwizard .content {
+    padding: 0px 20px 20px 20px;
+}

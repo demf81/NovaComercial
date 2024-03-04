@@ -1,0 +1,9 @@
+SELECT
+	*
+FROM PUB.sc_servdecto
+WHERE
+	sc_vigencia = 'AC'
+	AND
+	sc_contrat_id = ?
+	AND
+	sc_contrato_id = ?

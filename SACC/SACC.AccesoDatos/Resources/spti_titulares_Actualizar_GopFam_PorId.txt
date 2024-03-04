@@ -1,0 +1,3 @@
+UPDATE	pub.ti_titulares
+SET		ti_gpofam = ?
+WHERE	ti_socio_id = ?

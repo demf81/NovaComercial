@@ -1,0 +1,20 @@
+SELECT
+	su.su_servicio_id servicioId,
+	co.co_contrat_id,
+	co.co_contrato_id 
+FROM pub.ccu_usuarios cu 
+	JOIN pub.su_serdeusu su  ON (cu.ccu_contrat_id = su.su_contrat_id  AND cu.ccu_contrato_id = su.su_contrato_id AND cu.ccu_socio_id = su.su_socio_id AND cu.ccu_cvefam = su.su_cvefam)
+	JOIN pub.co_contratos co ON (cu.ccu_contrat_id = co.co_contrat_id  AND cu.ccu_contrat_id  = co.co_contrat_id)
+	JOIN pub.sd_serdepaq sd  ON (sd.sd_paquete_id  = co.co_paquete_id  AND su.su_servicio_id  = sd.sd_servicio_id)
+WHERE
+	cu.ccu_vigencia   = 'AC'
+	AND
+	su.su_vigencia    = 'AC'
+	AND
+	cu.ccu_socio_id   = ?
+	AND
+	cu.ccu_cvefam     = ?
+	AND
+	co.co_contrat_id  = ?
+	AND
+	co.co_contrato_id = ?

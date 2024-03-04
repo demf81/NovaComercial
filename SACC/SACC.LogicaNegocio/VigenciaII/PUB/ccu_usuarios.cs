@@ -1,0 +1,179 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+
+
+namespace SACC.LogicaNegocio.VigenciaII.PUB
+{
+    public class ccu_usuarios
+    {
+        public ccu_usuarios()
+        { }
+
+
+        public static String Guardarccu_usuarios(Entidades.NovaComercial.WebService.AsociadoLog asociado)
+        {
+            string res = string.Empty;
+
+            Entidades.VigenciaII.PUB.ccu_usuarios oBE         = new Entidades.VigenciaII.PUB.ccu_usuarios();
+            Entidades.VigenciaII.PUB.co_contratos oBEContrato = co_contratos.BuscarContratoClass(asociado.ClaveEmpresaContrato, asociado.ClavePlantaContrato.ToString());
+
+            oBE.ccu_contrat_id   = oBEContrato.co_contrat_id;
+            oBE.ccu_contrato_id  = oBEContrato.co_contrato_id;
+            oBE.ccu_socio_id     = asociado.NumeroSocio;
+            oBE.ccu_cvefam       = asociado.ClaveFamiliar;
+            oBE.ccu_fec_alta     = asociado.FechaMovimiento;
+            oBE.ccu_fec_baja     = asociado.FechaBajaContrato;
+            oBE.ccu_fec_reactiva = asociado.FechaReactivacionContrato;
+            oBE.ccu_vigencia     = oBEContrato.co_vigencia;
+            oBE.ccu_orig_vigen   = oBEContrato.co_orig_vigen;
+            oBE.ccu_tipocont     = oBEContrato.co_tipocont;
+            oBE.ccu_desc_nomina  = 0;
+            oBE.ccu_ult_act      = DateTime.Now;
+            oBE.ccu_hora_act     = Util.horaEnEntero(DateTime.Now);
+            oBE.ccu_usuario_act = "webserviceuser";
+            oBE.ccu_campos_act   = "TODOS";
+            
+            Entidades.EntidadResponse response = Util.Insertar(SqlOpciones.Insertar, oBE);
+
+            if (response.Error)
+                res = "Error al insertar el contrato (US)";
+
+            mvu_movigccu.Guardarmvu_movigccu(asociado);
+
+            return res;
+        }
+
+
+        public static String Bajaccu_usuarios(Entidades.NovaComercial.WebService.AsociadoLog asociado)
+        {
+            string res = string.Empty;
+
+            Entidades.VigenciaII.PUB.ccu_usuarios oBE         = new Entidades.VigenciaII.PUB.ccu_usuarios();
+            Entidades.VigenciaII.PUB.co_contratos oBEContrato = co_contratos.BuscarContratoClass(asociado.ClaveEmpresaContrato, asociado.ClavePlantaContrato.ToString());
+
+            oBE.ccu_contrat_id   = oBEContrato.co_contrat_id;
+            oBE.ccu_contrato_id  = oBEContrato.co_contrato_id;
+            oBE.ccu_socio_id     = asociado.NumeroSocio;
+            oBE.ccu_cvefam       = asociado.ClaveFamiliar;
+            //oBE.ccu_fec_alta = asociado.FechaMovimiento;
+            oBE.ccu_fec_baja     = asociado.FechaBajaContrato;
+            oBE.ccu_fec_reactiva = asociado.FechaReactivacionContrato;
+            oBE.ccu_vigencia     = "BA";
+            oBE.ccu_orig_vigen   = oBEContrato.co_orig_vigen;
+            oBE.ccu_tipocont     = oBEContrato.co_tipocont;
+            oBE.ccu_desc_nomina  = 0;
+            oBE.ccu_ult_act      = DateTime.Now;
+            oBE.ccu_hora_act     = Util.horaEnEntero(DateTime.Now);
+            oBE.ccu_usuario_act  = "webserviceuser";
+            oBE.ccu_campos_act =  "ccu_vigencia, ccu_fec_baja";
+
+            Entidades.EntidadResponse response = Util.Actualizar(SqlOpciones.Actualizar, oBE);
+
+            if (response.Error)
+                res = "Error al modificar el contrato (US)";
+
+            mvu_movigccu.Guardarmvu_movigccu(asociado);
+
+            return res;
+        }
+
+
+        public static String Reactivaccu_usuarios(Entidades.NovaComercial.WebService.AsociadoLog asociado)
+        {
+            string res = string.Empty;
+
+            Entidades.VigenciaII.PUB.ccu_usuarios oBE         = new Entidades.VigenciaII.PUB.ccu_usuarios();
+            Entidades.VigenciaII.PUB.co_contratos oBEContrato = co_contratos.BuscarContratoClass(asociado.ClaveEmpresaContrato, asociado.ClavePlantaContrato.ToString());
+
+            oBE.ccu_contrat_id   = oBEContrato.co_contrat_id;
+            oBE.ccu_contrato_id  = oBEContrato.co_contrato_id;
+            oBE.ccu_socio_id     = asociado.NumeroSocio;
+            oBE.ccu_cvefam       = asociado.ClaveFamiliar;
+            //oBE.ccu_fec_alta = asociado.FechaMovimiento;
+            //oBE.ccu_fec_baja = asociado.FechaBajaContrato;
+            oBE.ccu_fec_reactiva = asociado.FechaReactivacionContrato;
+            oBE.ccu_vigencia     = "AC";
+            oBE.ccu_orig_vigen   = oBEContrato.co_orig_vigen;
+            oBE.ccu_tipocont     = oBEContrato.co_tipocont;
+            oBE.ccu_desc_nomina  = 0;
+            oBE.ccu_ult_act      = DateTime.Now;
+            oBE.ccu_hora_act     = Util.horaEnEntero(DateTime.Now);
+            oBE.ccu_usuario_act  = "webserviceuser";
+            oBE.ccu_campos_act   = "ccu_vigencia, ccu_fec_baja, ccu_usuario_act";
+
+            Entidades.EntidadResponse response = Util.Actualizar(SqlOpciones.Actualizar, oBE);
+
+            if (response.Error)
+                res = "Error al reactivar el contrato (US)";
+
+            mvu_movigccu.Guardarmvu_movigccu(asociado);
+
+            return res;
+        }
+
+
+        public static Modelo.ModeloJsonResponse<Modelo.VigenciaII.PUB.ccu_usuarios.Dtoccu_usuarios> ObtieneVigencia_usuarios(Int32 pNumeroSocio, Int16 pClaveFamiliar)
+        {
+            Modelo.ModeloJsonResponse<Modelo.VigenciaII.PUB.ccu_usuarios.Dtoccu_usuarios> res = new Modelo.ModeloJsonResponse<Modelo.VigenciaII.PUB.ccu_usuarios.Dtoccu_usuarios>();
+
+            try
+            {
+                Entidades.VigenciaII.PUB.ccu_usuarios oBE = new Entidades.VigenciaII.PUB.ccu_usuarios
+                {
+                    ccu_socio_id = pNumeroSocio,
+                    ccu_cvefam   = pClaveFamiliar
+                };
+
+                Entidades.EntidadResponse response = Util.Consultar(SqlOpciones.ConsultaGeneral, oBE);
+
+                if (!response.Error)
+                {
+                    if(response.Resultado.Tables[0].Rows.Count > 0)
+                    {
+                        Modelo.VigenciaII.PUB.ccu_usuarios.Dtoccu_usuarios item = null;
+                        res.Datos = new List<Modelo.VigenciaII.PUB.ccu_usuarios.Dtoccu_usuarios>();
+
+                        foreach (DataTable table in response.Resultado.Tables)
+                        {
+                            foreach (DataRow dr in table.Rows)
+                            {
+                                item = new Modelo.VigenciaII.PUB.ccu_usuarios.Dtoccu_usuarios
+                                {
+                                    ccu_socio_id = Int32.Parse(dr["ccu_socio_id"].ToString()),
+                                    ccu_cvefam   = Int16.Parse(dr["ccu_cvefam"].ToString()),
+                                    ccu_vigencia = dr["ccu_vigencia"].ToString(),
+                                    ccu_fec_baja = DateTime.Parse(dr["ccu_fec_baja"].ToString())
+                                };
+
+                                res.Datos.Add(item);
+                            }
+                        }
+                    }
+                    else {
+                        res.Error        = true;
+                        res.TituloError  = "(LogicaNegocio) - Error Inesperado - La vigencia no se pudo cambiar.";
+                        res.MensajeError = "No se encontro feccha valida para el socio seleccionado";
+                        res.TipoMensaje  = "warning";
+                    }
+                }
+                else
+                {
+                    res.Error        = true;
+                    res.TituloError  = "(LogicaNegocio) - Error Inesperado - La vigencia no se pudo cambiar.";
+                    res.MensajeError = response.MensajeError;
+                    res.TipoMensaje  = "error";
+                }
+            }
+            catch (Exception exc)
+            {
+                res.Error        = true;
+                res.TituloError  = "(LogicaNegocio) - Error Inesperado - La vigencia no se pudo cambiar.";
+                res.MensajeError = exc.Message.ToString();
+                res.TipoMensaje  = "error";
+            }
+
+            return res;
+        }
+    }
+}

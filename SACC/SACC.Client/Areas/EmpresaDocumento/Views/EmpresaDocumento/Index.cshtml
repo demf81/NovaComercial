@@ -1,0 +1,147 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/EmpresaArchivoTipo/EmpresaArchivoTipo.js"     asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/EmpresaDocumentoTipo/EmpresaDocumentoTipo.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/EmpresaDocumento/EmpresaDocumento.js"         asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li><span>Empresa </span></li>
+                    <li class="active"><span>Documentos </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Empresa - Documento</h2>
+            <small>Registro de Documentos.</small>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-default btn-sm" onclick="EmpresaDocumento.redirecciona('EMPRESA_INDEX');">Regresar</button>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div id="rootwizard" class="tabbable">
+                            <ul>
+                                <li><a href="#tab1" data-toggle="tab">Datos de la Empresa</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div role="form" class="form-horizontal">
+                                        <div class="col-sm-12">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Folio</label>
+                                                        <div class="col-sm-10">
+                                                            
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="EmpresaId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-9">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Empresa</label>
+                                                        <div class="col-sm-10">
+                                                            
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="EmpresaDescripcion" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnovagrey">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button onclick="EmpresaDocumento.abreModalCreate()" class="btn btn-primary btn-sm">Agregar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="EmpresaDocumento.redirecciona('EMPRESA_INDEX');">Regresar</button>
+
+                    <div class="pull-right" style="padding-top:5px;">
+                        <span class="label label-info" style="font-size:14px;">Empresa:&nbsp;@ViewBag.EmpresaDescripcion</span>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <table id="dgDatosEmpresaDocumento" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalCreateEmpresaDocumento" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Agregando Documento</h4>
+            </div>
+
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_Create", "EmpresaDocumento", new { Area = "EmpresaDocumento" });
+                }
+            </div>
+            
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button class="btn btn-primary btn-sm" onclick="EmpresaDocumento.guardarUpLoad()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorEmpresaDocumento" value="EMPRESA_DOCUMENTO_INDEX" placeholder="APUNTADOR" />
+<input type="hidden" id="txtEmpresaId"          name="txtEmpresaId"          value="@ViewBag.EmpresaId" />
+<input type="hidden" id="txtEmpresaDEscripcion" name="txtEmpresaDEscripcion" value="@ViewBag.EmpresaDescripcion" />

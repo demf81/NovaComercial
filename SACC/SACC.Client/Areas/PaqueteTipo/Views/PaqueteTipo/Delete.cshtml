@@ -1,0 +1,93 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/PaqueteTipo/PaqueteTipo.js?v=20221101"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li><span>Tipo de Paquete </span></li>
+                    <li class="active"><span>Eliminar </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Tipo de Paquete</h2>
+            <small>Cat&aacute;logo de Tipo de Paquete.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-danger btn-sm" onclick="PaqueteTipo.baja();">Eliminar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="PaqueteTipo.redirecciona('PAQUETE_TIPO_INDEX')">Regresar</button>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div id="rootwizard" class="tabbable">
+                            <ul>
+                                <li><a href="#tab1" data-toggle="tab">Datos Generales</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Folio</label>
+                                                        <div class="col-sm-10 col-lg-2">
+                                                            <input type="text" id="txtPaqueteTipoId" name="txtPaqueteTipoId" class="form-control input-sm" , readonly="readonly" value="@ViewBag.PaqueteTipoId" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PaqueteTipoId" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" id="txtPaqueteTipoDescripcion" name="txtPaqueteTipoDescripcion" class="form-control input-sm" />
+                                                            <span class="field-validation-valid text-danger" data-valmsg-for="PaqueteTipoDescripcion" data-valmsg-replace="true"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorPaqueteTipo" value="PAQUETE_TIPO_DELETE" placeholder="APUNTADOR" />

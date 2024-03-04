@@ -1,0 +1,11 @@
+SELECT
+	*
+FROM PUB.ccu_usuarios
+WHERE
+	ccu_vigencia    = 'AC'
+	AND
+	ccu_contrat_id  = ?
+	AND
+	ccu_contrato_id = ?
+	AND
+	ccu_socio_id    = ?

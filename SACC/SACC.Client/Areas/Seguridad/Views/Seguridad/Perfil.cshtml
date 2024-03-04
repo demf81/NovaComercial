@@ -1,0 +1,92 @@
+﻿@model PortalEmpresa.Client.Areas.Seguridad.Models.MiPerfilmodel
+
+
+@{
+    ViewBag.Title = "Perfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Seguridad </span></li>
+                    <li class="active"><span>Mi Perfil </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Mi Perfil</h2>
+            <small>Cat&aacute;logo de Usuario.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-body">
+                    @using (Html.BeginForm("Index", "Poblacion", FormMethod.Post))
+                    {
+                        <div role="form" class="form-horizontal">
+                            <h3>Datos Generales</h3>
+                            <h3>&nbsp;</h3>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.UsuarioId, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.UsuarioId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Paterno, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.Paterno, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Materno, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.Materno, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Telefono, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.Telefono, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Correo, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.Correo, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    @Html.ActionLink("Editar", "Editar", "Seguridad", new { @class = "btn btn-primary btn-sm" })
+
+                                    @Html.ActionLink("Cambiar Contraseña", "Cambiocontrasena", "Seguridad", new { @class = "btn btn-default btn-sm" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,247 @@
+﻿@model PortalEmpresa.Client.Areas.Persona.Models.PersonaModel
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["text"] != null) {
+        <script type="text/javascript">
+            $(window).load(function () {
+                $(document).ready(function () {
+                    swal({
+                        title: '@TempData["title"]',
+                        text: decodeURIComponent('@TempData["text"]'),
+                        type: '@TempData["type"]',
+                    });
+                });
+            });
+        </script>
+    };
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li class="active"><span>Poblaci&oacute;n </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Poblaci&oacute;n</h2>
+            <small>Cat&aacute;logo de Personal.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    @using (Html.BeginForm())
+    {
+        <div class="row rowDatosGenerales">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-1">Datos Generales</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="panel-body">
+                                <div role="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                        <div class="col-sm-10">
+                                            @if (ViewBag.EnPoblacion == 1)
+                                            {
+                                                <span class="label label-success">La persona est&aacute; registrada dento de la poblacion</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="label label-warning">La persona no est&aacute; registrada dento de la poblacion</span>
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.PersonaId, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-2">
+                                            @Html.TextBoxFor(m => m.PersonaId, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.CURP, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-3">
+                                            @if (@Model.PersonaId > 0)
+                                            {
+                                                @Html.TextBoxFor(m => m.CURP, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            }
+                                            else
+                                            {
+                                                @Html.TextBoxFor(m => m.CURP, new { @class = "form-control input-sm" })
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Nombre, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @if (@Model.PersonaId > 0)
+                                            {
+                                                @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            }
+                                            else
+                                            {
+                                                @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control input-sm" })
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Paterno, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @if (@Model.PersonaId > 0)
+                                            {
+                                                @Html.TextBoxFor(m => m.Paterno, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            }
+                                            else
+                                            {
+                                                @Html.TextBoxFor(m => m.Paterno, new { @class = "form-control input-sm" })
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Materno, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @if (@Model.PersonaId > 0)
+                                            {
+                                                @Html.TextBoxFor(m => m.Materno, new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            }
+                                            else
+                                            {
+                                                @Html.TextBoxFor(m => m.Materno, new { @class = "form-control input-sm" })
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Genero, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            @if (@Model.PersonaId > 0)
+                                            {
+                                                <div class="radio radio-inline">
+                                                    @Html.RadioButtonFor(m => m.Genero, false, new { @class = "i-checks" }) Femenino
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    @Html.RadioButtonFor(m => m.Genero, true, new { @class = "i-checks" }) Masculino
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="radio radio-inline">
+                                                    @Html.RadioButtonFor(m => m.Genero, false, new { @class = "i-checks" }) Femenino
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    @Html.RadioButtonFor(m => m.Genero, true, new { @class = "i-checks", }) Masculino
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FechaNacimiento, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10 col-lg-3">
+                                            @if (@Model.PersonaId > 0)
+                                            {
+                                                @Html.TextBoxFor(m => m.FechaNacimiento, "{0:dd/MMM/yyyy}", new { @class = "form-control input-sm", @readonly = "readonly" })
+                                            }
+                                            else
+                                            {
+                                                @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "form-control input-sm" })
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Baja, new { @class = "col-sm-2 control-label" })
+                                        <div class="col-sm-10">
+                                            <div class="radio radio-inline">
+                                                @Html.RadioButtonFor(m => m.Baja, false, new { @checked = "checked", @class = "i-checks" }) Activo
+                                            </div>
+                                            <div class="radio radio-inline">
+                                                @Html.RadioButtonFor(m => m.Baja, true, new { @class = "i-checks", }) Inactivo
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group form-group-bottom">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <button class="btn btn-primary btn-sm" type="submit">Guardar</button>
+
+                                            @Html.ActionLink("Regresar", "Index", "Persona", new { @class = "btn btn-default btn-sm" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="row rowDatosGenerales">
+            <div class="col-lg-12">
+                <div class="hpanel">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#tab-1">Detalle de Servicios</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="panel-body">
+                                <div role="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">&nbsp;</label>
+                                        <div class="col-sm-10">
+                                            <table id="dgDatos" class="table table-hover table-condensed">
+                                                <thead>
+                                                    <tr>
+                                                        <th><span>Seleccionado</span></th>
+                                                        <th><span>Folio</span></th>
+                                                        <th><span>Descripci&oacute;n</span></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @for (int i = 0; i < Model.GridPaquete.Count; i++)
+                                                    {
+                                                        <tr>
+                                                            <td>@Html.CheckBox("[" + i + "].Seleccionado", Model.GridPaquete[i].Seleccionado)</td>
+                                                            <td>@Html.DisplayFor(m => Model.GridPaquete[i].PaqueteId)</td>
+                                                            <td>@Html.DisplayFor(m => Model.GridPaquete[i].PaqueteDescripcion)</td>
+                                                            <td>@Html.Hidden("[" + i + "].PersonaPaqueteId", Model.GridPaquete[i].PersonaPaqueteId)</td>
+                                                            <td>@Html.Hidden("[" + i + "].PersonaId", Model.GridPaquete[i].PersonaId)</td>
+                                                            <td>@Html.Hidden("[" + i + "].ContratoId", Model.GridPaquete[i].ContratoId)</td>
+                                                            <td>@Html.Hidden("[" + i + "].PaqueteId", Model.GridPaquete[i].PaqueteId)</td>
+                                                            <td>@Html.Hidden("[" + i + "].PaqueteDescripcion", Model.GridPaquete[i].PaqueteDescripcion)</td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    }
+</div>

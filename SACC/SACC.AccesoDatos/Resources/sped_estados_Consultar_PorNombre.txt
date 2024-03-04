@@ -1,0 +1,4 @@
+SELECT
+	ed_edo_id
+FROM PUB.ed_estados
+WHERE ed_nombre = ?

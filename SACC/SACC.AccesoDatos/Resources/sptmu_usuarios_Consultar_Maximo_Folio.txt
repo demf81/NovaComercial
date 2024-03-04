@@ -1,0 +1,1 @@
+SELECT MAX(tmu_folio) as FolioMaximo FROM PUB.tmu_usuarios

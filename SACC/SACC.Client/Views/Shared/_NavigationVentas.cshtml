@@ -1,0 +1,58 @@
+﻿@using SACC.Client.Helpers
+
+
+<div id="navigation">
+    <div class="profile-picture">
+        <a href="@Url.Action("Index", "Home", new { Area = "" }, null)">
+            <img id="imgFoto" src="~/Images/profile.jpg" class="img-circle m-b" alt="logo">
+        </a>
+
+        <div class="stats-label text-color">
+            <span id="lblNombre" class="font-extra-bold font-uppercase"></span>
+        </div>
+    </div>
+
+
+
+    <ul class="nav" id="side-menu">
+        <li class="@Html.VENTA_IsSelected(controller: "Dashboard")">
+            <a href="#"><i class="pe-7s-keypad pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Dashboard</span><span class="fa arrow"></span></a>
+            <ul class="nav nav-second-level">
+                <li class="">      <a href="@Url.Action("Index"         , "Home", new { area = "" })">Comercial </a></li>
+                <li class="">      <a href="@Url.Action("IndexVigencia" , "Home", new { area = "" })">Vigencia  </a></li>
+                <li class="">      <a href="@Url.Action("IndexMembresia", "Home", new { area = "" })">Membresia </a></li>
+                <li class="active"><a href="@Url.Action("IndexVentas"   , "Home", new { area = "" })">Venta     </a></li>
+                <li class="">      <a href="@Url.Action("IndexTarifa"   , "Home", new { area = "" })">Tarifa    </a></li>
+                <li class="">      <a href="@Url.Action("IndexCaja"     , "Home", new { area = "" })">Caja      </a></li>
+                <li class="">      <a href="@Url.Action("IndexClubSalud", "Home", new { area = "" })">Reportes  </a></li>
+            </ul>
+        </li>
+
+        <li class="@Html.VENTA_IsSelected(controller: "Home")">
+            <a href="@Url.Action("IndexVentas", "Home", new { Area = "" }, null)"><i class="pe-7s-culture pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Inicio</span> </a>
+        </li>
+        
+        <li class="@Html.VENTA_IsSelected(controller: "Operacion")">
+            <a href="#"><i class="pe-7s-portfolio pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Operaci&oacute;n</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.VENTA_IsSelected(controller: "Cotizacion"         , action: "Index")"><a href="@Url.Action("Index", "Cotizacion", new { Area = "Cotizacion"         }, null)">Cotizaci&oacute;n                 </a></li>
+                <li class="@Html.VENTA_IsSelected(controller: "VentaPaquete"       , action: "Index")"><a href="@Url.Action("Index", "Venta"     , new { Area = "Venta", pOpcion = 1 }, null)">Venta de Paquetes                 </a></li>
+                <li class="@Html.VENTA_IsSelected(controller: "VentaServicio"      , action: "Index")"><a href="@Url.Action("Index", "Venta"     , new { Area = "Venta", pOpcion = 2 }, null)">Venta de Servicios                </a></li>
+                <li class="@Html.VENTA_IsSelected(controller: "VentaProcedimiento" , action: "Index")"><a href="@Url.Action("Index", "Venta"     , new { Area = "Venta", pOpcion = 3 }, null)">Venta de Procedimientos           </a></li>
+                <li class="@Html.VENTA_IsSelected(controller: "VentaAdministrativo", action: "Index")"><a href="@Url.Action("Index", "Venta"     , new { Area = "Venta", pOpcion = 4 }, null)">Venta de Servicios Administrativos</a></li>
+            </ul>
+        </li>
+        
+        <li class="@Html.VENTA_IsSelected(controller: "Reporte")">
+            <a href="#"><i class="pe-7s-graph1 pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Reportes</span><span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.VENTA_IsSelected(controller: "EstadoCuenta"         , action: "Index")"><a href="@Url.Action("Index", "EstadoCuenta"         , new { Area = "EstadoCuenta"          }, null)">Estado de Cuenta</a></li>
+                <li class="@Html.VENTA_IsSelected(controller: "EstadoCuenta"         , action: "Index")"><a href="@Url.Action("Index", "EstadoCuenta"         , new { Area = "EstadoCuenta"          }, null)">Listado de Ventas</a></li>
+            </ul>
+        </li>
+        
+        <li class="">
+            <a href="@Url.Action("Logout", "Home", new { Area = "" }, null)"><i class="pe-7s-upload pe-rotate-90 pe-2x"></i><span class="nav-label">&nbsp;&nbsp;&nbsp;Cerrar Sesi&oacute;n</span> </a>
+        </li>
+    </ul>
+</div>

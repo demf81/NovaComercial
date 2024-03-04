@@ -1,0 +1,142 @@
+﻿@model PortalEmpresa.Client.Areas.Persona.Models.PersonaBuscarCURP
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $('input[type=radio][name=TipoBusqueda]').change(function () {
+            if (this.value == "False") {
+                location.href = '@Url.Action("BuscarCURP", "Persona")';
+            }
+            else if (this.value == "True") {
+                location.href = '@Url.Action("BuscarSocio", "Persona")';
+            }
+        });
+    </script>
+
+    @if (TempData["text"] != null)
+    {
+        <script type="text/javascript">
+            $(window).load(function () {
+                $(document).ready(function () {
+                    swal({
+                        title: "@TempData["title"]",
+                        text: "@TempData["text"]",
+                        type: "@TempData["type"]",
+                    });
+                });
+            });
+        </script>
+    };
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li><span>Poblaci&oacute;n </span></li>
+                    <li class="active"><span>Alta </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Poblaci&oacute;n</h2>
+            <small>Cat&aacute;logo de Personal.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowBusqueda">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Opciones de B&uacute;squeda
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("BuscarCURP", "Persona", FormMethod.Post))
+                    {
+                        <div role="form" class="form-horizontal">
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.TipoBusqueda, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    <div class="radio radio-inline">
+                                        @Html.RadioButtonFor(m => m.TipoBusqueda, false, new { @class = "i-checks" }) CURP
+                                    </div>
+                                    <div class="radio radio-inline">
+                                        @Html.RadioButtonFor(m => m.TipoBusqueda, true, new { @class = "i-checks" }) Num Socio
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.CURP, new { @class = "col-sm-2 control-label" })
+                                <div class="col-sm-10">
+                                    @Html.TextBoxFor(m => m.CURP, new { @class = "form-control input-sm" })
+                                    @Html.ValidationMessageFor(m => m.CURP, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-8 col-sm-offset-2">
+                                    <button class="btn btn-primary btn-sm" type="submit">Buscar</button>
+
+                                    @Html.ActionLink("Regresar", "Index", "Persona", new { @class = "btn btn-default btn-sm" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        @*<div class="row">
+    <div class="col-lg-12">
+        <div class="hpanel">
+            <div class="panel-heading">
+                @Html.ActionLink("Agregar", "BuscarRfc", "Persona", new { @class = "btn btn-primary btn-sm" })
+            </div>
+
+            <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table id="dgDatos" class="table table-hover table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th><span>No. Cliente</span></th>
+                                                    <th><span>Nombre</span></th>
+                                                    <th><span>Genero</span></th>
+                                                    <th><span>Edad</span></th>
+                                                    <th data-formatter="estatusFormatter" data-align="center" class="col-lg-1"><span></span>Estatus</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (PersonaLista item in Model.Grid)
+                                                {
+                                                    <tr>
+                                                        <td>@item.PersonaId</td>
+                                                        <td>@item.ApellidoPaterno @item.ApellidoMaterno, @item.Nombre</td>
+                                                        <td>@item.Genero</td>
+                                                        <td>@item.Edad</td>
+                                                        <td>@item.Estatus</td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@

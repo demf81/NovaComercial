@@ -1,0 +1,17 @@
+UPDATE PUB.ccu_usuarios SET
+	ccu_vigencia	= 'BA',
+	ccu_fec_baja	= ?,
+	ccu_ult_act		= ?,
+	ccu_hora_act    = ?,
+	ccu_usuario_act = ?,
+	ccu_campos_act  = ? 
+WHERE
+	ccu_vigencia    = 'AC'
+	AND
+	ccu_socio_id    = ?
+	AND
+	ccu_cvefam      = ?
+	AND
+	ccu_contrat_id  = ?
+	AND
+	ccu_contrato_id = ?

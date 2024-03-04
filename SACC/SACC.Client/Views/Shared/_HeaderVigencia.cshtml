@@ -1,0 +1,19 @@
+﻿<div class="color-line"></div>
+
+<div id="logo" class="light-version">
+    <div class="pull-left">
+        <img src="~/Assets/images/logo.jpg" alt="logo" />
+    </div>
+
+    <div class="pull-left" id="TituloSitio">
+        <div class="row">@System.Configuration.ConfigurationManager.AppSettings["NombreAplicacionCortoVigencia"].ToString()</div>
+    </div>
+</div>
+
+<nav role="navigation" role="navigation">
+    <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+
+    <div class="small-logo">
+        <span class="text-primary">@System.Configuration.ConfigurationManager.AppSettings["NombreAplicacionCortoVigencia"].ToString()</span>
+    </div>
+</nav>

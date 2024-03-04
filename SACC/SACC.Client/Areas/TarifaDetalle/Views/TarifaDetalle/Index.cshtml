@@ -1,0 +1,142 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutTarifa.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/TarifaDetalle/TarifaDetalle.js"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Configuraci&oacute;n </span></li>
+                    <li><span>Tarifas </span></li>
+                    <li class="active"><span>Configuraci&oacute;n </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Tarifa</h2>
+            <small>Asignaci&oacute;n de Servicios y Porcentajes.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-default btn-sm" onclick="TarifaDetalle.redirecciona('TARIFA_INDEX');">Regresar</button>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div id="rootwizard" class="tabbable">
+                            <ul>
+                                <li><a href="#tab1" data-toggle="tab">Datos de la Tarifa</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="row">
+                                                    <div class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-2 control-label">Folio</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" id="txtTarifaId" name="txtTarifaId" class="form-control input-sm" , readonly="readonly" value="@ViewBag.TarifaId" />
+                                                                <span class="field-validation-valid text-danger" data-valmsg-for="TarifaId" data-valmsg-replace="true"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-9">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-2 control-label">Tarifa</label>
+                                                            <div class="col-sm-10">
+                                                                <input type="text" id="txtTarifaDescripcion" name="txtTarifaDescripcion" class="form-control input-sm" , readonly="readonly" value="@ViewBag.TarifaDescripcion" />
+                                                                <span class="field-validation-valid text-danger" data-valmsg-for="TarifaDescripcion" data-valmsg-replace="true"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="panel-footer">&nbsp;</div>*@
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button onclick="TarifaDetalle.AbreModalCreate()" class="btn btn-primary btn-sm">Agregar</button>
+                </div>
+
+                <div class="panel-body">
+                    <table id="dgDatosTarifaDetalle" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+    <div class="modal fade" id="myModalTarifaDetalleCreare" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="color-line"></div>
+                <div class="modal-header text-center">
+                    <h4 class="modal-title">Agregar Tarifa Detalle</h4>
+                    @*<small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>*@
+                </div>
+                <div class="modal-body">
+                    @{
+                        Html.RenderAction("_Create", "TarifaDetalle", new { Area = "TarifaDetalle" });
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                    <button class="btn btn-primary btn-sm" onclick="TarifaDetalle.Agregar()">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <input type="hidden" id="txtApuntadorTarifaDetalle" value="TARIFA_DETALLE_INDEX" placeholder="APUNTADOR" />

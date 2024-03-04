@@ -1,0 +1,54 @@
+﻿<div role="form" class="form-horizontal">
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Venta ID</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control input-sm" id="txtCancelarVentaId" name="txtVentaId" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Descripción</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control input-sm" id="txtCancelarVentaDescripcion" name="txtVentaDescripcion" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Nombre</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control input-sm" id="txtCancelarVentaNombre" name="txtVentaNombre" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Total</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control input-sm" id="txtCancelarVentaTotal" name="txtVentaTotal" readonly="readonly" />
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Motivo Cancelación</label>
+            <div class="col-sm-7">
+                <select id="ddlMotivoCancelacionId" name="ddlMotivoCancelacionId" class="form-control input-sm"></select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="MotivoCancelacion" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <h4 class="modal-title">¿Estás seguro de cancelar la venta?</h4>
+        <br />
+        <button class="btn btn-default btn-lg" style="margin-right:20px;" data-dismiss="modal">No</button>
+        <button class="btn btn-danger2 btn-lg" onclick="CtrlUserCancelarVenta.cancelarVenta()">Si</button>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+SELECT
+	COUNT(*) GrupoFamiliar
+FROM pub.ccu_usuarios cu
+WHERE
+	cu.ccu_vigencia = 'AC'
+	AND
+	cu.ccu_socio_id = ?

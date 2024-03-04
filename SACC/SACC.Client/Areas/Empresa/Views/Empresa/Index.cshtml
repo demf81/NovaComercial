@@ -1,0 +1,180 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/EmpresaContrato/EmpresaContrato.js?"           asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Empresa/CtrlUserEmpresaCoberturaCondicion.js?" asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Empresa/Empresa.js?"                           asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li class="active"><span>Empresa </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Empresa</h2>
+            <small>Cat&aacute;logo de Empresas.</small>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="content contentPrimarioanimate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+                    <button class="btn btn-default btn-sm" onclick="Empresa.redirecciona('EMPRESA_INDEX')">Regresar</button>
+                </div>
+                <div class="alert alert-warning">
+                    <h4>Datos del Cliente</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div role="form" class="form-horizontal">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Folio</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="txtClienteId" name="txtClienteId" class="form-control input-sm" , readonly="readonly" value="@ViewBag.ClienteId" />
+                                                <span class="field-validation-valid text-danger" data-valmsg-for="ClienteId" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="form-group">
+                                            <label class="col-sm-2 control-label">Nombre</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" id="txtClienteDescripcion" name="txtClienteDescripcion" class="form-control input-sm" , readonly="readonly" value="@ViewBag.ClienteDescripcion" />
+                                                <span class="field-validation-valid text-danger" data-valmsg-for="ClienteDescripcion" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Opciones de B&uacute;squeda
+
+                    @*<div class="pull-right" style="padding-top:5px;">
+                        <span class="label label-info" style="font-size:14px;">Filtos Seleccionados:&nbsp;@ViewBag.PaqueteDescripcion</span>
+                    </div>*@
+                </div>
+
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Estatus</label>
+                            <div class="col-sm-10">
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="1" class="i-checks" />
+                                    <label>Activo</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="2" class="i-checks" />
+                                    <label>Inactivo</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="-1" class="i-checks" checked="checked" />
+                                    <label>Todos</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="txtEmpresaDescripcion" name="txtEmpresaDescripcion" class="form-control input-sm" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="EmpresaDescripcion" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn btn-primary btn-sm" onclick="Empresa.buscar();">Buscar</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-default btn-sm" onclick="Empresa.limpiar();">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel hnovagrey">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-primary btn-sm" onclick="Empresa.redirecciona('EMPRESA_CREATE')">Agregar</button>
+                </div>
+
+                <div class="panel-body">
+                    <table id="dgDatosEmpresa" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorEmpresa" value="EMPRESA_INDEX" placeholder="APUNTADOR" />
+
+
+<div class="modal fade" id="myModalEmpresaCoberturaCondicion" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">COBERTURAS Y CONDICIONES</h4>
+            </div>
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserEmpresaCoberturaCondicion", "Empresa", new { Area = "Empresa" });
+                }
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

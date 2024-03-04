@@ -1,0 +1,266 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Pais/Pais.js"                     asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Estado/Estado.js"                 asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Municipio/Municipio.js"           asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/FormaPago/FormaPago.js"           asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/FrecuenciaPago/FrecuenciaPago.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/MetodoPago/MetodoPago.js"         asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/EmpresaTipo/EmpresaTipo.js?"      asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/EmpresaPlanta/EmpresaPlanta.js?"  asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Empresa/Empresa.js?"              asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li><span>Empresa </span></li>
+                    <li class="active"><span>Alta </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Empresa</h2>
+            <small>Cat&aacute;logo de Empresas.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-info btn-sm" onclick="Empresa.guardar();">Guardar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="Empresa.redirecciona('EMPRESA_INDEX')">Regresar</button>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div id="rootwizard" class="tabbable">
+                            <ul>
+                                <li><a href="#tab1" data-toggle="tab">Datos Generales </a></li>
+                                <li><a href="#tab2" data-toggle="tab">Datos Fiscales  </a></li>
+                                <li><a href="#tab3" data-toggle="tab">Regla de Negocio</a></li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div class="tab-pane" id="tab1">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Folio</label>
+                                                    <div class="col-sm-10 col-lg-2">
+                                                        <input type="text" id="txtEmpresaId" name="txtEmpresaId" class="form-control input-sm" , readonly="readonly" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="EmpresaId" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" id="txtEmpresaDescripcion" name="txtEmpresaDescripcion" class="form-control input-sm" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="EmpresaDescripcion" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">C&oacute;digo</label>
+                                                    <div class="col-sm-10 col-lg-2">
+                                                        <input type="text" id="txtCodigo" name="txtCodigo" class="form-control input-sm" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="Codigo" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="tab2">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Razon Social</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" id="txtRazonSocial" name="txtRazonSocial" class="form-control input-sm" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="RazonSocial" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">R.F.C.</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <input type="text" id="txtRFC" name="txtRFC" class="form-control input-sm" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="RFC" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Pa&iacute;s</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <select id="ddlPaisId" name="ddlPaisId" class="form-control input-sm"></select>
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="PaisId" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Estado</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <select id="ddlEstadoId" name="ddlEstadoId" class="form-control input-sm"></select>
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="EstadoId" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Municipio</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <select id="ddlMunicipioId" name="ddlMunicipioId" class="form-control input-sm"></select>
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="MunicipioId" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Colonia</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <input type="text" id="txtColonia" name="txtColonia" class="form-control input-sm" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="Colonia" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Calle</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <input type="text" id="txtCalle" name="txtCalle" class="form-control input-sm" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="Calle" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Num. Exterior</label>
+                                                    <div class="col-sm-10 col-lg-2">
+                                                        <input type="text" id="txtNumeroExterior" name="txtNumeroExterior" class="form-control input-sm" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="NumeroExterior" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Num. Interior</label>
+                                                    <div class="col-sm-10 col-lg-2">
+                                                        <input type="text" id="txtNumeroInterior" name="txtNumeroInterior" class="form-control input-sm" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="NumeroInterior" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Codigo Postal</label>
+                                                    <div class="col-sm-10 col-lg-2">
+                                                        <input type="text" id="txtCodigoPostal" name="txtCodigoPostal" class="form-control input-sm" />
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="CodigoPostal" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="tab3">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div role="form" class="form-horizontal">
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Tipo de Empresa</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <select id="ddlEmpresaTipoId" name="ddlEmpresaTipoId" class="form-control input-sm"></select>
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="EmpresaTipoId" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">M&eacute;todo de Pago</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <select id="ddlMetodoPagoId" name="ddlMetodoPagoId" class="form-control input-sm"></select>
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="EmpresaTipoId" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Forma de Pago</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <select id="ddlFormaPagoId" name="ddlFormaPagoId" class="form-control input-sm"></select>
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="EmpresaTipoId" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Frecuencia de Pago</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <select id="ddlFrecuenciaPagoId" name="ddlFrecuenciaPagoId" class="form-control input-sm"></select>
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="FrecuenciaPagoId" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Dia de Pago</label>
+                                                    <div class="col-sm-10 col-lg-2">
+                                                        <div class="input-group bootstrap-touchspin">
+                                                            <input id="txtDiaPago" type="text" name="txtDiaPago" value="1" class="form-control" style="display: block;">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Inicio de Operaciones</label>
+                                                    <div class="col-sm-10 col-lg-3">
+                                                        <div class="input-group date">
+                                                            <input class="form-control input-sm" id="dtpInicioOperaciones" name="dtpInicioOperaciones" readonly="readonly" />
+                                                            <span class="input-group-addon input-sm btn-sm"><i class="fa fa-calendar"></i></span>
+                                                        </div>
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="InicioOperaciones" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Empresa Vigencia</label>
+                                                    <div class="col-sm-10 col-lg-5">
+                                                        <select id="ddlEmpresaVigenciaId" name="ddlEmpresaVigenciaId" class="form-control input-sm"></select>
+                                                        <span class="field-validation-valid text-danger" data-valmsg-for="EmpresaVigenciaId" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorEmpresa" value="EMPRESA_CREATE" />

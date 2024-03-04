@@ -1,0 +1,73 @@
+﻿<div class="color-line"></div>
+
+
+<div id="logo" class="light-version">
+    <div class="pull-left">
+        <img src="~/Assets/images/logo.jpg" alt="logo" />
+    </div>
+
+    <div class="pull-left" id="TituloSitio">
+        <div class="row">@System.Configuration.ConfigurationManager.AppSettings["NombreAplicacionCorto"].ToString()</div>
+    </div>
+</div>
+
+
+<nav role="navigation" role="navigation">
+    <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
+
+    <div class="small-logo">
+        <span class="text-primary">@System.Configuration.ConfigurationManager.AppSettings["NombreAplicacionCorto"].ToString()</span>
+    </div>
+    
+    @*<div class="navbar-right">
+        <ul class="nav navbar-nav no-borders">
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                    <i class="pe-7s-tools" style="font-size: 32px; margin-bottom:5px;"></i>algo
+                </a>
+            </li>
+
+            <li>
+                <a class="right-sidebar-toggle" href="#">
+                    <i class="pe-7s-users" style="font-size: 32px;"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="urlMembresia" class="right-sidebar-toggle">
+                    <i class="pe-7s-id" style="font-size: 32px;"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="surlVEntas" class="right-sidebar-toggle">
+                    <i class="pe-7s-shopbag" style="font-size: 32px; padding-bottom:5px;"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="urlReportes" class="right-sidebar-toggle">
+                    <i class="pe-7s-graph1" style="font-size: 24px;"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="sidebar" class="right-sidebar-toggle">
+                    <i class="pe-7s-cash" style="font-size: 24px;"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="sidebar" class="right-sidebar-toggle">
+                    <i class="pe-7s-display1" style="font-size: 24px;"></i>
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="login.html">
+                    <i class="pe-7s-upload pe-rotate-90"></i>
+                </a>
+            </li>
+        </ul>
+    </div>*@
+</nav>

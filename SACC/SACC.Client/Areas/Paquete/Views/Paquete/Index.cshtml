@@ -1,0 +1,117 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/PaqueteTipo/PaqueteTipo.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Paquete/Paquete.js"         asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li class="active"><span>Paquete </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Paquete</h2>
+            <small>Cat&aacute;logo de Paquetes.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+    <div class="row rowBusqueda">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Opciones de B&uacute;squeda
+                </div>
+
+                <div class="panel-body">
+                    <div role="form" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Estatus</label>
+                            <div class="col-sm-10">
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="1" class="i-checks" />
+                                    <label>Activo</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="2" class="i-checks" />
+                                    <label>Inactivo</label>
+                                </div>
+
+                                <div class="radio radio-inline">
+                                    <input type="radio" id="rbEstatusId" name="rbEstatusId" value="-1" class="i-checks" checked="checked" />
+                                    <label>Todos</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="txtPaqueteDescripcion" name="txtPaqueteDescripcion" class="form-control input-sm" />
+                                <span class="field-validation-valid text-danger" data-valmsg-for="PaqueteDescripcion" data-valmsg-replace="true"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Tipo de Paquete</label>
+                            <div class="col-sm-10 col-lg-5">
+                                <select id="ddlPaqueteTipoId" class="form-control input-sm"></select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button class="btn btn-primary btn-sm ladda-button-buscar" onclick="Paquete.buscar();">Buscar</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-default btn-sm ladda-button-limpiar" onclick="Paquete.limpiar();">Limpiar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel hnovagrey">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button class="btn btn-primary btn-sm" onclick="Paquete.redirecciona('PAQUETE_CREATE')">Agregar</button>
+                </div>
+
+                <div class="panel-body">
+                    <table id="dgDatosPaquete" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorPaquete" value="PAQUETE_INDEX" placeholder="APUNTADOR" />

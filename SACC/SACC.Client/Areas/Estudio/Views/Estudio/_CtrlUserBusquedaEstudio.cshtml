@@ -1,0 +1,21 @@
+﻿<div role="form" class="form-horizontal">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Descripci&oacute;n</label>
+                <div class="col-sm-10 col-lg-9">
+                    <div class="input-group">
+                        <input type="text" id="txtCtrlUserBusquedaEstudioDescripcion" class="form-control input-sm" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary btn-sm" onclick="CtrlUserBusquedaEstudio.buscar()">Buscar</button>
+                        </span>
+                    </div>
+                    <span class="field-validation-valid text-danger" data-valmsg-for="CtrlUserBusquedaEstudioDescripcion" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<table id="dgDatosCtrlUserBusquedaEstudio" data-height="330" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>

@@ -1,0 +1,18 @@
+SELECT
+	st.st_servicio_id servicioId,
+	co.co_contrat_id,
+	co.co_contrato_id 
+FROM pub.cct_titulares ct 
+	JOIN pub.st_serdetit st  ON (ct.cct_contrat_id = st.st_contrat_id AND ct.cct_contrato_id = st.st_contrato_id AND ct.cct_socio_id = st.st_socio_id)
+	JOIN pub.co_contratos co ON (ct.cct_contrat_id = co.co_contrat_id AND ct.cct_contrat_id  = co.co_contrat_id)
+	JOIN pub.sd_serdepaq sd  ON (sd.sd_paquete_id  = co.co_paquete_id AND st.st_servicio_id  = sd.sd_servicio_id)
+WHERE
+	ct.cct_vigencia   = 'AC'
+	AND
+	st.st_vigencia    = 'AC'
+	AND
+	ct.cct_socio_id   = ?
+	AND
+	co.co_contrat_id  = ?
+	AND
+	co.co_contrato_id = ?

@@ -1,0 +1,122 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Scripts {
+    @if (TempData["lblNombre"] != null) {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/PersonaContrato/PersonaContrato.js"                  asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/PersonaContrato/CtrlUserBusquedaPersonaCobertura.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="@System.Configuration.ConfigurationManager.AppSettings["UrlPrincipal"].ToString()Scripts/Areas/Contrato/CtrlUserBusquedaContrato.js"                asp-append-version="true"></script>
+}
+
+
+<div class="small-header transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <div id="hbreadcrumb" class="pull-right">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><span>Cat&aacute;logos </span></li>
+                    <li class="active"><span>Persona </span></li>
+                    <li class="active"><span>Contrato </span></li>
+                </ol>
+            </div>
+
+            <h2 class="font-light m-b-xs">Persona - Contrato</h2>
+            <small>Asignacion de Contratos.</small>
+        </div>
+    </div>
+</div>
+
+
+<div class="content contentPrimario animate-panel">
+    <div class="row rowTabDatosGenerales">
+        <div class="col-lg-12">
+            <div class="hpanel hnova">
+                <div class="panel-heading hbuilt">
+                    <div class="panel-tools"></div>
+
+                    <button onclick="PersonaContrato.AbreModalContrato();" class="btn btn-primary btn-sm">Agregar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-default btn-sm" onclick="PersonaContrato.redirecciona('PERSONA_INDEX')">Regresar</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onclick="PersonaContrato.AbreModalPersonaCobertura();" class="btn btn-success btn-sm">Activaci&oacute;n de Cobertura</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button onclick="PersonaContrato.inactivaCobertura();" class="btn btn-danger btn-sm">Desactivar Cobertura</button>
+
+                    <div class="pull-right" style="padding-top:5px;">
+                        <span class="label label-info" style="font-size:14px;">Persona:&nbsp;@ViewBag.Nombre</span>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <table id="dgDatosPersonaContrato" data-height="480" data-classes="table table-hover table-condensed" data-striped="true" data-pagination="true"></table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-footer">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalContrato" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Contratos Vigentes</h4>
+            </div>
+
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserBusquedaContrato", "Contrato", new { Area = "Contrato" });
+                }
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button onclick="PersonaContrato.guardar();" class="btn btn-primary btn-sm">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="myModalPersonaCobertura" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Coberturas Vigentes</h4>
+            </div>
+
+            <div class="modal-body">
+                @{
+                    Html.RenderAction("_CtrlUserPersonaCobertura", "PersonaContrato", new { Area = "PersonaContrato" });
+                }
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-default btn-sm" data-dismiss="modal">Cerrar</button>
+                <button type="submit" onclick="PersonaContrato.activaCobertura();" class="btn btn-primary btn-sm">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="hidden" id="txtApuntadorPersonaContrato" value="PERSONA_CONTRATO_INDEX" placeholder="APUNTADOR" />
+
+<input type="hidden" id="txtPersonaId" name="txtPersonaId" value="@ViewBag.PersonaId" />
+<input type="hidden" id="txtNombre"    name="txtNombre"    value="@ViewBag.Nombre" />

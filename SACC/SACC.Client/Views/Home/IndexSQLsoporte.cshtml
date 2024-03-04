@@ -1,0 +1,55 @@
+﻿@section Scripts {
+    @if (TempData["lblNombre"] != null)
+    {
+        <script type="text/javascript">
+            $("#lblNombre").html('@TempData["lblNombre"]');
+            $("#imgFoto").attr('src', '@TempData["imgFoto"]');
+        </script>
+    };
+
+    <script type="text/javascript">
+        function Ejecutar() {
+            event.preventDefault();
+            swal({
+                title:              "¿Estás seguro ejecutar la instruccion?",
+                text:               "",
+                type:               "warning",
+                showCancelButton:   true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText:  "Si",
+                cancelButtonText:   "No",
+                closeOnConfirm:     false,
+                closeOnCancel:      false
+            },
+            function (isConfirm) {
+                if (isConfirm) {
+                    $.ajax({
+                        url: GetUrlPrincipal + 'Home/IndexSQLsoporte?pOpcion=',
+                        datatype: Ajax_DataType_Enum.JSON,
+                        data: null,
+                        type: Ajax_Type_Enum.POST,
+                        async: false,
+                        contentType: "application/json; charset=utf-8",
+                        success: function (response) {
+                            alert('success');
+                        },
+                        error: function (XMLHttpRequest, satus, errorThrown) {
+                            alert('error');
+                        }
+                    });
+                }
+                else {
+                    swal("La acción se ha cancelado", "", "error");
+                    return false;
+                }
+            });
+        }
+    </script>
+}
+
+
+<h2>SQL - MENTENIMIENTO</h2>
+
+@*<textarea name="Text1" cols="40" rows="5"></textarea>*@
+
+<button class="btn btn-lg btn-default" onclick="Ejecutar();">Ejecutar</button>

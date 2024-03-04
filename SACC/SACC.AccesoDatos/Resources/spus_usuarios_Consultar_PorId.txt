@@ -1,0 +1,5 @@
+SELECT
+	us_socio_id,
+	us_cvefam
+FROM pub.us_usuarios
+WHERE us_socio_id = ?
